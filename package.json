@@ -1,0 +1,11 @@
+{
+  "name": "trig-tournament",
+  "version": "1.0.0",
+  "description": "Тригонометрийн Тэмцээн — NBA Playoff Bracket",
+  "scripts": {
+    "dev": "vercel dev"
+  },
+  "engines": {
+    "node": "20.x"
+  }
+}

@@ -1,0 +1,1939 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title>🏆 Тригонометрийн Тэмцээн</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+<style>
+:root{
+  --bg:#07090e;--bg2:#0c0e17;--panel:#11141f;--panel2:#171a28;
+  --bdr:rgba(255,255,255,.07);--bdr2:rgba(255,255,255,.13);
+  --gold:#f5c518;--gold2:#c8981a;
+  --blue:#3b82f6;--red:#ef4444;--green:#22c55e;--green2:#15803d;
+  --muted:#3d4460;--txt:#dde2f0;--txt2:#7880a0;
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{height:100%;background:var(--bg);color:var(--txt);font-family:'Barlow Condensed',sans-serif;overflow:hidden}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+  background-image:linear-gradient(rgba(255,255,255,.02) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.02) 1px,transparent 1px);
+  background-size:44px 44px}
+body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:radial-gradient(ellipse 70% 40% at 50% 0%,rgba(245,197,24,.06),transparent)}
+
+/* SCREENS */
+.scr{display:none;position:fixed;inset:0;flex-direction:column;overflow:hidden;z-index:1}
+.scr.on{display:flex}
+
+/* NAV */
+.nav{height:52px;flex-shrink:0;background:rgba(7,9,14,.92);border-bottom:1px solid var(--bdr2);
+  backdrop-filter:blur(14px);display:flex;align-items:center;justify-content:space-between;
+  padding:0 16px;gap:10px;z-index:30;position:relative}
+.nav-title{font-family:'Bebas Neue';font-size:1.1rem;letter-spacing:3px;
+  background:linear-gradient(90deg,#fff 30%,var(--gold));-webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;background-clip:text}
+.nav-sub{font-size:.56rem;font-weight:700;letter-spacing:3px;color:var(--muted)}
+.nav-r{display:flex;align-items:center;gap:8px}
+.pill{padding:5px 13px;border-radius:20px;border:1px solid var(--bdr2);
+  background:rgba(255,255,255,.04);color:var(--txt2);font-family:'Bebas Neue';
+  font-size:.75rem;letter-spacing:1px;cursor:pointer;transition:all .15s;white-space:nowrap}
+.pill:hover{background:rgba(255,255,255,.09);color:var(--txt)}
+.room-badge{display:flex;align-items:center;gap:5px;background:rgba(245,197,24,.06);
+  border:1px solid rgba(245,197,24,.2);border-radius:8px;padding:4px 10px}
+.rb-lbl{font-size:.5rem;font-weight:800;letter-spacing:3px;color:rgba(245,197,24,.45)}
+.rb-code{font-family:'Bebas Neue';font-size:1.1rem;letter-spacing:5px;color:var(--gold)}
+
+/* LANDING */
+#landScr{align-items:center;justify-content:center}
+.land-wrap{position:relative;z-index:2;width:min(450px,96vw);display:flex;flex-direction:column;gap:14px}
+.land-logo{font-family:'Bebas Neue';font-size:2.5rem;letter-spacing:5px;text-align:center;
+  background:linear-gradient(135deg,#fff 15%,var(--gold) 50%,#fff 85%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.land-sub{font-size:.68rem;font-weight:700;letter-spacing:4px;color:var(--muted);text-align:center;margin-bottom:6px}
+.role-card{background:var(--panel);border:1px solid var(--bdr2);border-radius:13px;
+  padding:20px 18px;cursor:pointer;transition:all .2s;display:flex;gap:14px;align-items:center}
+.role-card.T{border-top:3px solid var(--gold)}.role-card.T:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(245,197,24,.1)}
+.role-card.S{border-top:3px solid var(--blue)}.role-card.S:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(59,130,246,.1)}
+.rc-ico{font-size:2.2rem;flex-shrink:0}
+.rc-title{font-family:'Bebas Neue';font-size:1.25rem;letter-spacing:2px;margin-bottom:3px}
+.role-card.T .rc-title{color:var(--gold)}.role-card.S .rc-title{color:#93c5fd}
+.rc-desc{font-size:.73rem;font-weight:600;color:var(--txt2);line-height:1.5}
+.rc-arr{color:var(--muted);font-size:1.1rem;flex-shrink:0}
+
+/* SETUP */
+#tSetupScr{overflow:hidden}
+.ts-body{flex:1;overflow-y:auto;padding:18px;display:flex;flex-direction:column;gap:12px;align-items:center}
+.card{background:var(--panel);border:1px solid var(--bdr2);border-radius:12px;padding:18px;width:min(500px,100%)}
+.card-title{font-family:'Bebas Neue';font-size:.82rem;letter-spacing:3px;color:var(--gold);
+  margin-bottom:11px;border-bottom:1px solid var(--bdr);padding-bottom:7px}
+.flbl{font-size:.58rem;font-weight:800;letter-spacing:3px;color:var(--muted);text-transform:uppercase;margin-bottom:5px}
+.bulk{width:100%;height:88px;background:var(--panel2);border:1px solid var(--bdr);border-radius:8px;
+  padding:8px 11px;font-family:'Barlow Condensed';font-size:.88rem;font-weight:600;
+  color:var(--txt);outline:none;resize:none;line-height:1.75;transition:border-color .2s}
+.bulk:focus{border-color:rgba(245,197,24,.3)}
+.add-row{display:flex;gap:7px;margin-top:7px}
+.add-inp{flex:1;background:var(--panel2);border:1px solid var(--bdr);border-radius:7px;
+  padding:7px 11px;font-family:'Barlow Condensed';font-size:.86rem;font-weight:600;
+  color:var(--txt);outline:none;transition:border-color .2s}
+.add-inp:focus{border-color:rgba(245,197,24,.3)}
+.add-btn{padding:7px 13px;background:rgba(245,197,24,.09);border:1px solid rgba(245,197,24,.22);
+  border-radius:7px;color:var(--gold);font-family:'Bebas Neue';font-size:.83rem;
+  letter-spacing:1px;cursor:pointer;white-space:nowrap;transition:background .15s}
+.add-btn:hover{background:rgba(245,197,24,.18)}
+.chip-wrap{display:flex;flex-wrap:wrap;gap:5px;min-height:36px;max-height:85px;overflow-y:auto;
+  padding:5px;background:rgba(0,0,0,.18);border:1px solid var(--bdr);border-radius:7px;margin:7px 0}
+.chip{display:flex;align-items:center;gap:3px;background:rgba(59,130,246,.09);
+  border:1px solid rgba(59,130,246,.22);border-radius:16px;padding:3px 9px 3px 11px;
+  font-weight:700;font-size:.75rem;color:#93c5fd}
+.chip-x{background:none;border:none;color:rgba(147,197,253,.4);cursor:pointer;font-size:.85rem}
+.chip-x:hover{color:var(--red)}
+.chip-hint{color:var(--muted);font-size:.68rem;padding:5px;text-align:center;width:100%}
+.scnt{font-size:.63rem;font-weight:700;letter-spacing:1px;color:var(--muted);margin-bottom:6px}
+.opts-row{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:13px}
+.opt-lbl{font-size:.76rem;font-weight:700;color:var(--txt2)}
+.opt-sel{background:var(--panel2);border:1px solid var(--bdr);border-radius:7px;
+  padding:5px 9px;font-family:'Barlow Condensed';font-size:.83rem;font-weight:700;color:var(--txt);outline:none}
+.big-btn{width:100%;padding:13px;border:none;border-radius:9px;font-family:'Bebas Neue';
+  font-size:1.15rem;letter-spacing:3px;cursor:pointer;transition:all .15s}
+.big-btn.gold{background:linear-gradient(135deg,var(--gold2),var(--gold));color:#111}
+.big-btn.gold:disabled{opacity:.28;cursor:not-allowed}
+.big-btn.gold:not(:disabled):hover{transform:translateY(-1px);box-shadow:0 8px 24px rgba(245,197,24,.2)}
+
+/* JOIN */
+#sJoinScr{align-items:center;justify-content:center}
+.join-card{background:var(--panel);border:1px solid var(--bdr2);border-top:3px solid var(--blue);
+  border-radius:13px;padding:24px 20px;width:min(380px,96vw)}
+.join-title{font-family:'Bebas Neue';font-size:1.35rem;letter-spacing:3px;color:#93c5fd;margin-bottom:3px}
+.join-sub{font-size:.7rem;font-weight:600;color:var(--muted);letter-spacing:1px;margin-bottom:16px}
+.join-inp{width:100%;background:var(--panel2);border:1px solid var(--bdr2);border-radius:8px;
+  padding:10px 13px;font-family:'Bebas Neue';font-size:1.6rem;letter-spacing:8px;
+  color:var(--gold);outline:none;text-align:center;text-transform:uppercase;margin-bottom:9px;
+  transition:border-color .2s}
+.join-inp:focus{border-color:rgba(245,197,24,.4)}
+.join-err{font-size:.7rem;font-weight:700;color:var(--red);text-align:center;min-height:17px;margin-bottom:7px}
+.name-grid{display:flex;flex-direction:column;gap:6px;margin:12px 0;max-height:260px;overflow-y:auto}
+.name-btn{padding:10px 14px;background:var(--panel2);border:1px solid var(--bdr2);border-radius:8px;
+  font-family:'Barlow Condensed';font-size:.9rem;font-weight:700;color:var(--txt);
+  cursor:pointer;transition:all .15s;text-align:left;display:flex;align-items:center;gap:8px;width:100%}
+.name-btn:hover{background:rgba(59,130,246,.12);border-color:rgba(59,130,246,.3);color:#93c5fd}
+.nseed{font-family:'Bebas Neue';font-size:.75rem;color:var(--muted);min-width:18px}
+
+/* TEACHER BOARD */
+#tBoardScr{overflow:hidden}
+.board-body{flex:1;overflow:auto;padding:12px 12px 72px}
+.t-bar{position:fixed;bottom:0;left:0;right:0;z-index:40;
+  background:rgba(7,9,14,.96);border-top:1px solid var(--bdr2);
+  backdrop-filter:blur(14px);padding:10px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.tb-info{flex:1}.tb-t{font-family:'Bebas Neue';font-size:.88rem;letter-spacing:2px;color:var(--gold)}
+.tb-d{font-size:.63rem;font-weight:700;color:var(--muted);margin-top:1px}
+.t-bar-btns{display:flex;gap:8px;flex-shrink:0}
+.excel-btn{padding:11px 16px;background:rgba(34,197,94,.06);border:1px solid rgba(34,197,94,.25);
+  border-radius:8px;color:#4ade80;font-family:'Bebas Neue';font-size:.88rem;letter-spacing:1px;
+  cursor:pointer;transition:all .15s;white-space:nowrap}
+.excel-btn:hover{background:rgba(34,197,94,.15);transform:scale(1.03)}
+.confirm-btn{padding:11px 22px;background:linear-gradient(135deg,var(--green2),var(--green));
+  border:none;border-radius:8px;color:#fff;font-family:'Bebas Neue';font-size:1rem;
+  letter-spacing:2px;cursor:pointer;transition:all .15s;white-space:nowrap}
+.confirm-btn:disabled{opacity:.28;cursor:not-allowed}
+.confirm-btn:not(:disabled):hover{transform:scale(1.04);box-shadow:0 6px 18px rgba(34,197,94,.22)}
+.rp-wrap{background:rgba(0,0,0,.28);border:1px solid var(--bdr);border-radius:8px;padding:9px 13px;margin-bottom:10px}
+.rp-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:5px}
+.rp-title{font-family:'Bebas Neue';font-size:.76rem;letter-spacing:2px;color:var(--gold)}
+.rp-cnt{font-family:'Bebas Neue';font-size:.76rem;color:var(--txt2)}
+.rp-track{height:4px;background:rgba(255,255,255,.05);border-radius:2px;overflow:hidden}
+.rp-fill{height:100%;background:linear-gradient(90deg,var(--green2),var(--green));border-radius:2px;transition:width .5s}
+
+/* STUDENT BOARD */
+#sBoardScr{overflow:hidden}
+.s-board-body{flex:1;overflow:auto;padding:12px 10px 18px}
+.my-match{background:linear-gradient(135deg,rgba(245,197,24,.06),rgba(245,197,24,.02));
+  border:1px solid rgba(245,197,24,.2);border-radius:11px;padding:13px;margin-bottom:11px}
+.mm-lbl{font-size:.55rem;font-weight:800;letter-spacing:3px;color:rgba(245,197,24,.5);margin-bottom:5px;text-transform:uppercase}
+.mm-names{font-family:'Bebas Neue';font-size:1.05rem;letter-spacing:1px;color:#fff;margin-bottom:7px}
+.mm-vs{color:var(--muted);margin:0 5px;font-size:.75rem}
+.mm-st{font-size:.68rem;font-weight:700;color:var(--muted)}
+.mm-st.waiting{color:rgba(245,197,24,.6)}.mm-st.done-w{color:var(--green)}.mm-st.done-l{color:var(--red)}
+.play-btn{width:100%;padding:10px;background:linear-gradient(135deg,var(--gold2),var(--gold));
+  border:none;border-radius:8px;color:#111;font-family:'Bebas Neue';font-size:1.05rem;
+  letter-spacing:2px;cursor:pointer;margin-top:8px;transition:all .15s}
+.play-btn:hover{transform:scale(1.02);box-shadow:0 6px 18px rgba(245,197,24,.22)}
+.wait-box{background:rgba(245,197,24,.03);border:1px solid rgba(245,197,24,.1);border-radius:8px;
+  padding:12px;text-align:center;font-size:.73rem;font-weight:700;color:rgba(245,197,24,.4);letter-spacing:.5px}
+.elim-box{background:rgba(239,68,68,.04);border:1px solid rgba(239,68,68,.12);border-radius:8px;
+  padding:12px;text-align:center;font-size:.73rem;font-weight:700;color:rgba(239,68,68,.4)}
+
+/* BRACKET */
+.bracket-scroll{overflow-x:auto;padding-bottom:4px}
+.bracket-flex{display:flex;gap:6px;align-items:flex-start;min-width:max-content}
+.bcol{display:flex;flex-direction:column;min-width:148px;max-width:166px}
+.bcol-hdr{font-family:'Bebas Neue';font-size:.56rem;letter-spacing:3px;text-align:center;
+  padding:0 0 7px;color:var(--muted);border-bottom:1px solid var(--bdr);margin-bottom:5px}
+.mu{background:var(--panel);border:1px solid var(--bdr);border-radius:8px;overflow:hidden;
+  transition:all .18s;position:relative;margin-bottom:4px}
+.mu:hover{border-color:var(--bdr2);box-shadow:0 4px 14px rgba(0,0,0,.38)}
+.mu.done{opacity:.62}.mu.active{border-color:rgba(245,197,24,.35);box-shadow:0 0 12px rgba(245,197,24,.08)}
+.mu.lside{border-left:2px solid rgba(59,130,246,.28)}.mu.rside{border-right:2px solid rgba(239,68,68,.22)}
+.mu.fin{border:1px solid rgba(245,197,24,.22);border-top:2px solid var(--gold);
+  background:linear-gradient(180deg,rgba(245,197,24,.04),var(--panel))}
+.mu.my-turn{border-color:rgba(34,197,94,.45)!important;box-shadow:0 0 14px rgba(34,197,94,.12)!important;cursor:pointer}
+.slot{display:flex;align-items:center;min-height:35px;transition:background .12s}
+.slot:first-child{border-bottom:1px solid var(--bdr)}.slot.W{background:rgba(34,197,94,.04)}.slot.L{opacity:.32}
+.slot-seed{width:18px;min-width:18px;min-height:35px;display:flex;align-items:center;justify-content:center;
+  font-family:'Bebas Neue';font-size:.7rem;color:var(--muted);
+  background:rgba(255,255,255,.025);border-right:1px solid var(--bdr);flex-shrink:0}
+.slot.W .slot-seed{color:var(--gold);background:rgba(245,197,24,.05)}
+.slot-name{flex:1;font-size:.73rem;font-weight:700;letter-spacing:.4px;text-transform:uppercase;
+  color:var(--txt2);padding:0 6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.slot.W .slot-name{color:#fff}.slot.tbd .slot-name{color:var(--muted);font-style:italic;font-weight:400}
+.slot-sc{font-family:'Bebas Neue';font-size:.78rem;color:var(--muted);width:15px;text-align:center;padding-right:3px;flex-shrink:0}
+.slot.W .slot-sc{color:var(--green)}.slot.L .slot-sc{color:#252839}
+.mu-tag{position:absolute;bottom:0;left:50%;transform:translateX(-50%);
+  background:var(--panel2);border:1px solid var(--bdr2);border-radius:3px 3px 0 0;
+  font-size:.48rem;font-weight:800;letter-spacing:1px;color:var(--muted);padding:1px 5px;white-space:nowrap}
+.mu.done .mu-tag{color:var(--green)}.mu.active .mu-tag{color:var(--gold)}.mu.my-turn .mu-tag{color:var(--green)}
+.ccol{display:flex;flex-direction:column;align-items:center;min-width:172px;max-width:190px;gap:7px;padding:0 3px}
+.ccol .bcol-hdr{text-align:center;color:rgba(245,197,24,.4);border-color:rgba(245,197,24,.1);width:100%}
+.champ-box{background:linear-gradient(135deg,rgba(245,197,24,.07),rgba(245,197,24,.01));
+  border:1px solid rgba(245,197,24,.15);border-radius:12px;padding:16px 12px;
+  text-align:center;width:100%;box-shadow:0 0 28px rgba(245,197,24,.05)}
+.trophy-svg{width:60px;height:60px;margin:0 auto 7px;display:block}
+.cb-lbl{font-family:'Bebas Neue';font-size:.56rem;letter-spacing:4px;color:rgba(245,197,24,.45);margin-bottom:2px}
+.cb-name{font-family:'Bebas Neue';font-size:1.2rem;letter-spacing:2px;color:var(--gold);line-height:1.1}
+.cb-sub{font-size:.56rem;color:var(--muted);font-weight:700;letter-spacing:2px;margin-top:2px}
+
+/* GAME */
+#gameScr{background:var(--bg)}
+.g-nav{height:50px;flex-shrink:0;background:rgba(7,9,14,.94);border-bottom:1px solid var(--bdr2);
+  backdrop-filter:blur(12px);display:flex;align-items:center;justify-content:space-between;
+  padding:0 12px;gap:8px;z-index:20;position:relative}
+.g-info{font-family:'Bebas Neue';font-size:.78rem;letter-spacing:1px;color:var(--txt2);
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex:1}
+.g-mid{display:flex;align-items:center;gap:5px;flex-shrink:0}
+.g-pn{font-family:'Bebas Neue';font-size:.78rem;letter-spacing:1px;padding:2px 8px;border-radius:13px}
+.g-pn.L{background:rgba(59,130,246,.18);color:#93c5fd}.g-pn.R{background:rgba(239,68,68,.18);color:#fca5a5}
+.g-sc{font-family:'Bebas Neue';font-size:1rem;color:#fff}.g-sep{color:var(--muted);font-size:.72rem}
+.g-body{flex:1;display:grid;grid-template-columns:1fr 150px 1fr;overflow:hidden}
+.pp{display:flex;flex-direction:column;gap:5px;padding:7px 6px;overflow:hidden}
+.pp.L{background:linear-gradient(180deg,rgba(59,130,246,.05),rgba(59,130,246,.02));border-right:2px solid rgba(59,130,246,.16)}
+.pp.R{background:linear-gradient(180deg,rgba(239,68,68,.05),rgba(239,68,68,.02));border-left:2px solid rgba(239,68,68,.16)}
+.pp-head{border-radius:7px;padding:6px 9px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
+.pp.L .pp-head{background:linear-gradient(135deg,rgba(59,130,246,.2),rgba(59,130,246,.1));border:1px solid rgba(59,130,246,.2)}
+.pp.R .pp-head{background:linear-gradient(135deg,rgba(239,68,68,.2),rgba(239,68,68,.1));border:1px solid rgba(239,68,68,.2)}
+.pp-nm{font-family:'Bebas Neue';font-size:.88rem;letter-spacing:1px;color:#fff;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.pp-pts{background:rgba(0,0,0,.28);border-radius:50%;width:24px;height:24px;
+  display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue';font-size:.88rem;color:#fff;flex-shrink:0}
+.q-lbl{font-size:.53rem;font-weight:800;letter-spacing:2px;color:var(--muted);text-align:center;text-transform:uppercase}
+.q-box{border-radius:9px;padding:9px 7px;min-height:74px;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:4px;flex-shrink:0}
+.pp.L .q-box{background:rgba(59,130,246,.05);border:1px solid rgba(59,130,246,.14)}
+.pp.R .q-box{background:rgba(239,68,68,.05);border:1px solid rgba(239,68,68,.14)}
+.q-cat{font-size:.52rem;font-weight:800;letter-spacing:2px;text-transform:uppercase}
+.pp.L .q-cat{color:rgba(147,197,253,.7)}.pp.R .q-cat{color:rgba(252,165,165,.7)}
+.q-tx{font-family:'Bebas Neue';font-size:1.05rem;color:var(--txt);line-height:1.35;text-align:center;word-break:keep-all;white-space:normal}
+.ans-grid{display:grid;grid-template-columns:1fr 1fr;gap:4px;flex-shrink:0}
+.ans{border-radius:7px;padding:8px 3px;font-family:'Bebas Neue';font-size:.83rem;
+  cursor:pointer;transition:all .12s;text-align:center;min-height:40px;
+  border:1px solid;display:flex;align-items:center;justify-content:center}
+.pp.L .ans{background:rgba(59,130,246,.06);border-color:rgba(59,130,246,.18);color:#93c5fd}
+.pp.L .ans:not(:disabled):hover{background:rgba(59,130,246,.2);border-color:rgba(59,130,246,.45);color:#fff}
+.pp.R .ans{background:rgba(239,68,68,.06);border-color:rgba(239,68,68,.18);color:#fca5a5}
+.pp.R .ans:not(:disabled):hover{background:rgba(239,68,68,.2);border-color:rgba(239,68,68,.45);color:#fff}
+.ans.c{background:rgba(34,197,94,.13)!important;border-color:var(--green)!important;color:var(--green)!important}
+.ans.w{background:rgba(239,68,68,.17)!important;border-color:var(--red)!important;color:var(--red)!important}
+.ans:disabled{cursor:not-allowed}
+.st-box{border-radius:7px;padding:5px 7px;font-size:.68rem;font-weight:700;text-align:center;
+  display:flex;align-items:center;justify-content:center;min-height:25px;flex-shrink:0}
+.st-box.idle{background:rgba(255,255,255,.025);border:1px solid var(--bdr);color:var(--muted)}
+.st-box.ok{background:rgba(34,197,94,.06);border:1px solid rgba(34,197,94,.22);color:var(--green)}
+.st-box.bad{background:rgba(239,68,68,.06);border:1px solid rgba(239,68,68,.22);color:var(--red)}
+.st-box.wait{background:rgba(245,197,24,.04);border:1px solid rgba(245,197,24,.18);color:rgba(245,197,24,.72)}
+.gc{display:flex;flex-direction:column;align-items:center;padding:6px 4px;
+  background:var(--panel);border-left:1px solid var(--bdr);border-right:1px solid var(--bdr);gap:4px}
+.gc-scores{display:flex;align-items:center;gap:6px;flex-shrink:0}
+.gc-sb{display:flex;flex-direction:column;align-items:center}
+.gc-sl{font-size:.48rem;font-weight:800;letter-spacing:1px;color:var(--muted)}
+.gc-sn{font-family:'Bebas Neue';font-size:1.2rem;line-height:1}
+.gc-sb.L .gc-sn{color:#93c5fd}.gc-sb.R .gc-sn{color:#fca5a5}
+.gc-sep2{font-family:'Bebas Neue';font-size:.6rem;color:var(--bdr2)}
+.gc-qi{background:rgba(255,255,255,.025);border:1px solid var(--bdr);border-radius:6px;
+  padding:2px 7px;text-align:center;width:100%;flex-shrink:0}
+.gc-qt{font-family:'Bebas Neue';font-size:.66rem;letter-spacing:1px;color:var(--txt2)}
+.gc-st{font-size:.6rem;font-weight:700;text-align:center;min-height:13px;flex-shrink:0;letter-spacing:.5px}
+.gc-tmr{display:flex;align-items:center;justify-content:center;gap:3px;padding:3px 7px;
+  border-radius:11px;background:rgba(59,130,246,.06);border:1px solid rgba(59,130,246,.16);
+  font-family:'Bebas Neue';font-size:.8rem;color:#93c5fd;flex-shrink:0;width:100%;transition:all .3s}
+.gc-tmr.warn{background:rgba(245,197,24,.06);border-color:rgba(245,197,24,.22);color:var(--gold)}
+.gc-tmr.danger{background:rgba(239,68,68,.07);border-color:rgba(239,68,68,.22);color:var(--red);animation:pulse .6s ease infinite}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.04)}}
+.tbar{height:3px;background:rgba(255,255,255,.04);border-radius:2px;width:100%;flex-shrink:0;overflow:hidden}
+.tfill{height:100%;background:#93c5fd;border-radius:2px;transition:width .95s linear,background .3s}
+.tfill.warn{background:var(--gold)}.tfill.danger{background:var(--red)}
+.gc-nxt{background:linear-gradient(135deg,var(--green2),var(--green));border:none;border-radius:7px;
+  padding:6px 8px;font-family:'Bebas Neue';font-size:.8rem;letter-spacing:1px;
+  color:#fff;cursor:pointer;display:none;width:100%;flex-shrink:0}
+.gc-nxt.on{display:block}
+.gc-sol{background:rgba(245,197,24,.04);border:1px solid rgba(245,197,24,.15);border-radius:6px;
+  padding:3px 7px;font-family:'Barlow Condensed';font-weight:700;font-size:.58rem;
+  color:rgba(245,197,24,.6);cursor:pointer;display:none;width:100%;flex-shrink:0}
+.gc-sol.on{display:block}
+.gc-ref{background:rgba(255,255,255,.025);border:1px solid var(--bdr);border-radius:6px;
+  padding:3px 7px;font-family:'Barlow Condensed';font-weight:700;font-size:.58rem;
+  color:var(--muted);cursor:pointer;width:100%;flex-shrink:0}
+.rope-area{flex:1;width:100%;position:relative;min-height:0}
+.chars-row{position:absolute;left:0;right:0;bottom:42px;height:76px;
+  display:flex;align-items:flex-end;justify-content:space-between;padding:0 3px}
+.char-g{display:flex;align-items:flex-end;transition:transform .7s cubic-bezier(.34,1.56,.64,1)}
+.char-g.R{flex-direction:row-reverse}
+.person{width:50px;height:68px}
+.rope-wrap{position:absolute;left:0;right:0;bottom:46px;height:26px;overflow:visible}
+.rope-wrap svg{width:100%;height:26px;overflow:visible}
+.gnd{position:absolute;bottom:28px;left:0;right:0}
+.ggrass{height:4px;background:linear-gradient(180deg,rgba(74,222,128,.38),rgba(34,197,94,.22));border-radius:3px 3px 0 0}
+.gsoil{height:4px;background:rgba(77,48,28,.3)}
+.tug-wrap{position:absolute;bottom:0;left:2px;right:2px}
+.tug-trk{height:12px;background:rgba(255,255,255,.04);border-radius:7px;border:1px solid var(--bdr);position:relative;overflow:hidden}
+.tug-bl{position:absolute;left:0;top:0;bottom:0;width:50%;background:linear-gradient(90deg,rgba(29,78,216,.65),rgba(59,130,246,.65));border-radius:7px 0 0 7px;transition:width .7s cubic-bezier(.34,1.56,.64,1)}
+.tug-rd{position:absolute;right:0;top:0;bottom:0;width:50%;background:linear-gradient(90deg,rgba(239,68,68,.65),rgba(153,27,27,.65));border-radius:0 7px 7px 0;transition:width .7s cubic-bezier(.34,1.56,.64,1)}
+.tug-flag{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  width:12px;height:12px;border-radius:50%;background:var(--gold);border:2px solid #fff;z-index:3;
+  transition:left .7s cubic-bezier(.34,1.56,.64,1);box-shadow:0 0 7px rgba(245,197,24,.45)}
+.tug-lbls{display:flex;justify-content:space-between;font-size:.46rem;font-weight:700;color:var(--muted);padding:1px 1px 0}
+
+/* OVERLAYS */
+.ov{position:fixed;inset:0;background:rgba(0,0,0,.88);z-index:900;display:none;
+  align-items:center;justify-content:center;padding:16px;backdrop-filter:blur(8px)}
+.ov.on{display:flex}
+@keyframes popIn{from{transform:scale(.82);opacity:0}to{transform:scale(1);opacity:1}}
+.win-card{background:var(--panel);border:1px solid var(--bdr2);border-radius:13px;
+  padding:22px 20px;text-align:center;max-width:295px;width:100%;
+  box-shadow:0 24px 60px rgba(0,0,0,.65);animation:popIn .3s ease}
+.wc-ic{font-size:2.6rem;display:block;margin-bottom:6px}
+.wc-win{font-family:'Bebas Neue';font-size:1.45rem;letter-spacing:2px;margin-bottom:3px}
+.wc-win.L{color:#93c5fd}.wc-win.R{color:#fca5a5}
+.wc-sub{font-size:.7rem;color:var(--muted);font-weight:600;margin-bottom:2px}
+.wc-sc{font-family:'Bebas Neue';font-size:.9rem;color:var(--muted);margin-bottom:10px}
+.wc-note{font-size:.65rem;font-weight:700;color:rgba(245,197,24,.55);margin-bottom:14px;
+  background:rgba(245,197,24,.04);border:1px solid rgba(245,197,24,.12);border-radius:6px;padding:6px 8px}
+.wc-btn{width:100%;padding:10px;border:none;border-radius:8px;font-family:'Bebas Neue';font-size:.9rem;letter-spacing:1px;cursor:pointer}
+.wc-btn.board{background:rgba(255,255,255,.05);color:var(--txt2);border:1px solid var(--bdr)}
+.champ-card{background:linear-gradient(135deg,#100d00,#1a1500);border:2px solid rgba(245,197,24,.4);
+  border-radius:15px;padding:28px 22px;text-align:center;max-width:305px;width:100%;
+  box-shadow:0 0 50px rgba(245,197,24,.1),0 24px 60px rgba(0,0,0,.65);animation:popIn .4s ease}
+.cc-trophy{width:74px;height:74px;display:block;margin:0 auto 10px}
+.cc-lbl{font-family:'Bebas Neue';font-size:.6rem;letter-spacing:5px;color:rgba(245,197,24,.52);margin-bottom:4px}
+.cc-name{font-family:'Bebas Neue';font-size:1.85rem;letter-spacing:3px;color:var(--gold);line-height:1;margin-bottom:3px}
+.cc-sub{font-size:.68rem;color:rgba(245,197,24,.4);font-weight:700;letter-spacing:2px;margin-bottom:18px}
+.cc-btn{width:100%;padding:11px;border:none;border-radius:9px;
+  background:linear-gradient(135deg,var(--gold2),var(--gold));color:#111;
+  font-family:'Bebas Neue';font-size:1.05rem;letter-spacing:2px;cursor:pointer}
+.sol-card{background:var(--panel);border:1px solid var(--bdr2);border-top:2px solid var(--gold);
+  border-radius:13px;width:min(420px,96vw);max-height:82vh;display:flex;flex-direction:column;
+  overflow:hidden;box-shadow:0 28px 70px rgba(0,0,0,.7);animation:popIn .22s ease}
+.sol-hd{background:rgba(245,197,24,.04);padding:10px 13px;display:flex;align-items:center;
+  justify-content:space-between;flex-shrink:0;border-bottom:1px solid var(--bdr)}
+.sol-ht{font-family:'Bebas Neue';font-size:.86rem;letter-spacing:2px;color:var(--gold)}
+.ov-x{background:rgba(255,255,255,.04);border:1px solid var(--bdr);border-radius:50%;
+  width:26px;height:26px;color:var(--txt2);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:.8rem;transition:all .15s}
+.ov-x:hover{background:rgba(239,68,68,.14);color:var(--red)}
+.sol-q{background:rgba(245,197,24,.025);padding:8px 13px;border-bottom:1px solid var(--bdr);flex-shrink:0}
+.sol-qcat{font-size:.5rem;font-weight:800;letter-spacing:3px;color:rgba(245,197,24,.5);display:block;margin-bottom:2px;text-transform:uppercase}
+.sol-qtx{font-family:'Bebas Neue';font-size:.9rem;color:#fff}
+.sol-steps{flex:1;overflow-y:auto;padding:9px 11px;display:flex;flex-direction:column;gap:6px}
+.sol-step{display:flex;align-items:flex-start;gap:6px;background:rgba(255,255,255,.024);
+  border-radius:8px;padding:8px 9px;border-left:2px solid rgba(245,197,24,.22)}
+.sol-sn{min-width:21px;height:21px;border-radius:50%;background:rgba(245,197,24,.1);
+  color:var(--gold);font-family:'Bebas Neue';font-size:.72rem;display:flex;
+  align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.sol-st{font-size:.86rem;font-weight:600;color:var(--txt);line-height:1.6}
+.sol-ans{background:rgba(34,197,94,.04);border-radius:8px;padding:9px 11px;border-left:2px solid var(--green);display:flex;align-items:center;gap:6px}
+.sol-ans-tx{font-family:'Bebas Neue';font-size:.98rem;letter-spacing:1px;color:var(--green)}
+.sol-ft{padding:8px 11px;background:rgba(0,0,0,.18);border-top:1px solid var(--bdr);flex-shrink:0}
+.sol-close{width:100%;padding:9px;border:none;border-radius:8px;
+  background:linear-gradient(135deg,var(--green2),var(--green));color:#fff;
+  font-family:'Bebas Neue';font-size:.88rem;letter-spacing:1px;cursor:pointer}
+.ref-card{background:var(--panel);border:1px solid var(--bdr2);border-top:2px solid #93c5fd;
+  border-radius:13px;width:min(540px,96vw);max-height:84vh;display:flex;flex-direction:column;
+  overflow:hidden;box-shadow:0 28px 70px rgba(0,0,0,.7);animation:popIn .22s ease}
+.ref-hd{background:rgba(59,130,246,.05);padding:10px 13px;display:flex;align-items:center;
+  justify-content:space-between;flex-shrink:0;border-bottom:1px solid var(--bdr)}
+.ref-ht{font-family:'Bebas Neue';font-size:.86rem;letter-spacing:2px;color:#93c5fd}
+.ref-tabs{display:flex;overflow-x:auto;border-bottom:1px solid var(--bdr);background:rgba(0,0,0,.14);flex-shrink:0}
+.ref-tab{padding:7px 12px;border:none;background:none;cursor:pointer;font-family:'Barlow Condensed';
+  font-size:.68rem;font-weight:700;color:var(--muted);border-bottom:2px solid transparent;
+  margin-bottom:-1px;white-space:nowrap;transition:all .15s}
+.ref-tab.on{color:#93c5fd;border-bottom-color:#93c5fd;background:rgba(59,130,246,.04)}
+.ref-body{flex:1;overflow-y:auto;padding:11px 13px}
+.ref-sec{display:none}.ref-sec.on{display:block}
+.ref-row{background:rgba(255,255,255,.024);border-radius:8px;padding:7px 10px;margin-bottom:5px;
+  border-left:2px solid rgba(59,130,246,.22);display:flex;align-items:center;gap:7px}
+.ref-rl{font-size:.6rem;font-weight:700;color:var(--muted);min-width:76px}
+.ref-rm{flex:1}
+.ref-tbl{width:100%;border-collapse:collapse}
+.ref-tbl th,.ref-tbl td{padding:6px 9px;text-align:center;border:1px solid var(--bdr);font-size:.72rem}
+.ref-tbl th{background:rgba(59,130,246,.07);font-weight:800;color:#93c5fd;font-family:'Bebas Neue';letter-spacing:1px;font-size:.7rem}
+.ref-tbl tr:nth-child(even) td{background:rgba(255,255,255,.016)}
+
+::-webkit-scrollbar{width:4px;height:4px}
+::-webkit-scrollbar-track{background:rgba(0,0,0,.14)}
+::-webkit-scrollbar-thumb{background:var(--panel2);border-radius:2px}
+@keyframes tugB{0%{transform:translateX(0)}40%{transform:translateX(6px)}100%{transform:translateX(0)}}
+@keyframes tugR{0%{transform:translateX(0)}40%{transform:translateX(-6px)}100%{transform:translateX(0)}}
+.pB{animation:tugB .4s ease}.pR{animation:tugR .4s ease}
+@keyframes flashG{0%{box-shadow:inset 0 0 0 0 rgba(34,197,94,0)}50%{box-shadow:inset 0 0 0 4px rgba(34,197,94,.16)}100%{box-shadow:inset 0 0 0 0 rgba(34,197,94,0)}}
+.flashG{animation:flashG .55s ease}
+</style>
+</head>
+<body>
+
+<!-- LANDING -->
+<div class="scr on" id="landScr">
+<div style="position:relative;z-index:2;flex:1;display:flex;align-items:center;justify-content:center;padding:20px;">
+<div class="land-wrap">
+  <div class="land-logo">ТРИГОНОМЕТРИЙН ТЭМЦЭЭН</div>
+  <div class="land-sub">9-Р АНГИ · NBA PLAYOFF BRACKET · TABLET</div>
+  <div class="role-card T" id="btnTeacher">
+    <div class="rc-ico">👨‍🏫</div>
+    <div style="flex:1"><div class="rc-title">БАГШ</div>
+    <div class="rc-desc">Тэмцээн үүсгэж room code өгнө.<br>Шат бүрийн үр дүнг батална.</div></div>
+    <div class="rc-arr">›</div>
+  </div>
+  <div class="role-card S" id="btnStudent">
+    <div class="rc-ico">🎓</div>
+    <div style="flex:1"><div class="rc-title">СУРАГЧ</div>
+    <div class="rc-desc">Room code оруулаад bracket-ийн өөрийн нэрийг дарж тоглоно.</div></div>
+    <div class="rc-arr">›</div>
+  </div>
+  <div class="role-card" id="btnHistory" style="border-top:3px solid var(--muted);opacity:.75;">
+    <div class="rc-ico">📋</div>
+    <div style="flex:1"><div class="rc-title" style="color:var(--txt2)">ӨМНӨХ ТЭМЦЭЭН</div>
+    <div class="rc-desc">Хадгалагдсан bracket-уудыг харах, Excel татах.</div></div>
+    <div class="rc-arr">›</div>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- HISTORY SCREEN -->
+<div class="scr" id="histScr">
+<div class="nav">
+  <div><div class="nav-title">ӨМНӨХ ТЭМЦЭЭНҮҮД</div><div class="nav-sub">ХАДГАЛАГДСАН BRACKET</div></div>
+  <div class="nav-r"><button class="pill" id="btnHistBack">← БУЦАХ</button></div>
+</div>
+<div class="board-body" id="histBody"></div>
+</div>
+
+<!-- TEACHER SETUP -->
+<div class="scr" id="tSetupScr">
+<div class="nav">
+  <div><div class="nav-title">ТЭМЦЭЭН ТОХИРГОО</div><div class="nav-sub">БАГШИЙН ХЭСЭГ</div></div>
+  <div class="nav-r"><button class="pill" id="btnSetupBack">← БУЦАХ</button></div>
+</div>
+<div class="ts-body">
+  <div class="card">
+    <div class="card-title">📋 СУРАГЧДЫН НЭРС</div>
+    <div class="flbl">Нэр бүрийг шинэ мөрт бич</div>
+    <textarea class="bulk" id="bulkTa" placeholder="Болд&#10;Сарнай&#10;Анхбаяр&#10;Нарантуяа&#10;Мөнхбаяр&#10;Дэлгэрмаа"></textarea>
+    <div class="add-row">
+      <input class="add-inp" id="addInp" placeholder="Нэмэлт нэр..." maxlength="24">
+      <button class="add-btn" id="btnAdd">+ НЭМЭХ</button>
+    </div>
+    <div class="scnt" id="sCnt" style="margin-top:6px">0 СУРАГЧ</div>
+    <div class="chip-wrap" id="chipArea"><span class="chip-hint">Нэрс энд харагдана...</span></div>
+  </div>
+  <div class="card">
+    <div class="card-title">⚙️ ТОХИРГОО</div>
+    <div class="opts-row">
+      <span class="opt-lbl">Асуулт тус бүрт:</span>
+      <select class="opt-sel" id="qCnt"><option value="5">5</option><option value="7" selected>7</option><option value="10">10</option><option value="15">15</option><option value="20">20</option></select>
+      <span class="opt-lbl" style="margin-left:8px">Хугацаа:</span>
+      <select class="opt-sel" id="timeSel"><option value="60">60с</option><option value="90" selected>90с</option><option value="120">120с</option></select>
+    </div>
+    <div class="opts-row" style="flex-direction:column;align-items:flex-start;gap:6px">
+      <span class="opt-lbl">Асуултын төрөл:</span>
+      <div style="display:flex;flex-wrap:wrap;gap:7px">
+        <label style="display:flex;align-items:center;gap:5px;font-size:.76rem;font-weight:700;color:var(--txt2);cursor:pointer"><input type="checkbox" class="cat-chk" value="тэгшитгэл" checked style="accent-color:var(--gold)"> Тэгшитгэл</label>
+        <label style="display:flex;align-items:center;gap:5px;font-size:.76rem;font-weight:700;color:var(--txt2);cursor:pointer"><input type="checkbox" class="cat-chk" value="илэрхийлэл" checked style="accent-color:var(--gold)"> Бүхэл тооны илэрхийлэл</label>
+        <label style="display:flex;align-items:center;gap:5px;font-size:.76rem;font-weight:700;color:var(--txt2);cursor:pointer"><input type="checkbox" class="cat-chk" value="бутархай" checked style="accent-color:var(--gold)"> Энгийн бутархай</label>
+        <label style="display:flex;align-items:center;gap:5px;font-size:.76rem;font-weight:700;color:var(--txt2);cursor:pointer"><input type="checkbox" class="cat-chk" value="зэрэг язгуур" checked style="accent-color:var(--gold)"> Зэрэг ба язгуур</label>
+        <label style="display:flex;align-items:center;gap:5px;font-size:.76rem;font-weight:700;color:var(--txt2);cursor:pointer"><input type="checkbox" class="cat-chk" value="анхны тоо" checked style="accent-color:var(--gold)"> Анхны тоо</label>
+        <label style="display:flex;align-items:center;gap:5px;font-size:.76rem;font-weight:700;color:var(--txt2);cursor:pointer"><input type="checkbox" class="cat-chk" value="sin утга" style="accent-color:var(--gold)"> sin утга (9-р анги)</label>
+        <label style="display:flex;align-items:center;gap:5px;font-size:.76rem;font-weight:700;color:var(--txt2);cursor:pointer"><input type="checkbox" class="cat-chk" value="cos утга" style="accent-color:var(--gold)"> cos утга (9-р анги)</label>
+        <label style="display:flex;align-items:center;gap:5px;font-size:.76rem;font-weight:700;color:var(--txt2);cursor:pointer"><input type="checkbox" class="cat-chk" value="tan утга" style="accent-color:var(--gold)"> tan утга (9-р анги)</label>
+        <label style="display:flex;align-items:center;gap:5px;font-size:.76rem;font-weight:700;color:var(--txt2);cursor:pointer"><input type="checkbox" class="cat-chk" value="харьцаа" style="accent-color:var(--gold)"> Тригонометрийн харьцаа (9-р анги)</label>
+        <label style="display:flex;align-items:center;gap:5px;font-size:.76rem;font-weight:700;color:var(--txt2);cursor:pointer"><input type="checkbox" class="cat-chk" value="адилтгал" style="accent-color:var(--gold)"> Үндсэн адилтгалууд (9-р анги)</label>
+      </div>
+    </div>
+    <button class="big-btn gold" id="btnCreate" disabled>🏆 ТЭМЦЭЭН ҮҮСГЭХ</button>
+  </div>
+</div>
+</div>
+
+<!-- STUDENT JOIN -->
+<div class="scr" id="sJoinScr">
+<div class="nav">
+  <div><div class="nav-title">ТЭМЦЭЭНД НЭГДЭХ</div><div class="nav-sub">СУРАГЧИЙН ХЭСЭГ</div></div>
+  <div class="nav-r"><button class="pill" id="btnJoinBack">← БУЦАХ</button></div>
+</div>
+<div style="flex:1;display:flex;align-items:center;justify-content:center;padding:20px;position:relative;z-index:2;">
+<div class="join-card">
+  <div class="join-title">🎓 НЭГДЭХ</div>
+  <div class="join-sub">БАГШААС 4 ТЭМДЭГТИЙН CODE АВААРАЙ</div>
+  <input class="join-inp" id="codeInp" placeholder="XXXX" maxlength="4">
+  <div class="join-err" id="joinErr"></div>
+  <button class="big-btn gold" id="btnJoin">▶ НЭВТРЭХ</button>
+  <div id="namePicker" style="display:none;margin-top:16px;">
+    <div class="flbl" style="margin-bottom:8px">ӨӨРИЙН НЭР ДАРНА УУ</div>
+    <div class="name-grid" id="nameGrid"></div>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- TEACHER BOARD -->
+<div class="scr" id="tBoardScr">
+<div class="nav">
+  <div><div class="nav-title" id="tBTitle">ТЭМЦЭЭН</div><div class="nav-sub" id="tBSub">–</div></div>
+  <div class="nav-r">
+    <div class="room-badge"><div class="rb-lbl">ROOM</div><div class="rb-code" id="tCode">––––</div></div>
+    <button class="pill" id="btnTBoardBack">← БУЦАХ</button>
+  </div>
+</div>
+<div id="champBanner" style="display:none;background:linear-gradient(135deg,rgba(245,197,24,.12),rgba(245,197,24,.04));border-bottom:2px solid rgba(245,197,24,.3);padding:14px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-shrink:0;">
+  <div>
+    <div style="font-family:'Bebas Neue';font-size:1.1rem;letter-spacing:2px;color:var(--gold)">🏆 ТЭМЦЭЭНИЙ АВАРГА: <span id="bannerChampName">–</span></div>
+    <div style="font-size:.62rem;font-weight:700;color:rgba(245,197,24,.5);margin-top:2px;letter-spacing:1px">БҮХИЙ Л ШАТЫГ ДАВЛАА · БАЯР ХҮРГЭЕ!</div>
+  </div>
+  <div style="display:flex;gap:8px;flex-shrink:0;">
+    <button class="excel-btn" id="btnBannerExcel" style="padding:8px 13px;">📊 EXCEL</button>
+    <button id="btnBannerEnd" style="padding:8px 16px;background:linear-gradient(135deg,#991b1b,#ef4444);border:none;border-radius:8px;color:#fff;font-family:'Bebas Neue';font-size:.9rem;letter-spacing:1px;cursor:pointer;">🏁 ДУУСГАХ</button>
+  </div>
+</div>
+<div class="board-body" id="tBoardBody"></div>
+<div class="t-bar">
+  <div class="tb-info"><div class="tb-t" id="tbTitle">–</div><div class="tb-d" id="tbDesc">–</div></div>
+  <div class="t-bar-btns">
+    <button class="excel-btn" id="btnExcel">📊 EXCEL</button>
+    <button class="confirm-btn" id="btnConfirm" disabled>✓ БАТЛАХ</button>
+  </div>
+</div>
+</div>
+
+<!-- STUDENT BOARD -->
+<div class="scr" id="sBoardScr">
+<div class="nav">
+  <div><div class="nav-title">ТЭМЦЭЭН</div><div class="nav-sub" id="sBSub">–</div></div>
+  <div class="nav-r">
+    <div class="room-badge"><div class="rb-lbl">ROOM</div><div class="rb-code" id="sCode">––––</div></div>
+    <button class="pill" id="btnSBoardBack">← БУЦАХ</button>
+  </div>
+</div>
+<div class="s-board-body" id="sBoardBody"></div>
+</div>
+
+<!-- GAME -->
+<div class="scr" id="gameScr">
+<div class="g-nav">
+  <div class="g-info" id="gInfo">–</div>
+  <div class="g-mid">
+    <span class="g-pn L" id="gLn">–</span><span class="g-sc" id="gLsc">0</span>
+    <span class="g-sep">:</span>
+    <span class="g-sc" id="gRsc">0</span><span class="g-pn R" id="gRn">–</span>
+  </div>
+  <button class="pill" id="btnExitGame" style="font-size:.62rem;padding:4px 9px;">← САМБАР</button>
+</div>
+<div class="g-body">
+  <div class="pp L" id="ppL">
+    <div class="pp-head"><span class="pp-nm" id="ppLn">–</span><span class="pp-pts" id="ppLs">0</span></div>
+    <div class="q-lbl" id="ppLnum">АСУУЛТ 1/7</div>
+    <div class="q-box"><span class="q-cat" id="ppLcat">–</span><span class="q-tx" id="ppLq">...</span></div>
+    <div class="ans-grid" id="ppLg"></div>
+    <div class="st-box idle" id="ppLst">⏳ Хариулт сонгоно уу</div>
+  </div>
+  <div class="gc">
+    <div class="gc-scores">
+      <div class="gc-sb L"><span class="gc-sl" id="gcLl">–</span><span class="gc-sn" id="gcLn">0</span></div>
+      <div class="gc-sep2">—</div>
+      <div class="gc-sb R"><span class="gc-sn" id="gcRn">0</span><span class="gc-sl" id="gcRl">–</span></div>
+    </div>
+    <div class="gc-qi"><div class="gc-qt">АС <span id="gcQi">1</span>/<span id="gcQmax">7</span></div></div>
+    <div class="gc-st" id="gcSt" style="color:var(--gold)">🏁 Эхэллээ!</div>
+    <div class="gc-tmr" id="gcTmr">⏱ <span id="tmrSec">90</span>с</div>
+    <div class="tbar"><div class="tfill" id="tfill"></div></div>
+    <button class="gc-nxt" id="gcNxt">▶ ДАРААГИЙН</button>
+    <button class="gc-sol" id="gcSol">📝 БОДОЛТ</button>
+    <button class="gc-ref" id="gcRef">📐 ЛАВЛАХ</button>
+    <div class="rope-area">
+      <div class="chars-row">
+        <div class="char-g" id="charL">
+          <svg class="person" viewBox="0 0 50 68" fill="none">
+            <ellipse cx="25" cy="66" rx="10" ry="2" fill="#00000025"/>
+            <line x1="23" y1="46" x2="12" y2="64" stroke="#1d4ed8" stroke-width="5" stroke-linecap="round"/>
+            <ellipse cx="10" cy="64" rx="5" ry="2.2" fill="#5d4037"/>
+            <line x1="27" y1="46" x2="34" y2="60" stroke="#1d4ed8" stroke-width="5" stroke-linecap="round"/>
+            <ellipse cx="39" cy="64" rx="5" ry="2.2" fill="#5d4037"/>
+            <rect x="18" y="29" width="13" height="18" rx="5" fill="#1565c0" transform="rotate(-12,25,38)"/>
+            <line x1="29" y1="33" x2="43" y2="41" stroke="#ffcc80" stroke-width="4" stroke-linecap="round"/>
+            <circle cx="43" cy="41" r="4" fill="#ffcc80"/>
+            <circle cx="21" cy="20" r="9" fill="#ffcc80"/>
+            <path d="M12,17 Q14,8 21,8 Q28,9 30,17" fill="#4e342e"/>
+            <circle cx="24" cy="19" r="1.5" fill="#1a1a2e"/><circle cx="19" cy="20" r="1.5" fill="#1a1a2e"/>
+            <path d="M18,25 L24,25" stroke="#1a1a2e" stroke-width="1.2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="char-g R" id="charR">
+          <svg class="person" viewBox="0 0 50 68" fill="none">
+            <ellipse cx="25" cy="66" rx="10" ry="2" fill="#00000025"/>
+            <line x1="27" y1="46" x2="38" y2="64" stroke="#991b1b" stroke-width="5" stroke-linecap="round"/>
+            <ellipse cx="40" cy="64" rx="5" ry="2.2" fill="#5d4037"/>
+            <line x1="23" y1="46" x2="16" y2="60" stroke="#991b1b" stroke-width="5" stroke-linecap="round"/>
+            <ellipse cx="11" cy="64" rx="5" ry="2.2" fill="#5d4037"/>
+            <rect x="19" y="29" width="13" height="18" rx="5" fill="#b91c1c" transform="rotate(12,25,38)"/>
+            <line x1="21" y1="33" x2="7" y2="41" stroke="#ffcc80" stroke-width="4" stroke-linecap="round"/>
+            <circle cx="7" cy="41" r="4" fill="#ffcc80"/>
+            <circle cx="29" cy="20" r="9" fill="#ffb74d"/>
+            <path d="M20,17 Q22,8 29,8 Q36,9 38,17" fill="#5d4037"/>
+            <circle cx="26" cy="19" r="1.5" fill="#1a1a2e"/><circle cx="31" cy="20" r="1.5" fill="#1a1a2e"/>
+            <path d="M26,25 L32,25" stroke="#1a1a2e" stroke-width="1.2" stroke-linecap="round"/>
+          </svg>
+        </div>
+      </div>
+      <div class="rope-wrap">
+        <svg viewBox="0 0 270 26" preserveAspectRatio="none" style="overflow:visible">
+          <path id="rShad" d="M0,13 Q135,7 270,13" stroke="#3d2b1f" stroke-width="2" fill="none" stroke-linecap="round" opacity=".28"/>
+          <path id="rMain" d="M0,13 Q135,7 270,13" stroke="#6d4c3d" stroke-width="4.5" fill="none" stroke-linecap="round"/>
+          <path id="rStr"  d="M0,13 Q135,7 270,13" stroke="#a07060" stroke-width="1.3" fill="none" stroke-linecap="round" stroke-dasharray="5 7" opacity=".38"/>
+          <g id="rKnot" transform="translate(135,13)">
+            <line x1="0" y1="-10" x2="0" y2="3" stroke="#3d2b1f" stroke-width="1.7" stroke-linecap="round"/>
+            <polygon points="0,-10 9,-7 0,-4" fill="#ef4444" opacity=".9"/>
+            <circle cx="0" cy="0" r="4.8" fill="#f5c518" stroke="rgba(255,255,255,.8)" stroke-width="1.3"/>
+            <path d="M-2,-2 L2,2 M2,-2 L-2,2" stroke="#c67c00" stroke-width="1" stroke-linecap="round"/>
+          </g>
+        </svg>
+      </div>
+      <div class="gnd"><div class="ggrass"></div><div class="gsoil"></div></div>
+      <div class="tug-wrap">
+        <div class="tug-trk">
+          <div class="tug-bl" id="tugBl"></div><div class="tug-rd" id="tugRd"></div>
+          <div class="tug-flag" id="tugFl"></div>
+        </div>
+        <div class="tug-lbls"><span id="tugL">←</span><span id="tugR">→</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="pp R" id="ppR">
+    <div class="pp-head"><span class="pp-nm" id="ppRn">–</span><span class="pp-pts" id="ppRs">0</span></div>
+    <div class="q-lbl" id="ppRnum">АСУУЛТ 1/7</div>
+    <div class="q-box"><span class="q-cat" id="ppRcat">–</span><span class="q-tx" id="ppRq">...</span></div>
+    <div class="ans-grid" id="ppRg"></div>
+    <div class="st-box idle" id="ppRst">⏳ Хариулт сонгоно уу</div>
+  </div>
+</div>
+</div>
+
+<!-- OVERLAYS -->
+<div class="ov" id="winOv">
+<div class="win-card">
+  <span class="wc-ic">🏆</span>
+  <div class="wc-win" id="wcWin">–</div>
+  <div class="wc-sub" id="wcSub">–</div>
+  <div class="wc-sc" id="wcSc">0:0</div>
+  <div class="wc-tie" id="wcTie" style="display:none;font-size:.72rem;font-weight:600;color:var(--gold);background:rgba(245,197,24,.07);border:1px solid rgba(245,197,24,.18);border-radius:8px;padding:9px 12px;margin:6px 0;line-height:1.55;text-align:left;"></div>
+  <div class="wc-note">⏳ Дараагийн шатыг багш батална. Bracket харна уу.</div>
+  <button class="wc-btn board" id="btnWinBoard">📊 BRACKET ХАРАХ</button>
+</div>
+</div>
+<div class="ov" id="champOv">
+<div class="champ-card">
+  <svg class="cc-trophy" viewBox="0 0 80 80" fill="none">
+    <path d="M40 57 L34 67 L46 67 Z" fill="#c8981a"/>
+    <rect x="33" y="65" width="14" height="5" rx="2" fill="#c8981a"/>
+    <rect x="27" y="69" width="26" height="4" rx="2" fill="#f5c518"/>
+    <path d="M19 10 L19 36 C19 47 28 55 40 55 C52 55 61 47 61 36 L61 10 Z" fill="#f5c518"/>
+    <path d="M19 14 L8 14 C8 14 6 27 17 32" stroke="#f5c518" stroke-width="4" stroke-linecap="round" fill="none"/>
+    <path d="M61 14 L72 14 C72 14 74 27 63 32" stroke="#f5c518" stroke-width="4" stroke-linecap="round" fill="none"/>
+    <ellipse cx="40" cy="10" rx="21" ry="3.5" fill="#e6a800" opacity=".45"/>
+    <path d="M31 28 L37 34 L49 22" stroke="rgba(255,255,255,.55)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  </svg>
+  <div class="cc-lbl">ТЭМЦЭЭНИЙ АВАРГА</div>
+  <div class="cc-name" id="ccName">–</div>
+  <div class="cc-sub">БҮХИЙ Л ШАТЫГ ДАВЛАА · БАЯР ХҮРГЭЕ! 🎉</div>
+  <div id="champTeacherBtns" style="display:none;width:100%;flex-direction:column;gap:8px;">
+    <button class="cc-btn" id="btnChampEnd" style="background:linear-gradient(135deg,#991b1b,#ef4444);">🏁 ТЭМЦЭЭН ДУУСГАХ</button>
+    <button class="cc-btn" id="btnChampBoard" style="background:rgba(255,255,255,.07);color:var(--txt2);border:1px solid var(--bdr2);margin-top:4px;">📊 BRACKET ХАРАХ</button>
+  </div>
+  <div id="champStudentBtns" style="display:none;width:100%;">
+    <button class="cc-btn" id="btnChampBoardS">📊 BRACKET ХАРАХ</button>
+  </div>
+</div>
+</div>
+<div class="ov" id="solOv">
+<div class="sol-card">
+  <div class="sol-hd"><span class="sol-ht">📝 БОДОЛТ</span><button class="ov-x" id="btnSolClose">✕</button></div>
+  <div class="sol-q"><span class="sol-qcat" id="solCat"></span><span class="sol-qtx" id="solQtx"></span></div>
+  <div class="sol-steps" id="solSteps"></div>
+  <div class="sol-ft"><button class="sol-close" id="btnSolNext">▶ ДАРААГИЙН АСУУЛТ</button></div>
+</div>
+</div>
+<div class="ov" id="refOv">
+<div class="ref-card">
+  <div class="ref-hd"><span class="ref-ht">📐 ТРИГОНОМЕТРИЙН ЛАВЛАХ</span><button class="ov-x" id="btnRefClose">✕</button></div>
+  <div class="ref-tabs">
+    <button class="ref-tab on" data-ref="rtbl">ХҮСНЭГТ</button>
+    <button class="ref-tab" data-ref="rid">ИЖИЛ ТӨСТЭЙ</button>
+    <button class="ref-tab" data-ref="rcomp">НӨХӨХ ӨНЦӨГ</button>
+    <button class="ref-tab" data-ref="rtri">ГУРВАЛЖИН</button>
+    <button class="ref-tab" data-ref="rrad">РАДИАН</button>
+  </div>
+  <div class="ref-body">
+    <div class="ref-sec on" id="rtbl"><table class="ref-tbl" id="refTbl"></table></div>
+    <div class="ref-sec" id="rid"><div id="ridB"></div></div>
+    <div class="ref-sec" id="rcomp"><div id="rcompB"></div></div>
+    <div class="ref-sec" id="rtri"><div id="rtriB"></div></div>
+    <div class="ref-sec" id="rrad"><div id="rradB"></div></div>
+  </div>
+</div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+<script>
+'use strict';
+
+// ── QUESTION BANK ──────────────────────────────────────────────────
+var QB = [
+  // ── sin утга ──────────────────────────────────────────────────────
+  {cat:'sin утга',q:'\\sin 0°',ans:'0',opts:['0','1','\\tfrac{1}{2}','\\tfrac{\\sqrt{2}}{2}'],sol:['\\sin 0° = 0','0']},
+  {cat:'sin утга',q:'\\sin 30°',ans:'\\tfrac{1}{2}',opts:['\\tfrac{1}{2}','\\tfrac{\\sqrt{2}}{2}','\\tfrac{\\sqrt{3}}{2}','1'],sol:['\\sin 30° = \\tfrac{1}{2}','\\tfrac{1}{2}']},
+  {cat:'sin утга',q:'\\sin 45°',ans:'\\tfrac{\\sqrt{2}}{2}',opts:['\\tfrac{\\sqrt{2}}{2}','\\tfrac{1}{2}','\\tfrac{\\sqrt{3}}{2}','1'],sol:['\\sin 45° = \\tfrac{\\sqrt{2}}{2}','\\tfrac{\\sqrt{2}}{2}']},
+  {cat:'sin утга',q:'\\sin 60°',ans:'\\tfrac{\\sqrt{3}}{2}',opts:['\\tfrac{\\sqrt{3}}{2}','\\tfrac{\\sqrt{2}}{2}','\\tfrac{1}{2}','1'],sol:['\\sin 60° = \\tfrac{\\sqrt{3}}{2}','\\tfrac{\\sqrt{3}}{2}']},
+  {cat:'sin утга',q:'\\sin 90°',ans:'1',opts:['1','0','\\tfrac{\\sqrt{2}}{2}','\\tfrac{\\sqrt{3}}{2}'],sol:['\\sin 90° = 1','1']},
+  // ── cos утга ──────────────────────────────────────────────────────
+  {cat:'cos утга',q:'\\cos 0°',ans:'1',opts:['1','0','\\tfrac{1}{2}','\\tfrac{\\sqrt{2}}{2}'],sol:['\\cos 0° = 1','1']},
+  {cat:'cos утга',q:'\\cos 30°',ans:'\\tfrac{\\sqrt{3}}{2}',opts:['\\tfrac{\\sqrt{3}}{2}','\\tfrac{\\sqrt{2}}{2}','\\tfrac{1}{2}','0'],sol:['\\cos 30° = \\tfrac{\\sqrt{3}}{2}','\\tfrac{\\sqrt{3}}{2}']},
+  {cat:'cos утга',q:'\\cos 45°',ans:'\\tfrac{\\sqrt{2}}{2}',opts:['\\tfrac{\\sqrt{2}}{2}','\\tfrac{1}{2}','\\tfrac{\\sqrt{3}}{2}','1'],sol:['\\cos 45° = \\tfrac{\\sqrt{2}}{2}','\\tfrac{\\sqrt{2}}{2}']},
+  {cat:'cos утга',q:'\\cos 60°',ans:'\\tfrac{1}{2}',opts:['\\tfrac{1}{2}','\\tfrac{\\sqrt{2}}{2}','\\tfrac{\\sqrt{3}}{2}','0'],sol:['\\cos 60° = \\tfrac{1}{2}','\\tfrac{1}{2}']},
+  {cat:'cos утга',q:'\\cos 90°',ans:'0',opts:['0','1','\\tfrac{1}{2}','\\tfrac{\\sqrt{2}}{2}'],sol:['\\cos 90° = 0','0']},
+  // ── tan утга ──────────────────────────────────────────────────────
+  {cat:'tan утга',q:'\\tan 0°',ans:'0',opts:['0','1','\\tfrac{\\sqrt{3}}{3}','\\text{тодорхойгүй}'],sol:['\\tan 0° = 0','0']},
+  {cat:'tan утга',q:'\\tan 30°',ans:'\\tfrac{\\sqrt{3}}{3}',opts:['\\tfrac{\\sqrt{3}}{3}','\\tfrac{1}{2}','\\sqrt{3}','1'],sol:['\\tan 30° = \\tfrac{\\sqrt{3}}{3}','\\tfrac{\\sqrt{3}}{3}']},
+  {cat:'tan утга',q:'\\tan 45°',ans:'1',opts:['1','\\sqrt{3}','\\tfrac{\\sqrt{3}}{3}','0'],sol:['\\tan 45° = 1','1']},
+  {cat:'tan утга',q:'\\tan 60°',ans:'\\sqrt{3}',opts:['\\sqrt{3}','1','\\tfrac{\\sqrt{3}}{3}','\\tfrac{1}{2}'],sol:['\\tan 60° = \\sqrt{3}','\\sqrt{3}']},
+  {cat:'tan утга',q:'\\tan 90°',ans:'\\text{тодорхойгүй}',opts:['\\text{тодорхойгүй}','0','1','\\infty'],sol:['\\tan 90° — тодорхойгүй','\\text{тодорхойгүй}']},
+
+  // ── Харьцаа: катетуудаар тодорхойлох ─────────────────────────────
+  {cat:'харьцаа',q:'\\sin\\alpha = ?',ans:'\\dfrac{\\text{эсрэг катет}}{\\text{гипотенуз}}',
+   opts:['\\dfrac{\\text{эсрэг катет}}{\\text{гипотенуз}}','\\dfrac{\\text{налсан катет}}{\\text{гипотенуз}}','\\dfrac{\\text{эсрэг катет}}{\\text{налсан катет}}','\\dfrac{\\text{гипотенуз}}{\\text{эсрэг катет}}'],
+   sol:['\\sin\\alpha = \\dfrac{\\text{эсрэг катет}}{\\text{гипотенуз}}','\\dfrac{\\text{эсрэг катет}}{\\text{гипотенуз}}']},
+
+  {cat:'харьцаа',q:'\\cos\\alpha = ?',ans:'\\dfrac{\\text{налсан катет}}{\\text{гипотенуз}}',
+   opts:['\\dfrac{\\text{налсан катет}}{\\text{гипотенуз}}','\\dfrac{\\text{эсрэг катет}}{\\text{гипотенуз}}','\\dfrac{\\text{гипотенуз}}{\\text{налсан катет}}','\\dfrac{\\text{эсрэг катет}}{\\text{налсан катет}}'],
+   sol:['\\cos\\alpha = \\dfrac{\\text{налсан катет}}{\\text{гипотенуз}}','\\dfrac{\\text{налсан катет}}{\\text{гипотенуз}}']},
+
+  {cat:'харьцаа',q:'\\tan\\alpha = ?',ans:'\\dfrac{\\text{эсрэг катет}}{\\text{налсан катет}}',
+   opts:['\\dfrac{\\text{эсрэг катет}}{\\text{налсан катет}}','\\dfrac{\\text{налсан катет}}{\\text{эсрэг катет}}','\\dfrac{\\text{эсрэг катет}}{\\text{гипотенуз}}','\\dfrac{\\text{гипотенуз}}{\\text{эсрэг катет}}'],
+   sol:['\\tan\\alpha = \\dfrac{\\text{эсрэг катет}}{\\text{налсан катет}}','\\dfrac{\\text{эсрэг катет}}{\\text{налсан катет}}']},
+
+  {cat:'харьцаа',q:'\\cot\\alpha = ?',ans:'\\dfrac{\\text{налсан катет}}{\\text{эсрэг катет}}',
+   opts:['\\dfrac{\\text{налсан катет}}{\\text{эсрэг катет}}','\\dfrac{\\text{эсрэг катет}}{\\text{налсан катет}}','\\dfrac{\\text{гипотенуз}}{\\text{налсан катет}}','\\dfrac{\\text{налсан катет}}{\\text{гипотенуз}}'],
+   sol:['\\cot\\alpha = \\dfrac{\\text{налсан катет}}{\\text{эсрэг катет}}','\\dfrac{\\text{налсан катет}}{\\text{эсрэг катет}}']},
+
+  {cat:'харьцаа',q:'Гурвалжинд: эсрэг катет = 3, гипотенуз = 5.  \\sin\\alpha = ?',
+   ans:'\\dfrac{3}{5}',opts:['\\dfrac{3}{5}','\\dfrac{4}{5}','\\dfrac{3}{4}','\\dfrac{5}{3}'],
+   sol:['\\sin\\alpha = \\dfrac{\\text{эсрэг}}{\\text{гипотенуз}} = \\dfrac{3}{5}','\\dfrac{3}{5}']},
+
+  {cat:'харьцаа',q:'Гурвалжинд: налсан катет = 4, гипотенуз = 5.  \\cos\\alpha = ?',
+   ans:'\\dfrac{4}{5}',opts:['\\dfrac{4}{5}','\\dfrac{3}{5}','\\dfrac{3}{4}','\\dfrac{5}{4}'],
+   sol:['\\cos\\alpha = \\dfrac{\\text{налсан}}{\\text{гипотенуз}} = \\dfrac{4}{5}','\\dfrac{4}{5}']},
+
+  {cat:'харьцаа',q:'Гурвалжинд: эсрэг катет = 3, налсан катет = 4.  \\tan\\alpha = ?',
+   ans:'\\dfrac{3}{4}',opts:['\\dfrac{3}{4}','\\dfrac{4}{3}','\\dfrac{3}{5}','\\dfrac{4}{5}'],
+   sol:['\\tan\\alpha = \\dfrac{\\text{эсрэг}}{\\text{налсан}} = \\dfrac{3}{4}','\\dfrac{3}{4}']},
+
+  {cat:'харьцаа',q:'Гурвалжинд: эсрэг катет = 5, налсан катет = 12.  \\cot\\alpha = ?',
+   ans:'\\dfrac{12}{5}',opts:['\\dfrac{12}{5}','\\dfrac{5}{12}','\\dfrac{5}{13}','\\dfrac{12}{13}'],
+   sol:['\\cot\\alpha = \\dfrac{\\text{налсан}}{\\text{эсрэг}} = \\dfrac{12}{5}','\\dfrac{12}{5}']},
+
+  // ── Үндсэн адилтгалууд ────────────────────────────────────────────
+  {cat:'адилтгал',q:'\\sin^2\\alpha + \\cos^2\\alpha = ?',
+   ans:'1',opts:['1','0','2','\\sin\\alpha\\cos\\alpha'],
+   sol:['Пифагорын адилтгал: \\sin^2\\alpha + \\cos^2\\alpha = 1','1']},
+
+  {cat:'адилтгал',q:'\\tan\\alpha = ?',
+   ans:'\\dfrac{\\sin\\alpha}{\\cos\\alpha}',
+   opts:['\\dfrac{\\sin\\alpha}{\\cos\\alpha}','\\dfrac{\\cos\\alpha}{\\sin\\alpha}','\\sin\\alpha\\cdot\\cos\\alpha','\\dfrac{1}{\\sin\\alpha}'],
+   sol:['\\tan\\alpha = \\dfrac{\\sin\\alpha}{\\cos\\alpha}','\\dfrac{\\sin\\alpha}{\\cos\\alpha}']},
+
+  {cat:'адилтгал',q:'\\cot\\alpha = ?',
+   ans:'\\dfrac{\\cos\\alpha}{\\sin\\alpha}',
+   opts:['\\dfrac{\\cos\\alpha}{\\sin\\alpha}','\\dfrac{\\sin\\alpha}{\\cos\\alpha}','\\dfrac{1}{\\cos\\alpha}','\\dfrac{1}{\\tan\\alpha^2}'],
+   sol:['\\cot\\alpha = \\dfrac{\\cos\\alpha}{\\sin\\alpha}','\\dfrac{\\cos\\alpha}{\\sin\\alpha}']},
+
+  {cat:'адилтгал',q:'\\tan\\alpha \\cdot \\cot\\alpha = ?',
+   ans:'1',opts:['1','0','\\tan^2\\alpha','\\sin^2\\alpha'],
+   sol:['\\tan\\alpha \\cdot \\cot\\alpha = 1 \\quad (\\text{учир нь } \\dfrac{\\sin}{\\cos}\\cdot\\dfrac{\\cos}{\\sin}=1)','1']},
+
+  {cat:'адилтгал',q:'1 + \\tan^2\\alpha = ?',
+   ans:'\\dfrac{1}{\\cos^2\\alpha}',
+   opts:['\\dfrac{1}{\\cos^2\\alpha}','\\dfrac{1}{\\sin^2\\alpha}','\\cos^2\\alpha','\\sec\\alpha'],
+   sol:['1 + \\tan^2\\alpha = \\dfrac{1}{\\cos^2\\alpha}','\\dfrac{1}{\\cos^2\\alpha}']},
+
+  {cat:'адилтгал',q:'1 + \\cot^2\\alpha = ?',
+   ans:'\\dfrac{1}{\\sin^2\\alpha}',
+   opts:['\\dfrac{1}{\\sin^2\\alpha}','\\dfrac{1}{\\cos^2\\alpha}','\\sin^2\\alpha','\\cot\\alpha'],
+   sol:['1 + \\cot^2\\alpha = \\dfrac{1}{\\sin^2\\alpha}','\\dfrac{1}{\\sin^2\\alpha}']},
+
+  {cat:'адилтгал',q:'\\sin^2\\alpha + \\cos^2\\alpha = 1 бол \\cos^2\\alpha = ?',
+   ans:'1 - \\sin^2\\alpha',
+   opts:['1 - \\sin^2\\alpha','1 + \\sin^2\\alpha','\\sin^2\\alpha - 1','\\sin\\alpha - 1'],
+   sol:['\\cos^2\\alpha = 1 - \\sin^2\\alpha','1 - \\sin^2\\alpha']},
+
+  {cat:'адилтгал',q:'\\sin 90° = 1 бол \\cos 0° = ?',
+   ans:'1',opts:['1','0','\\tfrac{1}{2}','\\tfrac{\\sqrt{2}}{2}'],
+   sol:['\\cos 0° = 1 \\quad (\\text{үндсэн утга})','1']},
+
+  {cat:'адилтгал',q:'\\sin\\alpha = \\cos(90° - \\alpha). Тэгвэл \\sin 30° = \\cos(?) ',
+   ans:'60°',opts:['60°','30°','45°','90°'],
+   sol:['\\sin 30° = \\cos(90°-30°) = \\cos 60°','60°']},
+
+  {cat:'адилтгал',q:'\\tan 45° \\cdot \\cot 45° = ?',
+   ans:'1',opts:['1','2','0','\\sqrt{2}'],
+   sol:['\\tan 45° = 1,\\; \\cot 45° = 1 \\Rightarrow 1\\cdot1 = 1','1']},
+
+  {cat:'адилтгал',q:'\\sin^2 30° + \\cos^2 30° = ?',
+   ans:'1',opts:['1','\\tfrac{1}{2}','\\tfrac{3}{4}','\\tfrac{5}{4}'],
+   sol:['\\sin^2 30° + \\cos^2 30° = \\tfrac{1}{4}+\\tfrac{3}{4} = 1','1']},
+
+  // ── Тэгшитгэл ─────────────────────────────────────────────────────
+  {cat:'тэгшитгэл',q:'x + 5 = 12. \ x = ?',ans:'7',opts:['7','17','6','8'],sol:['x = 12 - 5 = 7','7']},
+  {cat:'тэгшитгэл',q:'x - 8 = 4. \ x = ?',ans:'12',opts:['12','4','3','14'],sol:['x = 4 + 8 = 12','12']},
+  {cat:'тэгшитгэл',q:'3x = 21. \ x = ?',ans:'7',opts:['7','18','24','63'],sol:['x = 21 \\div 3 = 7','7']},
+  {cat:'тэгшитгэл',q:'\\dfrac{x}{4} = 6. \ x = ?',ans:'24',opts:['24','10','2','48'],sol:['x = 6 \\times 4 = 24','24']},
+  {cat:'тэгшитгэл',q:'2x + 3 = 11. \ x = ?',ans:'4',opts:['4','7','5','3'],sol:['2x = 11 - 3 = 8,\ x = 4','4']},
+  {cat:'тэгшитгэл',q:'5x - 10 = 15. \ x = ?',ans:'5',opts:['5','1','25','3'],sol:['5x = 25,\ x = 5','5']},
+  {cat:'тэгшитгэл',q:'3x + 7 = 22. \ x = ?',ans:'5',opts:['5','9','3','10'],sol:['3x = 15,\ x = 5','5']},
+  {cat:'тэгшитгэл',q:'4x - 6 = 10. \ x = ?',ans:'4',opts:['4','1','16','2'],sol:['4x = 16,\ x = 4','4']},
+  {cat:'тэгшитгэл',q:'x + 14 = 30. \ x = ?',ans:'16',opts:['16','44','14','18'],sol:['x = 30 - 14 = 16','16']},
+  {cat:'тэгшитгэл',q:'7x = 56. \ x = ?',ans:'8',opts:['8','7','49','9'],sol:['x = 56 \\div 7 = 8','8']},
+  {cat:'тэгшитгэл',q:'2x + 9 = 25. \ x = ?',ans:'8',opts:['8','17','10','7'],sol:['2x = 16,\ x = 8','8']},
+  {cat:'тэгшитгэл',q:'6x - 12 = 24. \ x = ?',ans:'6',opts:['6','2','12','3'],sol:['6x = 36,\ x = 6','6']},
+  {cat:'тэгшитгэл',q:'\\dfrac{x}{3} + 2 = 7. \ x = ?',ans:'15',opts:['15','5','9','27'],sol:['\\dfrac{x}{3} = 5,\ x = 15','15']},
+  {cat:'тэгшитгэл',q:'9 - x = 4. \ x = ?',ans:'5',opts:['5','13','4','6'],sol:['x = 9 - 4 = 5','5']},
+  {cat:'тэгшитгэл',q:'4x + 4 = 20. \ x = ?',ans:'4',opts:['4','6','5','3'],sol:['4x = 16,\ x = 4','4']},
+
+  // ── Бүхэл тооны илэрхийлэл (3–4 үйлдэл) ──────────────────────────
+  {cat:'илэрхийлэл',q:'3 + 4 \\times 2 = ?',ans:'11',opts:['11','14','10','24'],sol:['Эхлээд үржилт: 4×2=8, дараа нэмэлт: 3+8=11','11']},
+  {cat:'илэрхийлэл',q:'(3 + 4) \\times 2 = ?',ans:'14',opts:['14','11','10','28'],sol:['Хаалтыг эхэлж: 7×2=14','14']},
+  {cat:'илэрхийлэл',q:'20 - 3 \\times 4 + 2 = ?',ans:'10',opts:['10','14','6','68'],sol:['3×4=12;\ 20-12+2=10','10']},
+  {cat:'илэрхийлэл',q:'(10 - 4) \\div 2 + 5 = ?',ans:'8',opts:['8','3','10','13'],sol:['6÷2=3;\ 3+5=8','8']},
+  {cat:'илэрхийлэл',q:'5 \\times (2 + 3) - 8 = ?',ans:'17',opts:['17','21','15','2'],sol:['5×5=25;\ 25-8=17','17']},
+  {cat:'илэрхийлэл',q:'18 \\div 3 + 4 \\times 2 = ?',ans:'14',opts:['14','24','10','16'],sol:['18÷3=6;\ 4×2=8;\ 6+8=14','14']},
+  {cat:'илэрхийлэл',q:'(8 + 2) \\times (6 - 4) = ?',ans:'20',opts:['20','18','22','10'],sol:['10×2=20','20']},
+  {cat:'илэрхийлэл',q:'3 \\times 4 - 2 \\times 5 = ?',ans:'2',opts:['2','10','14','0'],sol:['12-10=2','2']},
+  {cat:'илэрхийлэл',q:'24 \\div (3 + 3) + 5 = ?',ans:'9',opts:['9','4','8','13'],sol:['24÷6=4;\ 4+5=9','9']},
+  {cat:'илэрхийлэл',q:'7 + 3 \\times (8 - 5) = ?',ans:'16',opts:['16','13','30','22'],sol:['8-5=3;\ 3×3=9;\ 7+9=16','16']},
+  {cat:'илэрхийлэл',q:'50 - (6 + 4) \\times 3 = ?',ans:'20',opts:['20','30','110','40'],sol:['10×3=30;\ 50-30=20','20']},
+  {cat:'илэрхийлэл',q:'4 \\times 3 + 6 \\div 2 = ?',ans:'15',opts:['15','9','21','18'],sol:['12+3=15','15']},
+  {cat:'илэрхийлэл',q:'(15 - 5) \\div 2 \\times 4 = ?',ans:'20',opts:['20','10','40','5'],sol:['10÷2=5;\ 5×4=20','20']},
+  // сөрөг тоо гарах илэрхийлэл (хүндрүүлсэн, 100-ын дотор)
+  {cat:'илэрхийлэл',q:'-3 \\times 4 - 5 = ?',ans:'-17',opts:['-17','17','-7','7'],sol:['-3×4=-12;\ -12-5=-17','−17']},
+  {cat:'илэрхийлэл',q:'(-6+2) \\times (-3) = ?',ans:'12',opts:['12','-12','24','-24'],sol:['(-6+2)=-4;\ (-4)×(-3)=12','12']},
+  {cat:'илэрхийлэл',q:'5 - 3 \\times (4-6) = ?',ans:'11',opts:['11','-1','-11','1'],sol:['(4-6)=-2;\ -3×(-2)=6;\ 5+6=11','11']},
+  {cat:'илэрхийлэл',q:'3 \\times (-2) + 4 \\times (-1) = ?',ans:'-10',opts:['-10','10','-2','2'],sol:['-6+(-4)=-10','−10']},
+  {cat:'илэрхийлэл',q:'(3-8) \\times (1-4) = ?',ans:'15',opts:['15','-15','9','-9'],sol:['(-5)×(-3)=15','15']},
+  {cat:'илэрхийлэл',q:'-18 \\div (-3) - 4 = ?',ans:'2',opts:['2','-2','10','-10'],sol:['-18÷(-3)=6;\ 6-4=2','2']},
+  {cat:'илэрхийлэл',q:'(-4)^2 - 5 \\times 4 = ?',ans:'-4',opts:['-4','4','36','-36'],sol:['(-4)^2=16;\ 5×4=20;\ 16-20=-4','−4']},
+  {cat:'илэрхийлэл',q:'-4 \\times (2-5) + (-6) = ?',ans:'6',opts:['6','-6','18','-18'],sol:['-4×(-3)=12;\ 12+(-6)=6','6']},
+  {cat:'илэрхийлэл',q:'(-1)^3 + (-2)^2 - 5 = ?',ans:'-2',opts:['-2','2','-8','8'],sol:['(-1)³=-1;\ (-2)²=4;\ -1+4-5=-2','−2']},
+  {cat:'илэрхийлэл',q:'(-3+1) \\times (-4) \\div 2 = ?',ans:'4',opts:['4','-4','8','-8'],sol:['(-2)×(-4)=8;\ 8÷2=4','4']},
+  {cat:'илэрхийлэл',q:'2 \\times (-3)^2 - 10 = ?',ans:'8',opts:['8','-8','-28','28'],sol:['(-3)²=9;\ 2×9=18;\ 18-10=8','8']},
+  {cat:'илэрхийлэл',q:'(-2+5) \\times (3-7) = ?',ans:'-12',opts:['-12','12','-8','8'],sol:['3×(-4)=-12','−12']},
+  {cat:'илэрхийлэл',q:'5 - 2 \\times (3-7) - 1 = ?',ans:'12',opts:['12','-12','4','-4'],sol:['(3-7)=-4;\ -2×(-4)=8;\ 5+8-1=12','12']},
+  {cat:'илэрхийлэл',q:'-2 \\times (4-9) + 3 \\times (-4) = ?',ans:'-2',opts:['-2','2','-22','22'],sol:['-2×(-5)=10;\ 3×(-4)=-12;\ 10-12=-2','−2']},
+  {cat:'илэрхийлэл',q:'(-5)^2 - 4 \\times (3+7) = ?',ans:'-15',opts:['-15','15','5','-5'],sol:['25-4×10=25-40=-15','−15']},
+
+  // ── Энгийн бутархай: нэмэх, хасах ────────────────────────────────
+  {cat:'бутархай',q:'\\dfrac{1}{4} + \\dfrac{2}{4} = ?',ans:'\\dfrac{3}{4}',opts:['\\dfrac{3}{4}','\\dfrac{3}{8}','\\dfrac{1}{2}','1'],sol:['Хуваагч ижил тул тоологчийг нэмнэ: \\tfrac{3}{4}','\\dfrac{3}{4}']},
+  {cat:'бутархай',q:'\\dfrac{3}{5} - \\dfrac{1}{5} = ?',ans:'\\dfrac{2}{5}',opts:['\\dfrac{2}{5}','\\dfrac{2}{10}','\\dfrac{4}{5}','\\dfrac{2}{0}'],sol:['\\tfrac{3-1}{5}=\\tfrac{2}{5}','\\dfrac{2}{5}']},
+  {cat:'бутархай',q:'\\dfrac{1}{3} + \\dfrac{1}{6} = ?',ans:'\\dfrac{1}{2}',opts:['\\dfrac{1}{2}','\\dfrac{2}{9}','\\dfrac{1}{3}','\\dfrac{2}{6}'],sol:['\\tfrac{2}{6}+\\tfrac{1}{6}=\\tfrac{3}{6}=\\tfrac{1}{2}','\\dfrac{1}{2}']},
+  {cat:'бутархай',q:'\\dfrac{3}{4} - \\dfrac{1}{2} = ?',ans:'\\dfrac{1}{4}',opts:['\\dfrac{1}{4}','\\dfrac{1}{2}','\\dfrac{2}{2}','\\dfrac{1}{6}'],sol:['\\tfrac{3}{4}-\\tfrac{2}{4}=\\tfrac{1}{4}','\\dfrac{1}{4}']},
+  {cat:'бутархай',q:'\\dfrac{2}{3} + \\dfrac{1}{4} = ?',ans:'\\dfrac{11}{12}',opts:['\\dfrac{11}{12}','\\dfrac{3}{7}','\\dfrac{3}{12}','\\dfrac{5}{6}'],sol:['\\tfrac{8}{12}+\\tfrac{3}{12}=\\tfrac{11}{12}','\\dfrac{11}{12}']},
+  {cat:'бутархай',q:'\\dfrac{5}{6} - \\dfrac{1}{3} = ?',ans:'\\dfrac{1}{2}',opts:['\\dfrac{1}{2}','\\dfrac{4}{3}','\\dfrac{4}{6}','\\dfrac{2}{3}'],sol:['\\tfrac{5}{6}-\\tfrac{2}{6}=\\tfrac{3}{6}=\\tfrac{1}{2}','\\dfrac{1}{2}']},
+  // бутархай: үржих
+  {cat:'бутархай',q:'\\dfrac{2}{3} \\times \\dfrac{3}{4} = ?',ans:'\\dfrac{1}{2}',opts:['\\dfrac{1}{2}','\\dfrac{6}{12}','\\dfrac{5}{7}','\\dfrac{2}{4}'],sol:['\\tfrac{2\\times3}{3\\times4}=\\tfrac{6}{12}=\\tfrac{1}{2}','\\dfrac{1}{2}']},
+  {cat:'бутархай',q:'\\dfrac{3}{5} \\times \\dfrac{5}{9} = ?',ans:'\\dfrac{1}{3}',opts:['\\dfrac{1}{3}','\\dfrac{15}{45}','\\dfrac{8}{14}','\\dfrac{3}{9}'],sol:['\\tfrac{15}{45}=\\tfrac{1}{3}','\\dfrac{1}{3}']},
+  {cat:'бутархай',q:'4 \\times \\dfrac{3}{8} = ?',ans:'\\dfrac{3}{2}',opts:['\\dfrac{3}{2}','\\dfrac{7}{8}','\\dfrac{12}{32}','\\dfrac{3}{8}'],sol:['\\tfrac{4\\times3}{8}=\\tfrac{12}{8}=\\tfrac{3}{2}','\\dfrac{3}{2}']},
+  // бутархай: хуваах
+  {cat:'бутархай',q:'\\dfrac{1}{2} \\div \\dfrac{1}{4} = ?',ans:'2',opts:['2','\\dfrac{1}{8}','\\dfrac{1}{2}','4'],sol:['\\tfrac{1}{2}\\times\\tfrac{4}{1}=2','2']},
+  {cat:'бутархай',q:'\\dfrac{3}{4} \\div \\dfrac{3}{8} = ?',ans:'2',opts:['2','\\dfrac{9}{32}','\\dfrac{1}{2}','3'],sol:['\\tfrac{3}{4}\\times\\tfrac{8}{3}=\\tfrac{24}{12}=2','2']},
+  {cat:'бутархай',q:'\\dfrac{2}{5} \\div 4 = ?',ans:'\\dfrac{1}{10}',opts:['\\dfrac{1}{10}','\\dfrac{8}{5}','\\dfrac{2}{20}','\\dfrac{2}{9}'],sol:['\\tfrac{2}{5}\\times\\tfrac{1}{4}=\\tfrac{2}{20}=\\tfrac{1}{10}','\\dfrac{1}{10}']},
+  {cat:'бутархай',q:'6 \\div \\dfrac{2}{3} = ?',ans:'9',opts:['9','4','3','12'],sol:['6\\times\\tfrac{3}{2}=9','9']},
+
+  // ── Зэрэг ба язгуур ───────────────────────────────────────────────
+  {cat:'зэрэг язгуур',q:'2^3 = ?',ans:'8',opts:['8','6','9','16'],sol:['2^3 = 2\\times2\\times2 = 8','8']},
+  {cat:'зэрэг язгуур',q:'3^2 = ?',ans:'9',opts:['9','6','8','12'],sol:['3^2 = 3\\times3 = 9','9']},
+  {cat:'зэрэг язгуур',q:'5^2 = ?',ans:'25',opts:['25','10','15','20'],sol:['5^2 = 25','25']},
+  {cat:'зэрэг язгуур',q:'4^3 = ?',ans:'64',opts:['64','12','16','32'],sol:['4^3 = 64','64']},
+  {cat:'зэрэг язгуур',q:'10^2 = ?',ans:'100',opts:['100','20','1000','10'],sol:['10^2 = 100','100']},
+  {cat:'зэрэг язгуур',q:'2^5 = ?',ans:'32',opts:['32','10','16','25'],sol:['2^5=32','32']},
+  {cat:'зэрэг язгуур',q:'\\sqrt{9} = ?',ans:'3',opts:['3','4','81','\\tfrac{9}{2}'],sol:['\\sqrt{9}=3, учир нь 3^2=9','3']},
+  {cat:'зэрэг язгуур',q:'\\sqrt{25} = ?',ans:'5',opts:['5','12','625','4'],sol:['\\sqrt{25}=5','5']},
+  {cat:'зэрэг язгуур',q:'\\sqrt{49} = ?',ans:'7',opts:['7','8','6','24'],sol:['\\sqrt{49}=7','7']},
+  {cat:'зэрэг язгуур',q:'\\sqrt{100} = ?',ans:'10',opts:['10','50','20','5'],sol:['\\sqrt{100}=10','10']},
+  {cat:'зэрэг язгуур',q:'\\sqrt{144} = ?',ans:'12',opts:['12','11','13','72'],sol:['\\sqrt{144}=12','12']},
+  {cat:'зэрэг язгуур',q:'2^3 \\times 2^2 = ?',ans:'32',opts:['32','25','16','64'],sol:['2^{3+2}=2^5=32','32']},
+  {cat:'зэрэг язгуур',q:'\\dfrac{3^4}{3^2} = ?',ans:'9',opts:['9','1','12','81'],sol:['3^{4-2}=3^2=9','9']},
+  {cat:'зэрэг язгуур',q:'(2^2)^3 = ?',ans:'64',opts:['64','12','8','32'],sol:['2^{2\\times3}=2^6=64','64']},
+  {cat:'зэрэг язгуур',q:'\\sqrt{4} + \\sqrt{16} = ?',ans:'6',opts:['6','8','10','\\sqrt{20}'],sol:['2+4=6','6']},
+  {cat:'зэрэг язгуур',q:'3^2 + 4^2 = ?',ans:'25',opts:['25','49','14','50'],sol:['9+16=25','25']},
+
+  // ── Анхны тоо ─────────────────────────────────────────────────────
+  {cat:'анхны тоо',q:'Дараах тоонуудаас анхны тоо аль нь вэ?\n4, 6, 7, 9',ans:'7',opts:['7','4','6','9'],sol:['7 = 1 ба 7-оор л хуваагдана → анхны тоо','7']},
+  {cat:'анхны тоо',q:'1 анхны тоо мөн үү?',ans:'Үгүй',opts:['Үгүй','Тийм'],sol:['1 нь анхны тоо биш — яагаад гэвэл яг 2 хуваагчтай байх шаардлагатай','Үгүй']},
+  {cat:'анхны тоо',q:'10-аас доош анхны тоонуудын тоо хэд вэ?\n(2,3,5,7)',ans:'4',opts:['4','3','5','2'],sol:['2, 3, 5, 7 — нийт 4 анхны тоо','4']},
+  {cat:'анхны тоо',q:'21 анхны тоо мөн үү?',ans:'Үгүй',opts:['Үгүй','Тийм'],sol:['21 = 3×7 → анхны тоо биш','Үгүй']},
+  {cat:'анхны тоо',q:'Дараах тоонуудаас анхны тоо аль нь вэ?\n15, 17, 21, 25',ans:'17',opts:['17','15','21','25'],sol:['17 = 1 ба 17-оор л хуваагдана','17']},
+  {cat:'анхны тоо',q:'2 анхны тоо мөн үү?',ans:'Тийм',opts:['Тийм','Үгүй'],sol:['2 — хамгийн бага анхны тоо, цорын ганц тэгш анхны тоо','Тийм']},
+  {cat:'анхны тоо',q:'36-ийн анхны хуваагчид (prime factors)?',ans:'2, 3',opts:['2, 3','2, 5','3, 5','2, 7'],sol:['36 = 2²×3² → анхны хуваагч: 2 ба 3','2, 3']},
+  {cat:'анхны тоо',q:'20 ба 30-ийн ЕБЗ (GCD) = ?',ans:'10',opts:['10','5','20','2'],sol:['20=2²×5, 30=2×3×5 → ЕБЗ=2×5=10','10']},
+  {cat:'анхны тоо',q:'4 ба 6-ийн БХЕД (LCM) = ?',ans:'12',opts:['12','24','8','6'],sol:['4=2², 6=2×3 → БХЕД=2²×3=12','12']},
+  {cat:'анхны тоо',q:'Дараах тоонуудаас анхны тоо аль нь вэ?\n27, 29, 33, 35',ans:'29',opts:['29','27','33','35'],sol:['29 = 1 ба 29-өөр л хуваагдана','29']},
+  {cat:'анхны тоо',q:'51 анхны тоо мөн үү?',ans:'Үгүй',opts:['Үгүй','Тийм'],sol:['51 = 3×17 → анхны тоо биш','Үгүй']},
+  {cat:'анхны тоо',q:'12 ба 18-ийн ЕБЗ = ?',ans:'6',opts:['6','3','2','12'],sol:['12=2²×3, 18=2×3² → ЕБЗ=2×3=6','6']},
+];
+
+// ── UTILS ──// ── UTILS ──────────────────────────────────────────────────────────
+function g(id) { return document.getElementById(id); }
+function km(el, tx) {
+  if (!el) return;
+  el.innerHTML = '';
+  var parts = tx.split('\n');
+  if (parts.length === 1) {
+    try { katex.render(tx, el, {throwOnError: false}); } catch(e) { el.textContent = tx; }
+  } else {
+    parts.forEach(function(part, i) {
+      var span = document.createElement('span');
+      span.style.cssText = 'display:block;text-align:center;line-height:1.4';
+      try { katex.render(part.trim(), span, {throwOnError: false}); } catch(e) { span.textContent = part; }
+      el.appendChild(span);
+    });
+  }
+}
+function showScr(id) {
+  document.querySelectorAll('.scr').forEach(function(s) { s.classList.remove('on'); });
+  g(id).classList.add('on');
+}
+
+function seedShuffle(arr, seed) {
+  var a = arr.slice(), s = seed >>> 0;
+  for (var i = a.length - 1; i > 0; i--) {
+    s = (Math.imul(s, 1664525) + 1013904223) >>> 0;
+    var j = s % (i + 1);
+    var tmp = a[i]; a[i] = a[j]; a[j] = tmp;
+  }
+  return a;
+}
+function strSeed(str) {
+  var s = 5381;
+  for (var i = 0; i < str.length; i++) s = (Math.imul(s, 33) ^ str.charCodeAt(i)) >>> 0;
+  return s;
+}
+function mkCode() { return Math.random().toString(36).slice(2,6).toUpperCase(); }
+function mkKey(side, ri, mi) { return side + '_' + ri + '_' + mi; }
+
+// ── SESSION STORAGE ────────────────────────────────────────────────
+var SS = 'trig_sess_v3';
+function saveSess(role, roomCode, myName, state) {
+  try { localStorage.setItem(SS, JSON.stringify({role:role, roomCode:roomCode, myName:myName, state:state, ts:Date.now()})); } catch(e) {}
+}
+function loadSess() {
+  try { var d = localStorage.getItem(SS); return d ? JSON.parse(d) : null; } catch(e) { return null; }
+}
+function clearSess() { try { localStorage.removeItem(SS); } catch(e) {} }
+
+// ── TOURNAMENT HISTORY ─────────────────────────────────────────────
+var HS = 'trig_history_v1';
+function loadHistory() {
+  try { var d = localStorage.getItem(HS); return d ? JSON.parse(d) : []; } catch(e) { return []; }
+}
+function saveToHistory(state) {
+  if (!state || !state.roomCode) { console.warn('saveToHistory: no state'); return; }
+  try {
+    var entry = {
+      roomCode: state.roomCode,
+      savedAt: new Date().toISOString(),
+      students: state.students || [],
+      qPer: state.qPer || 7,
+      timeSec: state.timeSec || 90,
+      bracket: state.bracket || {},
+      round: state.round || 0,
+      results: state.results || {}
+    };
+    var raw = localStorage.getItem(HS);
+    var hist = raw ? JSON.parse(raw) : [];
+    hist = hist.filter(function(h) { return h.roomCode !== state.roomCode; });
+    hist.unshift(entry);
+    if (hist.length > 20) hist = hist.slice(0, 20);
+    localStorage.setItem(HS, JSON.stringify(hist));
+    console.log('History saved:', state.roomCode, hist.length, 'total');
+  } catch(e) { console.error('saveToHistory error:', e); }
+}
+function deleteFromHistory(roomCode) {
+  try {
+    var hist = loadHistory().filter(function(h) { return h.roomCode !== roomCode; });
+    localStorage.setItem(HS, JSON.stringify(hist));
+  } catch(e) {}
+}
+
+// ── API ────────────────────────────────────────────────────────────
+var API = '/api/room';
+function apiGet(code) {
+  return fetch(API + '?code=' + code).then(function(r) { return r.ok ? r.json() : null; }).catch(function() { return null; });
+}
+function apiCreate(state) {
+  return fetch(API, {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({action:'create', state:state})}).catch(function() {});
+}
+function apiUpdate(code, patch) {
+  return fetch(API, {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({action:'update', code:code, patch:patch})}).catch(function() {});
+}
+
+// ── APP STATE ──────────────────────────────────────────────────────
+var role = null, myName = null, roomCode = null;
+var S = null;   // tournament state
+var G = {};     // game session
+var pollInt = null, lastHash = '';
+var matchMeta = null, tmrInt = null;
+
+// ── SETUP ──────────────────────────────────────────────────────────
+var setupNames = [];
+
+function parseBulk() {
+  var names = g('bulkTa').value.split(/[\n,]+/).map(function(n) { return n.trim(); }).filter(Boolean);
+  setupNames = names.slice();
+  renderChips();
+}
+
+function addName() {
+  var inp = g('addInp'), v = inp.value.trim();
+  if (!v || setupNames.indexOf(v) !== -1) { inp.value = ''; return; }
+  setupNames.push(v); inp.value = '';
+  renderChips();
+}
+
+function removeName(n) {
+  setupNames = setupNames.filter(function(x) { return x !== n; });
+  renderChips();
+}
+
+function renderChips() {
+  var area = g('chipArea');
+  g('sCnt').textContent = setupNames.length + ' СУРАГЧ';
+  g('btnCreate').disabled = setupNames.length < 2;
+  if (!setupNames.length) { area.innerHTML = '<span class="chip-hint">Нэрс энд харагдана...</span>'; return; }
+  area.innerHTML = '';
+  setupNames.forEach(function(n) {
+    var d = document.createElement('div'); d.className = 'chip';
+    var sp = document.createElement('span'); sp.textContent = n;
+    var x = document.createElement('button'); x.className = 'chip-x'; x.textContent = '×';
+    x.onclick = (function(name) { return function() { removeName(name); }; })(n);
+    d.appendChild(sp); d.appendChild(x); area.appendChild(d);
+  });
+}
+
+// ── CREATE TOURNAMENT ──────────────────────────────────────────────
+function createTournament() {
+  var btn = g('btnCreate');
+  btn.disabled = true; btn.textContent = '⏳ ҮҮСГЭЖ БАЙНА...';
+  roomCode = mkCode();
+  var names = seedShuffle(setupNames.slice(), strSeed('init' + Date.now()));
+  var selCats = Array.from(document.querySelectorAll('.cat-chk:checked')).map(function(c){return c.value;});
+  if (!selCats.length) selCats = ['sin утга','cos утга','tan утга'];
+  S = {
+    v: 1, roomCode: roomCode,
+    students: names,
+    qPer: +g('qCnt').value,
+    timeSec: +g('timeSel').value,
+    cats: selCats,
+    bracket: buildBracket(names),
+    round: 0,
+    results: {}
+  };
+  apiCreate(S).then(function() {
+    role = 'teacher';
+    g('tCode').textContent = roomCode;
+    btn.disabled = false; btn.textContent = '🏆 ТЭМЦЭЭН ҮҮСГЭХ';
+    saveSess(role, roomCode, null, S);
+    showScr('tBoardScr');
+    renderTeacher();
+    startPoll();
+  });
+}
+
+// ── BRACKET BUILD ──────────────────────────────────────────────────
+function buildBracket(names) {
+  var sz = 1;
+  while (sz < names.length) sz *= 2;
+  var seeded = names.slice();
+  while (seeded.length < sz) seeded.push('BYE');
+  return { left: buildHalf(seeded.slice(0, sz/2)), right: buildHalf(seeded.slice(sz/2)) };
+}
+function buildHalf(seeds) {
+  var rounds = [], r0 = [];
+  for (var i = 0; i < seeds.length; i += 2)
+    r0.push({p1: seeds[i]||null, p2: seeds[i+1]||null, s1: i+1, s2: i+2});
+  rounds.push(r0);
+  var prev = r0;
+  while (prev.length > 1) {
+    var nr = [];
+    for (var j = 0; j < prev.length; j += 2) nr.push({p1:null, p2:null, s1:0, s2:0});
+    rounds.push(nr); prev = nr;
+  }
+  return rounds;
+}
+
+// ── DERIVED STATE ──────────────────────────────────────────────────
+function deriveState(st) {
+  var res = st.results || {};
+  var left = st.bracket.left.map(function(r) { return r.map(function(m) { return Object.assign({}, m); }); });
+  var right = st.bracket.right.map(function(r) { return r.map(function(m) { return Object.assign({}, m); }); });
+
+  [['L', left], ['R', right]].forEach(function(pair) {
+    var side = pair[0], rounds = pair[1];
+    for (var ri = 0; ri < rounds.length; ri++) {
+      rounds[ri].forEach(function(m, mi) {
+        var key = mkKey(side, ri, mi);
+        if (!res[key]) {
+          if (m.p1 === 'BYE' && m.p2 && m.p2 !== 'BYE') res[key] = {s1:0, s2:st.qPer, winner:m.p2};
+          else if (m.p2 === 'BYE' && m.p1 && m.p1 !== 'BYE') res[key] = {s1:st.qPer, s2:0, winner:m.p1};
+        }
+        var r = res[key] || {};
+        m.done = !!r.winner; m.w = r.winner || null; m.r1 = r.s1 || 0; m.r2 = r.s2 || 0;
+        if (m.done && ri + 1 < rounds.length) {
+          var nmi = Math.floor(mi / 2), slot = mi % 2 === 0 ? 'p1' : 'p2';
+          rounds[ri+1][nmi][slot] = m.w;
+        }
+      });
+    }
+  });
+
+  var lf = left[left.length-1][0], rf = right[right.length-1][0];
+  var fk = mkKey('F', 0, 0), fr = res[fk] || {};
+  var finals = {p1: lf.w||null, p2: rf.w||null, done: !!fr.winner, w: fr.winner||null, r1: fr.s1||0, r2: fr.s2||0};
+  return {left:left, right:right, finals:finals, res:res};
+}
+
+function byeMatch(m) { return m.p1 === 'BYE' || m.p2 === 'BYE' || (!m.p1 && !m.p2); }
+
+function roundDone(st, ri) {
+  var d = deriveState(st);
+  if (ri >= d.left.length) return d.finals.done;
+  var ld = d.left[ri] ? d.left[ri].every(function(m) { return m.done || byeMatch(m); }) : true;
+  var rd = d.right[ri] ? d.right[ri].every(function(m) { return m.done || byeMatch(m); }) : true;
+  return ld && rd;
+}
+function isChamp(st) { var d = deriveState(st); return d.finals.done && d.finals.w; }
+
+function rlabel(ri, total) {
+  if (ri === 'F') return '🏆 ФИНАЛ';
+  var fe = total - 1 - ri;
+  if (fe === 0) return 'ХАГ. ФИНАЛ';
+  if (fe === 1) return 'УЛИРАЛ';
+  return (ri+1) + '-Р ШАТ';
+}
+function getSeed(name, side, bk) {
+  if (!name || name === 'BYE') return '';
+  var rounds = (side === 'L' || side === 'F') ? bk.left : bk.right;
+  if (!rounds || !rounds[0]) return '';
+  for (var i = 0; i < rounds[0].length; i++) {
+    if (rounds[0][i].p1 === name) return rounds[0][i].s1;
+    if (rounds[0][i].p2 === name) return rounds[0][i].s2;
+  }
+  return '';
+}
+
+// ── RENDER TEACHER ─────────────────────────────────────────────────
+function renderTeacher() {
+  if (!S) return;
+  var d = deriveState(S);
+  var ri = S.round, totalR = d.left.length;
+  var rLabel = ri >= totalR ? '🏆 ФИНАЛ' : rlabel(ri, totalR);
+  var total = 0, done = 0;
+  if (ri < totalR) {
+    d.left[ri] && d.left[ri].forEach(function(m) { if (!byeMatch(m)) { total++; if (m.done) done++; } });
+    d.right[ri] && d.right[ri].forEach(function(m) { if (!byeMatch(m)) { total++; if (m.done) done++; } });
+  } else { total = 1; if (d.finals.done) done = 1; }
+
+  g('tBTitle').textContent = '🏆 ТЭМЦЭЭН · ROOM ' + roomCode;
+  g('tBSub').textContent = S.students.length + ' СУРАГЧ · ' + rLabel;
+  g('tCode').textContent = roomCode;
+
+  var body = g('tBoardBody'); body.innerHTML = '';
+  var pb = document.createElement('div'); pb.className = 'rp-wrap';
+  pb.innerHTML = '<div class="rp-top"><div class="rp-title">' + rLabel + '</div><div class="rp-cnt">' + done + '/' + total + '</div></div>' +
+    '<div class="rp-track"><div class="rp-fill" style="width:' + (total ? done/total*100 : 0) + '%"></div></div>';
+  body.appendChild(pb);
+  body.appendChild(buildBracketDOM(d, ri, 'teacher'));
+
+  var allDone = roundDone(S, ri), champ = isChamp(S);
+  g('tbTitle').textContent = champ ? '🏆 ' + d.finals.w + ' — АВАРГА!' : rLabel + ' явагдаж байна';
+  g('tbDesc').textContent = champ ? 'Тэмцээн дуусав!' :
+    allDone ? 'Бүх тоглолт дуусав. БАТЛАХ дарж дараагийн шатанд ор.' :
+    done + '/' + total + ' тоглолт дуусав. Сурагчид тоглоод байна...';
+  g('btnConfirm').disabled = !allDone || !!champ;
+  // Show banner on board when champion crowned
+  if (champ && role === 'teacher') {
+    g('bannerChampName').textContent = d.finals.w;
+    g('champBanner').style.display = 'flex';
+  } else {
+    g('champBanner').style.display = 'none';
+  }
+}
+
+function teacherConfirm() {
+  apiGet(roomCode).then(function(fresh) {
+    if (fresh) S = fresh;
+    S.round++;
+    S.v = (S.v || 1) + 1;
+    saveSess(role, roomCode, null, S);
+    apiUpdate(roomCode, {round: S.round, v: S.v}).then(function() { renderTeacher(); });
+  });
+}
+
+// ── STUDENT JOIN ───────────────────────────────────────────────────
+function checkCode() {
+  var code = g('codeInp').value.trim().toUpperCase();
+  if (code.length < 4) { g('joinErr').textContent = '4 тэмдэгт оруулна уу!'; return; }
+  g('joinErr').textContent = '⏳ Хайж байна...';
+  apiGet(code).then(function(state) {
+    if (!state) { g('joinErr').textContent = 'Room олдсонгүй. Багшийн code шалгана уу.'; return; }
+    g('joinErr').textContent = '';
+    roomCode = code; S = state;
+    g('namePicker').style.display = 'block';
+    var grid = g('nameGrid'); grid.innerHTML = '';
+    state.students.forEach(function(n, i) {
+      var btn = document.createElement('button'); btn.className = 'name-btn';
+      var seed = document.createElement('span'); seed.className = 'nseed'; seed.textContent = i+1;
+      var nm = document.createElement('span'); nm.textContent = n;
+      btn.appendChild(seed); btn.appendChild(nm);
+      btn.onclick = (function(name) { return function() { selectName(name); }; })(n);
+      grid.appendChild(btn);
+    });
+  });
+}
+
+function selectName(n) {
+  myName = n; role = 'student';
+  saveSess(role, roomCode, myName, S);
+  g('sCode').textContent = roomCode;
+  g('sBSub').textContent = myName + ' · BRACKET';
+  showScr('sBoardScr');
+  renderStudent();
+  startPoll();
+}
+
+// ── RENDER STUDENT ─────────────────────────────────────────────────
+function renderStudent() {
+  if (!S) return;
+  var d = deriveState(S);
+  var ri = S.round, totalR = d.left.length;
+  var body = g('sBoardBody'); body.innerHTML = '';
+  var myMatch = findMyMatch(d, ri);
+
+  if (myMatch) {
+    var m = myMatch.m, side = myMatch.side, mri = myMatch.ri, mi = myMatch.mi;
+    var rr = (S.results || {})[mkKey(side, mri, mi)] || {};
+    var card = document.createElement('div'); card.className = 'my-match';
+    var rLabel = side === 'F' ? '🏆 ФИНАЛ' : rlabel(mri, totalR);
+    if (rr.winner) {
+      var iWon = rr.winner === myName;
+      card.innerHTML = '<div class="mm-lbl">' + rLabel + ' — ТАНЫ ТОГЛОЛТ</div>' +
+        '<div class="mm-names">' + (m.p1||'?') + '<span class="mm-vs">vs</span>' + (m.p2||'?') + '</div>' +
+        '<div class="mm-st ' + (iWon ? 'done-w' : 'done-l') + '">' + (iWon ? '🏆 Та ялав! ' + rr.s1 + ':' + rr.s2 : '💔 Та хожигдов. ' + rr.s1 + ':' + rr.s2) + '</div>';
+    } else {
+      card.innerHTML = '<div class="mm-lbl">' + rLabel + ' — ТАНЫ ТОГЛОЛТ</div>' +
+        '<div class="mm-names">' + (m.p1||'?') + '<span class="mm-vs">vs</span>' + (m.p2||'?') + '</div>' +
+        '<div class="mm-st waiting">⏳ Тоглоход бэлэн...</div>';
+      var pb2 = document.createElement('button'); pb2.className = 'play-btn'; pb2.textContent = '▶ ТОГЛОХ';
+      pb2.onclick = (function(s2,r2,m2,mm) { return function() { launchMatch(s2,r2,m2,mm); }; })(side,mri,mi,m);
+      card.appendChild(pb2);
+    }
+    body.appendChild(card);
+  } else {
+    var elim = amIElim(d);
+    var div = document.createElement('div');
+    if (d.finals.done && d.finals.w === myName) {
+      div.className = 'my-match'; div.innerHTML = '<div class="mm-st done-w" style="font-size:1rem;padding:8px">🏆 ТА АВАРГА БОЛОВ! 🎉</div>';
+    } else if (elim) {
+      div.className = 'elim-box'; div.textContent = '💔 Та тэмцээнээс шалгараагүй. Bracket-ийг ажиглана уу.';
+    } else {
+      div.className = 'wait-box'; div.textContent = '⏳ Одоогийн шатны тоглолтуудыг хүлээнэ үү...';
+    }
+    body.appendChild(div);
+  }
+  body.appendChild(buildBracketDOM(d, ri, 'student'));
+}
+
+function findMyMatch(d, ri) {
+  var totalL = d.left.length;
+  if (ri < totalL) {
+    var sides = [['L', d.left], ['R', d.right]];
+    for (var si = 0; si < sides.length; si++) {
+      var side = sides[si][0], rounds = sides[si][1];
+      if (rounds[ri]) {
+        for (var mi = 0; mi < rounds[ri].length; mi++) {
+          var m = rounds[ri][mi];
+          if ((m.p1 === myName || m.p2 === myName) && !byeMatch(m) && m.p1 && m.p2)
+            return {m:m, side:side, ri:ri, mi:mi};
+        }
+      }
+    }
+  } else {
+    var f = d.finals;
+    if ((f.p1 === myName || f.p2 === myName) && f.p1 && f.p2 && !f.done)
+      return {m:f, side:'F', ri:0, mi:0};
+  }
+  return null;
+}
+function amIElim(d) {
+  var res = S.results || {};
+  var keys = Object.keys(res);
+  for (var i = 0; i < keys.length; i++) {
+    var r = res[keys[i]];
+    if (!r.winner || r.winner === myName) continue;
+    var parts = keys[i].split('_'), side = parts[0], ri = parts[1], mi = parts[2];
+    var rounds = side === 'L' ? d.left : side === 'R' ? d.right : null;
+    if (!rounds) {
+      if (d.finals.p1 === myName || d.finals.p2 === myName) return true;
+      continue;
+    }
+    var mm = rounds[ri] && rounds[ri][mi];
+    if (mm && (mm.p1 === myName || mm.p2 === myName)) return true;
+  }
+  return false;
+}
+
+// ── BRACKET DOM ────────────────────────────────────────────────────
+function buildBracketDOM(d, activeRi, viewer) {
+  var wrap = document.createElement('div'); wrap.className = 'bracket-scroll';
+  var flex = document.createElement('div'); flex.className = 'bracket-flex';
+  var totalL = d.left.length;
+  d.left.forEach(function(round, ri) { flex.appendChild(makeRoundCol(round, ri, 'L', d, activeRi, viewer, totalL)); });
+  flex.appendChild(makeCenterCol(d, activeRi, totalL));
+  var rightRev = d.right.slice().reverse();
+  rightRev.forEach(function(round, revI) {
+    var ri = d.right.length - 1 - revI;
+    flex.appendChild(makeRoundCol(round, ri, 'R', d, activeRi, viewer, d.right.length));
+  });
+  wrap.appendChild(flex); return wrap;
+}
+
+function makeRoundCol(round, ri, side, d, activeRi, viewer, totalR) {
+  var col = document.createElement('div'); col.className = 'bcol';
+  var hdr = document.createElement('div'); hdr.className = 'bcol-hdr'; hdr.textContent = rlabel(ri, totalR);
+  col.appendChild(hdr);
+  var spacing = Math.pow(2, ri) * 5;
+  round.forEach(function(m, mi) {
+    if (mi > 0) { var sp = document.createElement('div'); sp.style.height = spacing + 'px'; col.appendChild(sp); }
+    col.appendChild(makeMU(m, side, ri, mi, d, activeRi, viewer));
+  });
+  return col;
+}
+
+function makeCenterCol(d, activeRi, totalL) {
+  var col = document.createElement('div'); col.className = 'ccol';
+  var hdr = document.createElement('div'); hdr.className = 'bcol-hdr'; hdr.textContent = 'ФИНАЛ'; col.appendChild(hdr);
+  var box = document.createElement('div'); box.className = 'champ-box';
+  var f = d.finals;
+  var tColor = f.done ? '#f5c518' : '#3d4460';
+  var trophySVG = '<svg class="trophy-svg" viewBox="0 0 80 80" fill="none">' +
+    '<path d="M40 57 L34 67 L46 67 Z" fill="#c8981a"/>' +
+    '<rect x="33" y="65" width="14" height="5" rx="2" fill="#c8981a"/>' +
+    '<rect x="27" y="69" width="26" height="4" rx="2" fill="#f5c518"/>' +
+    '<path d="M19 10 L19 36 C19 47 28 55 40 55 C52 55 61 47 61 36 L61 10 Z" fill="' + tColor + '"/>' +
+    '<path d="M19 14 L8 14 C8 14 6 27 17 32" stroke="' + tColor + '" stroke-width="4" stroke-linecap="round" fill="none"/>' +
+    '<path d="M61 14 L72 14 C72 14 74 27 63 32" stroke="' + tColor + '" stroke-width="4" stroke-linecap="round" fill="none"/>' +
+    '<ellipse cx="40" cy="10" rx="21" ry="3.5" fill="#e6a800" opacity=".5"/>' +
+    (f.done ? '<path d="M31 28 L37 34 L49 22" stroke="rgba(255,255,255,.5)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>' : '') +
+    '</svg>';
+  if (f.done && f.w) {
+    box.innerHTML = trophySVG + '<div class="cb-lbl">2025 АВАРГА</div><div class="cb-name">' + f.w + '</div>' +
+      '<div class="cb-sub">' + (f.r1 > f.r2 ? f.r1 : f.r2) + '–' + (f.r1 < f.r2 ? f.r1 : f.r2) + '</div>';
+  } else {
+    box.innerHTML = trophySVG + '<div class="cb-lbl">ФИНАЛ</div>' +
+      '<div class="cb-name" style="font-size:.85rem;color:var(--muted)">' + (f.p1||'TBD') + ' vs ' + (f.p2||'TBD') + '</div>';
+  }
+  col.appendChild(box);
+  var fc = makeMU(f, 'F', 0, 0, d, activeRi, 'viewer');
+  fc.classList.add('fin'); col.appendChild(fc);
+  return col;
+}
+
+function makeMU(m, side, ri, mi, d, activeRi, viewer) {
+  var card = document.createElement('div'); card.className = 'mu';
+  var res = (S.results || {})[mkKey(side, ri, mi)] || {};
+  var isDone = !!res.winner || (m.p1 === 'BYE' || m.p2 === 'BYE');
+  if (isDone) card.classList.add('done');
+  if (side === 'L') card.classList.add('lside');
+  else if (side === 'R') card.classList.add('rside');
+  var inActiveRound = side === 'F' ? (S.round >= d.left.length) : ri === S.round;
+  var canPlay = !isDone && m.p1 && m.p2 && m.p1 !== 'BYE' && m.p2 !== 'BYE' && inActiveRound;
+  if (canPlay) card.classList.add('active');
+  var isMyMatch = viewer === 'student' && myName && (m.p1 === myName || m.p2 === myName);
+  if (canPlay && isMyMatch) {
+    card.classList.add('my-turn');
+    card.onclick = (function(s2,r2,m2,mm) { return function() { launchMatch(s2,r2,m2,mm); }; })(side,ri,mi,m);
+  }
+  function mkSlot(name, score, wlCls) {
+    var sl = document.createElement('div');
+    sl.className = 'slot' + (!name || name === 'BYE' ? ' tbd' : wlCls ? ' ' + wlCls : '');
+    var sd = document.createElement('div'); sd.className = 'slot-seed';
+    sd.textContent = getSeed(name, side, S.bracket) || '';
+    var nm = document.createElement('div'); nm.className = 'slot-name';
+    nm.textContent = (!name || name === 'BYE') ? 'TBD' : name;
+    var sc = document.createElement('div'); sc.className = 'slot-sc';
+    sc.textContent = (isDone || res.s1 || res.s2) ? (score || 0) : '';
+    sl.appendChild(sd); sl.appendChild(nm); sl.appendChild(sc); return sl;
+  }
+  var w = res.winner;
+  card.appendChild(mkSlot(m.p1, res.s1, isDone ? (w === m.p1 ? 'W' : 'L') : ''));
+  card.appendChild(mkSlot(m.p2, res.s2, isDone ? (w === m.p2 ? 'W' : 'L') : ''));
+  if (isDone && res.winner) {
+    var tag = document.createElement('div'); tag.className = 'mu-tag';
+    tag.textContent = (res.s1||0) + '-' + (res.s2||0); card.appendChild(tag);
+  } else if (canPlay) {
+    var tag2 = document.createElement('div'); tag2.className = 'mu-tag';
+    tag2.textContent = isMyMatch ? '▶ ТА' : '▶'; card.appendChild(tag2);
+  }
+  return card;
+}
+
+// ── LAUNCH MATCH ───────────────────────────────────────────────────
+function launchMatch(side, ri, mi, m) {
+  matchMeta = {side:side, ri:ri, mi:mi};
+  stopPoll();
+  var seed = strSeed(mkKey(side, ri, mi) + roomCode);
+  var activeCats = (S && S.cats && S.cats.length) ? S.cats : null;
+  var filteredQB = activeCats ? QB.filter(function(q){ return activeCats.indexOf(q.cat) !== -1; }) : QB.slice();
+  if (!filteredQB.length) filteredQB = QB.slice();
+  var questions = seedShuffle(filteredQB, seed);
+  var qOpts = questions.map(function(q) {
+    return {cat:q.cat, q:q.q, ans:q.ans, sol:q.sol, opts:seedShuffle(q.opts.slice(), strSeed(q.q))};
+  });
+  G = {curQ:0, questions:qOpts, qPer:S.qPer,
+       scL:0, scR:0, rope:50,
+       Ldone:false, Rdone:false, Lres:null, Rres:null, roundOver:false, tStart:0, log:[]};
+
+  g('gInfo').textContent = (side === 'F' ? '🏆 ФИНАЛ' : rlabel(ri, S.bracket.left.length)) + ' · ' + (m.p1||'?') + ' vs ' + (m.p2||'?');
+  g('gLn').textContent = g('ppLn').textContent = g('gcLl').textContent = m.p1||'?';
+  g('gRn').textContent = g('ppRn').textContent = g('gcRl').textContent = m.p2||'?';
+  g('tugL').textContent = '← ' + (m.p1||'?');
+  g('tugR').textContent = (m.p2||'?') + ' →';
+  updateScores(); updateRope(false, null);
+  showScr('gameScr'); loadQ();
+}
+
+// ── GAME ───────────────────────────────────────────────────────────
+function loadQ() {
+  if (G.curQ >= G.qPer) { endMatch(); return; }
+  var q = G.questions[G.curQ];
+  G.Ldone = false; G.Rdone = false; G.roundOver = false; G.Lres = null; G.Rres = null;
+  var lbl = 'АСУУЛТ ' + (G.curQ+1) + '/' + G.qPer;
+  g('ppLnum').textContent = g('ppRnum').textContent = lbl;
+  g('gcQi').textContent = G.curQ + 1; g('gcQmax').textContent = G.qPer;
+  renderPanel('L', q); renderPanel('R', q);
+  setSt('ppLst', 'idle', '⏳ Хариулт сонгоно уу');
+  setSt('ppRst', 'idle', '⏳ Хариулт сонгоно уу');
+  g('ppL').style.opacity = g('ppR').style.opacity = '1';
+  g('gcNxt').classList.remove('on'); g('gcSol').classList.remove('on');
+  g('gcSt').textContent = '🏁 Ижил бодлого бодно!'; g('gcSt').style.color = 'var(--gold)';
+  G.tStart = Date.now(); startTimer();
+}
+
+function renderPanel(side, q) {
+  g('pp' + side + 'cat').textContent = q.cat;
+  km(g('pp' + side + 'q'), q.q);
+  var grid = g('pp' + side + 'g'); grid.innerHTML = '';
+  q.opts.forEach(function(opt) {
+    var btn = document.createElement('button'); btn.className = 'ans'; btn.dataset.v = opt;
+    km(btn, opt);
+    btn.onclick = (function(o, b) { return function() { handleAns(side, o, b, q); }; })(opt, btn);
+    grid.appendChild(btn);
+  });
+}
+
+function handleAns(side, val, btn, q) {
+  if (side === 'L' && G.Ldone) return;
+  if (side === 'R' && G.Rdone) return;
+  var ok = val === q.ans, t = Date.now() - G.tStart;
+  document.querySelectorAll('#pp' + side + 'g .ans').forEach(function(b) { b.disabled = true; });
+  if (side === 'L') { G.Ldone = true; G.Lres = {ok:ok, t:t, btn:btn}; }
+  else { G.Rdone = true; G.Rres = {ok:ok, t:t, btn:btn}; }
+  if (G.Ldone && G.Rdone) { reveal(); }
+  else {
+    var nm = g('pp' + side + 'n').textContent;
+    setSt('pp' + side + 'st', 'wait', '⏳ ' + nm + ' хариуллаа...');
+    g('gcSt').textContent = '⏳ ' + nm + ' хариуллаа...';
+    g('gcSt').style.color = side === 'L' ? '#93c5fd' : '#fca5a5';
+  }
+}
+
+function reveal() {
+  G.roundOver = true; stopTimer();
+  var q = G.questions[G.curQ];
+  revealSide('L', G.Lres, q); revealSide('R', G.Rres, q);
+  var Lok = G.Lres && G.Lres.ok, Rok = G.Rres && G.Rres.ok;
+  if (Lok) G.scL++;
+  if (Rok) G.scR++;
+  G.log.push({q:G.curQ+1, cat:q.cat, question:q.q, correct:q.ans,
+    Lok:!!Lok, Ltime:G.Lres ? +(G.Lres.t/1000).toFixed(1) : null,
+    Rok:!!Rok, Rtime:G.Rres ? +(G.Rres.t/1000).toFixed(1) : null});
+  updateScores();
+  var Ln = g('ppLn').textContent, Rn = g('ppRn').textContent;
+  var st = g('gcSt');
+  if (Lok && Rok) {
+    var Lf = G.Lres.t < G.Rres.t;
+    if (Lf) { moveRope(-8, 'b'); st.textContent = '✅ Хоёулаа зөв! ' + Ln + ' хурдан!'; st.style.color = '#93c5fd'; }
+    else { moveRope(8, 'r'); st.textContent = '✅ Хоёулаа зөв! ' + Rn + ' хурдан!'; st.style.color = '#fca5a5'; }
+    ['ppL','ppR'].forEach(function(id) { var e = g(id); e.classList.add('flashG'); setTimeout(function() { e.classList.remove('flashG'); }, 600); });
+  } else if (Lok) {
+    moveRope(-13, 'b'); st.textContent = '🏆 ' + Ln + ' зөв!'; st.style.color = '#93c5fd'; g('ppR').style.opacity = '.65';
+  } else if (Rok) {
+    moveRope(13, 'r'); st.textContent = '🏆 ' + Rn + ' зөв!'; st.style.color = '#fca5a5'; g('ppL').style.opacity = '.65';
+  } else { st.textContent = '😅 Хоёулаа буруу!'; st.style.color = 'var(--muted)'; }
+  g('gcNxt').classList.add('on'); g('gcSol').classList.add('on');
+}
+
+function revealSide(side, res, q) {
+  if (!res) return;
+  document.querySelectorAll('#pp' + side + 'g .ans').forEach(function(b) { if (b.dataset.v === q.ans) b.classList.add('c'); });
+  if (res.btn && !res.ok) res.btn.classList.add('w');
+  setSt('pp' + side + 'st', res.ok ? 'ok' : 'bad', res.ok ? '✅ Зөв!' : '❌ Буруу!');
+  if (res.ok) { var e = g('pp' + side); e.classList.add('flashG'); setTimeout(function() { e.classList.remove('flashG'); }, 600); }
+}
+
+function endMatch() {
+  stopTimer();
+  var Ln = g('ppLn').textContent, Rn = g('ppRn').textContent;
+  var tie = G.scL === G.scR;
+  var w, tieReason = '';
+  if (!tie) {
+    w = G.scL > G.scR ? Ln : Rn;
+  } else {
+    // Tiebreak by rope position: rope < 50 means L side pulled more
+    var ropeWin = G.rope < 50 ? Ln : Rn;
+    w = ropeWin;
+    // Calculate total faster-answer count per player from log
+    var Lfast = 0, Rfast = 0;
+    G.log.forEach(function(e) {
+      if (e.Lok && e.Rok) { if (e.Ltime < e.Rtime) Lfast++; else Rfast++; }
+    });
+    tieReason = 'Оноо тэнцсэн (' + G.scL + ':' + G.scR + '). ' +
+      'Хурдны давуу байдлаар: ' + Ln + ' ' + Lfast + ' удаа, ' + Rn + ' ' + Rfast + ' удаа хурдан хариулсан. ' +
+      (G.rope !== 50 ? ('Арилжааны оноо (' + Math.round(Math.abs(G.rope - 50)) + ' нэгж ' + (G.rope < 50 ? Ln : Rn) + ' талд)') : 'Тэнцүү хурд — хандлагаар ' + w) +
+      ' → ' + w + ' ялагч.';
+  }
+  var side = matchMeta.side, ri = matchMeta.ri, mi = matchMeta.mi;
+  var matchResult = {s1:G.scL, s2:G.scR, winner:w, p1:Ln, p2:Rn, log:G.log,
+    tieReason:tieReason, side:side, ri:ri, mi:mi, playedAt:new Date().toISOString()};
+  if (!S.results) S.results = {};
+  S.results[mkKey(side, ri, mi)] = matchResult;
+  S.v = (S.v||1) + 1;
+  var patch = {}; patch[mkKey(side, ri, mi)] = matchResult;
+  apiUpdate(roomCode, {results: patch});
+  saveSess(role, roomCode, myName, S);
+
+  var isL = w === Ln;
+  g('wcWin').textContent = w + ' ЯЛАВ!'; g('wcWin').className = 'wc-win ' + (isL ? 'L' : 'R');
+  g('wcSub').textContent = Ln + ' vs ' + Rn; g('wcSc').textContent = G.scL + ' : ' + G.scR;
+  var tieEl = g('wcTie');
+  if (tieEl) { tieEl.textContent = tieReason; tieEl.style.display = tieReason ? 'block' : 'none'; }
+  var champ = isChamp(S);
+  if (champ) {
+    g('winOv').classList.remove('on');
+    g('ccName').textContent = w;
+    // Teacher: show banner on board (overlay dismissed via exitGame → renderTeacher)
+    // Both roles: show champ overlay first
+    g('champTeacherBtns').style.display = role === 'teacher' ? 'flex' : 'none';
+    g('champStudentBtns').style.display = role === 'student' ? 'block' : 'none';
+    g('champOv').classList.add('on');
+    if (role === 'teacher') saveToHistory(S);
+  }
+  else { g('winOv').classList.add('on'); }
+}
+
+function exitGame() {
+  g('winOv').classList.remove('on'); g('champOv').classList.remove('on');
+  if (role === 'teacher') { showScr('tBoardScr'); renderTeacher(); startPoll(); }
+  else { showScr('sBoardScr'); renderStudent(); startPoll(); }
+}
+
+// ── TIMER ──────────────────────────────────────────────────────────
+function startTimer() {
+  stopTimer();
+  var rem = S.timeSec;
+  updateTmr(rem);
+  tmrInt = setInterval(function() {
+    rem--;
+    updateTmr(rem);
+    if (rem <= 0) {
+      stopTimer();
+      if (!G.roundOver) {
+        if (!G.Ldone) { G.Ldone = true; G.Lres = {ok:false, t:S.timeSec*1000, btn:null}; }
+        if (!G.Rdone) { G.Rdone = true; G.Rres = {ok:false, t:S.timeSec*1000, btn:null}; }
+        g('gcSt').textContent = '⏰ Хугацаа дууслаа!'; g('gcSt').style.color = 'var(--red)';
+        reveal();
+      }
+    }
+  }, 1000);
+}
+function stopTimer() { if (tmrInt) { clearInterval(tmrInt); tmrInt = null; } }
+function updateTmr(sec) {
+  var el = g('gcTmr'), f = g('tfill');
+  g('tmrSec').textContent = sec;
+  f.style.width = (sec / S.timeSec * 100) + '%';
+  if (sec <= 10) { el.className = 'gc-tmr danger'; f.className = 'tfill danger'; }
+  else if (sec <= 30) { el.className = 'gc-tmr warn'; f.className = 'tfill warn'; }
+  else { el.className = 'gc-tmr'; f.className = 'tfill'; }
+}
+
+// ── ROPE ───────────────────────────────────────────────────────────
+function moveRope(delta, team) {
+  G.rope = Math.max(8, Math.min(92, G.rope + delta));
+  updateRope(true, team);
+}
+function updateRope(anim, team) {
+  var rp = G.rope;
+  g('tugBl').style.width = (100 - rp) + '%';
+  g('tugRd').style.width = rp + '%';
+  g('tugFl').style.left = rp + '%';
+  var kx = rp / 100 * 270, sag = rp < 50 ? -5 : 5;
+  var pd = 'M0,13 Q' + (kx/2) + ',' + (13+sag) + ' ' + kx + ',13 Q' + ((kx+270)/2) + ',' + (13-sag) + ' 270,13';
+  g('rMain').setAttribute('d', pd); g('rStr').setAttribute('d', pd);
+  g('rShad').setAttribute('d', 'M0,15 Q' + (kx/2) + ',' + (15+sag) + ' ' + kx + ',15 Q' + ((kx+270)/2) + ',' + (15-sag) + ' 270,15');
+  g('rKnot').setAttribute('transform', 'translate(' + kx + ',13)');
+  var sh = (rp - 50) * 0.36;
+  g('charL').style.transform = 'translateX(' + sh + 'px)';
+  g('charR').style.transform = 'translateX(' + sh + 'px)';
+  if (anim && team) {
+    var el = g(team === 'b' ? 'charL' : 'charR'), cls = team === 'b' ? 'pB' : 'pR';
+    el.classList.add(cls); setTimeout(function() { el.classList.remove(cls); }, 420);
+  }
+}
+function updateScores() {
+  ['gLsc','ppLs','gcLn'].forEach(function(id) { var e = g(id); if(e) e.textContent = G.scL; });
+  ['gRsc','ppRs','gcRn'].forEach(function(id) { var e = g(id); if(e) e.textContent = G.scR; });
+}
+function setSt(id, cls, msg) { var el = g(id); if(!el) return; el.className = 'st-box ' + cls; el.textContent = msg; }
+
+// ── POLL ───────────────────────────────────────────────────────────
+function startPoll() {
+  stopPoll();
+  pollInt = setInterval(function() {
+    if (!roomCode) return;
+    apiGet(roomCode).then(function(state) {
+      if (!state) return;
+      var h = JSON.stringify({v:state.v, r:state.round, res:state.results});
+      if (h !== lastHash) {
+        lastHash = h; S = state;
+        saveSess(role, roomCode, myName, S);
+        if (S && isChamp(S)) saveToHistory(S);
+        if (role === 'teacher') renderTeacher();
+        else renderStudent();
+      }
+    });
+  }, 2000);
+}
+function stopPoll() { if (pollInt) { clearInterval(pollInt); pollInt = null; } }
+
+// ── SOLUTION ───────────────────────────────────────────────────────
+function openSol() {
+  var q = G.questions && G.questions[G.curQ]; if (!q) return;
+  g('solCat').textContent = q.cat.toUpperCase();
+  km(g('solQtx'), q.q);
+  var steps = g('solSteps'); steps.innerHTML = '';
+  q.sol.forEach(function(line, i) {
+    if (i === q.sol.length - 1) {
+      var row = document.createElement('div'); row.className = 'sol-ans';
+      var ic = document.createElement('span'); ic.textContent = '✅ ';
+      var tx = document.createElement('span'); tx.className = 'sol-ans-tx';
+      try { katex.render(line, tx, {throwOnError:false}); } catch(e) { tx.textContent = line; }
+      row.appendChild(ic); row.appendChild(tx); steps.appendChild(row);
+    } else {
+      var row2 = document.createElement('div'); row2.className = 'sol-step';
+      var sn = document.createElement('div'); sn.className = 'sol-sn'; sn.textContent = i+1;
+      var st2 = document.createElement('div'); st2.className = 'sol-st';
+      try { katex.render(line, st2, {throwOnError:false, displayMode:true}); } catch(e) { st2.textContent = line; }
+      row2.appendChild(sn); row2.appendChild(st2); steps.appendChild(row2);
+    }
+  });
+  g('solOv').classList.add('on');
+}
+
+// ── REFERENCE ──────────────────────────────────────────────────────
+var refBuilt = false;
+function openRef() { if (!refBuilt) { buildRef(); refBuilt = true; } g('refOv').classList.add('on'); }
+function buildRef() {
+  var angles = ['0°','30°','45°','60°','90°'];
+  var vals = {
+    sin:['0','\\tfrac{1}{2}','\\tfrac{\\sqrt{2}}{2}','\\tfrac{\\sqrt{3}}{2}','1'],
+    cos:['1','\\tfrac{\\sqrt{3}}{2}','\\tfrac{\\sqrt{2}}{2}','\\tfrac{1}{2}','0'],
+    tan:['0','\\tfrac{\\sqrt{3}}{3}','1','\\sqrt{3}','∞'],
+    cot:['∞','\\sqrt{3}','1','\\tfrac{\\sqrt{3}}{3}','0']
+  };
+  var tbl = g('refTbl');
+  var hdr = '<tr><th>f(α)</th>' + angles.map(function(a) { return '<th>' + a + '</th>'; }).join('') + '</tr>';
+  var rows = Object.keys(vals).map(function(fn) {
+    var cells = vals[fn].map(function(v) {
+      var td = document.createElement('td');
+      try { katex.render(v, td, {throwOnError:false}); } catch(e) { td.textContent = v; }
+      return td.outerHTML;
+    }).join('');
+    return '<tr><td><strong>' + fn + '</strong></td>' + cells + '</tr>';
+  }).join('');
+  tbl.innerHTML = hdr + rows;
+  rList('ridB', [['Үндсэн','\\sin^2\\alpha+\\cos^2\\alpha=1'],['tan','\\tan\\alpha=\\dfrac{\\sin\\alpha}{\\cos\\alpha}'],
+    ['cot','\\cot\\alpha=\\dfrac{\\cos\\alpha}{\\sin\\alpha}'],['tan·cot','\\tan\\alpha\\cdot\\cot\\alpha=1'],
+    ['1+tan²','1+\\tan^2\\alpha=\\dfrac{1}{\\cos^2\\alpha}'],['1+cot²','1+\\cot^2\\alpha=\\dfrac{1}{\\sin^2\\alpha}']]);
+  rList('rcompB', [['sin(90°-α)','\\sin(90°-\\alpha)=\\cos\\alpha'],['cos(90°-α)','\\cos(90°-\\alpha)=\\sin\\alpha'],
+    ['tan(90°-α)','\\tan(90°-\\alpha)=\\cot\\alpha'],['sin(-α)','\\sin(-\\alpha)=-\\sin\\alpha'],['cos(-α)','\\cos(-\\alpha)=\\cos\\alpha']]);
+  rList('rtriB', [['Пифагор','a^2+b^2=c^2'],['sin','\\sin\\alpha=\\tfrac{\\text{эсрэг}}{\\text{гипотенуз}}'],
+    ['cos','\\cos\\alpha=\\tfrac{\\text{налсан}}{\\text{гипотенуз}}'],['tan','\\tan\\alpha=\\tfrac{\\text{эсрэг}}{\\text{налсан}}']]);
+  rList('rradB', [['0°','0'],['30°','\\pi/6'],['45°','\\pi/4'],['60°','\\pi/3'],['90°','\\pi/2'],['180°','\\pi'],['360°','2\\pi']]);
+}
+function rList(id, rows) {
+  var el = g(id); el.innerHTML = '';
+  rows.forEach(function(pair) {
+    var row = document.createElement('div'); row.className = 'ref-row';
+    var l = document.createElement('div'); l.className = 'ref-rl'; l.textContent = pair[0];
+    var m = document.createElement('div'); m.className = 'ref-rm';
+    try { katex.render(pair[1], m, {throwOnError:false, displayMode:true}); } catch(e) { m.textContent = pair[1]; }
+    row.appendChild(l); row.appendChild(m); el.appendChild(row);
+  });
+}
+
+// ── EXCEL EXPORT ───────────────────────────────────────────────────
+function cleanTex(s) {
+  return String(s||'')
+    .replace(/\\tfrac\{([^}]+)\}\{([^}]+)\}/g, '($1)/($2)')
+    .replace(/\\dfrac\{([^}]+)\}\{([^}]+)\}/g, '($1)/($2)')
+    .replace(/\\frac\{([^}]+)\}\{([^}]+)\}/g, '($1)/($2)')
+    .replace(/\\sqrt\{([^}]+)\}/g, 'v($1)')
+    .replace(/\\sqrt(\d)/g, 'v$1')
+    .replace(/\\sin/g,'sin').replace(/\\cos/g,'cos').replace(/\\tan/g,'tan').replace(/\\cot/g,'cot')
+    .replace(/\\text\{([^}]+)\}/g, '$1')
+    .replace(/\\alpha/g,'α').replace(/\\pi/g,'π').replace(/\\infty/g,'∞').replace(/\^2/g,'²')
+    .replace(/[{}\\]/g,'').trim();
+}
+function downloadExcelFor(st) {
+  var prevS = S; S = st;
+  downloadExcel();
+  S = prevS;
+}
+function downloadExcel() {
+  if (!S || !S.results || Object.keys(S.results).length === 0) { alert('Өгөгдөл алга байна!'); return; }
+  var d = deriveState(S), totalL = d.left.length;
+
+  var mRows = [['ШАТ','ТОГЛОЛТ','ЗҮҮН','БАРУУН','ЗЮ ОНОО','БА ОНОО','ЯЛАГЧ','ОГНОО',
+    'АС №','АНГИЛАЛ','АСУУЛТ','ЗӨВ','ЗЮ ЗӨВ?','ЗЮ СЕК','БА ЗӨВ?','БА СЕК']];
+
+  function addR(m, side, ri, mi) {
+    var key = mkKey(side, ri, mi), res = S.results[key];
+    if (!res || !res.winner) return;
+    var rl = side === 'F' ? 'ФИНАЛ' : rlabel(ri, totalL);
+    var ml = (m.p1||'?') + ' vs ' + (m.p2||'?');
+    var dt = res.playedAt ? new Date(res.playedAt).toLocaleString('mn-MN') : '';
+    var log = res.log || [];
+    if (!log.length) {
+      mRows.push([rl,ml,res.p1||m.p1||'?',res.p2||m.p2||'?',res.s1||0,res.s2||0,res.winner,dt,'','','','','','','','']);
+    } else {
+      log.forEach(function(e, i) {
+        mRows.push([i?'':rl, i?'':ml, i?'':(res.p1||m.p1||'?'), i?'':(res.p2||m.p2||'?'),
+          i?'':res.s1||0, i?'':res.s2||0, i?'':res.winner, i?'':dt,
+          e.q, e.cat, cleanTex(e.question), cleanTex(e.correct),
+          e.Lok?'ЗӨВ':'БУРУУ', e.Ltime!=null?e.Ltime:'',
+          e.Rok?'ЗӨВ':'БУРУУ', e.Rtime!=null?e.Rtime:'']);
+      });
+    }
+    mRows.push(new Array(16).fill(''));
+  }
+  d.left.forEach(function(round,ri) { round.forEach(function(m,mi) { if(m.p1&&m.p2&&m.p1!=='BYE'&&m.p2!=='BYE') addR(m,'L',ri,mi); }); });
+  d.right.forEach(function(round,ri) { round.forEach(function(m,mi) { if(m.p1&&m.p2&&m.p1!=='BYE'&&m.p2!=='BYE') addR(m,'R',ri,mi); }); });
+  if (d.finals.p1&&d.finals.p2) addR(d.finals,'F',0,0);
+
+  var stats = {};
+  S.students.forEach(function(n) { stats[n]={w:0,l:0,pf:0,pa:0,qok:0,qbad:0}; });
+  Object.values(S.results||{}).forEach(function(res) {
+    if (!res||!res.winner) return;
+    var p1=res.p1||'',p2=res.p2||'';
+    if (!stats[p1]&&p1) stats[p1]={w:0,l:0,pf:0,pa:0,qok:0,qbad:0};
+    if (!stats[p2]&&p2) stats[p2]={w:0,l:0,pf:0,pa:0,qok:0,qbad:0};
+    if(p1&&stats[p1]){stats[p1].pf+=res.s1||0;stats[p1].pa+=res.s2||0;}
+    if(p2&&stats[p2]){stats[p2].pf+=res.s2||0;stats[p2].pa+=res.s1||0;}
+    if(res.winner===p1){if(stats[p1])stats[p1].w++;if(stats[p2])stats[p2].l++;}
+    else{if(stats[p2])stats[p2].w++;if(stats[p1])stats[p1].l++;}
+    (res.log||[]).forEach(function(e){
+      if(p1&&stats[p1]){e.Lok?stats[p1].qok++:stats[p1].qbad++;}
+      if(p2&&stats[p2]){e.Rok?stats[p2].qok++:stats[p2].qbad++;}
+    });
+  });
+  var sRows = [['СУРАГЧ','ЯЛАЛТ','ЯЛАГДАЛ','НИЙТ','ОНО+','ОНО-','ЗӨВ','БУРУУ','ЗӨВ %','БАЙР']];
+  var sorted = Object.keys(stats).sort(function(a,b){ return stats[b].w-stats[a].w||(stats[b].pf-stats[b].pa)-(stats[a].pf-stats[a].pa); });
+  sorted.forEach(function(name,idx) {
+    var st=stats[name], tq=st.qok+st.qbad;
+    sRows.push([name,st.w,st.l,st.w+st.l,st.pf,st.pa,st.qok,st.qbad,tq?Math.round(st.qok/tq*100)+'%':'–',idx+1]);
+  });
+
+  var sheets = {'Тоглолт':mRows,'Сурагчийн дүн':sRows};
+  var xls = '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40">' +
+    '<head><meta charset="UTF-8"><!--[if gte mso 9]><xml><x:ExcelWorkbook><x:ExcelWorksheets>';
+  Object.keys(sheets).forEach(function(n) { xls += '<x:ExcelWorksheet><x:Name>' + n + '</x:Name></x:ExcelWorksheet>'; });
+  xls += '</x:ExcelWorksheets></x:ExcelWorkbook></xml><![endif]-->' +
+    '<style>td,th{border:1px solid #ccc;padding:4px 7px;font-family:Arial;font-size:10pt;}</style></head><body>';
+  Object.keys(sheets).forEach(function(name) {
+    xls += '<table><caption style="font-weight:bold;font-size:12pt;text-align:left;padding:4px 0">' + name + '</caption>';
+    sheets[name].forEach(function(row, ri) {
+      var empty = row.every(function(c){return c==='';});
+      if (empty) { xls += '<tr><td colspan="' + row.length + '" style="background:#f5f5f5">&nbsp;</td></tr>'; return; }
+      xls += '<tr>';
+      row.forEach(function(cell) {
+        var tag = ri===0 ? 'th' : 'td';
+        var style = ri===0 ? 'style="background:#1e3a5f;color:#fff;"' : '';
+        var v = (cell===null||cell===undefined)?'':String(cell);
+        xls += '<' + tag + ' ' + style + '>' + v.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;') + '</' + tag + '>';
+      });
+      xls += '</tr>';
+    });
+    xls += '</table><br/>';
+  });
+  xls += '</body></html>';
+
+  var blob = new Blob(['\ufeff' + xls], {type:'application/vnd.ms-excel;charset=utf-8'});
+  var url = URL.createObjectURL(blob);
+  var a = document.createElement('a');
+  a.href = url; a.download = 'Trig_' + (S.roomCode||'') + '_' + new Date().toISOString().slice(0,10) + '.xls';
+  document.body.appendChild(a); a.click(); document.body.removeChild(a); URL.revokeObjectURL(url);
+}
+
+// ── HISTORY RENDER ────────────────────────────────────────────────
+function renderHistory() {
+  var hist = loadHistory();
+  var body = g('histBody'); body.innerHTML = '';
+  if (!hist.length) {
+    var empty = document.createElement('div');
+    empty.style.cssText = 'padding:40px;text-align:center;color:var(--muted);font-size:.82rem;font-weight:700;letter-spacing:1px;';
+    empty.textContent = 'Хадгалагдсан тэмцээн байхгүй байна.';
+    body.appendChild(empty); return;
+  }
+  hist.forEach(function(st) {
+    var d = deriveState(st);
+    var champ = d.finals.w || '–';
+    var dt = st.savedAt ? new Date(st.savedAt).toLocaleDateString('mn-MN') : '';
+    var hdr = document.createElement('div');
+    hdr.style.cssText = 'background:var(--panel);border:1px solid var(--bdr2);border-top:2px solid var(--gold);border-radius:11px;padding:12px 14px;margin-bottom:8px;display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;';
+    var info = document.createElement('div');
+    info.innerHTML = '<div style="font-family:Bebas Neue;font-size:.9rem;letter-spacing:2px;color:var(--gold)">ROOM ' + st.roomCode + '</div>' +
+      '<div style="font-size:.62rem;font-weight:700;color:var(--muted);margin-top:2px">' + st.students.length + ' СУРАГЧ · ' + dt + ' · 🏆 ' + champ + '</div>';
+    var btns = document.createElement('div');
+    btns.style.cssText = 'display:flex;gap:7px;flex-shrink:0;';
+    var exBtn = document.createElement('button');
+    exBtn.className = 'excel-btn'; exBtn.textContent = '📊 EXCEL';
+    exBtn.style.cssText = 'padding:6px 11px;font-size:.76rem;';
+    exBtn.onclick = (function(s) { return function() { downloadExcelFor(s); }; })(st);
+    var delBtn = document.createElement('button');
+    delBtn.style.cssText = 'padding:6px 10px;background:rgba(239,68,68,.07);border:1px solid rgba(239,68,68,.2);border-radius:7px;color:#f87171;font-family:Bebas Neue;font-size:.76rem;cursor:pointer;';
+    delBtn.textContent = '🗑 УСТГАХ';
+    delBtn.onclick = (function(code) { return function() { deleteFromHistory(code); renderHistory(); }; })(st.roomCode);
+    btns.appendChild(exBtn); btns.appendChild(delBtn);
+    hdr.appendChild(info); hdr.appendChild(btns);
+    body.appendChild(hdr);
+    var bwrap = document.createElement('div');
+    bwrap.style.cssText = 'margin-bottom:20px;';
+    var prevS = S; S = st;
+    var ri = st.round >= d.left.length ? d.left.length : st.round;
+    bwrap.appendChild(buildBracketDOM(d, ri, 'viewer'));
+    S = prevS;
+    body.appendChild(bwrap);
+  });
+}
+
+// ── EVENT LISTENERS (no inline onclick) ───────────────────────────
+g('btnTeacher').onclick   = function() { clearSess(); setupNames=[]; renderChips(); showScr('tSetupScr'); };
+g('btnStudent').onclick   = function() { clearSess(); g('codeInp').value=''; g('joinErr').textContent=''; g('namePicker').style.display='none'; showScr('sJoinScr'); };
+g('btnSetupBack').onclick = function() { showScr('landScr'); };
+g('btnJoinBack').onclick  = function() { showScr('landScr'); };
+g('btnTBoardBack').onclick= function() { stopPoll(); if(S && isChamp(S)) saveToHistory(S); showScr('landScr'); };
+g('btnSBoardBack').onclick= function() { stopPoll(); showScr('landScr'); };
+g('btnCreate').onclick    = createTournament;
+g('bulkTa').oninput       = parseBulk;
+g('addInp').onkeydown     = function(e) { if (e.key === 'Enter') addName(); };
+g('btnAdd').onclick       = addName;
+g('codeInp').oninput      = function() { this.value = this.value.toUpperCase(); };
+g('codeInp').onkeydown    = function(e) { if (e.key === 'Enter') checkCode(); };
+g('btnJoin').onclick      = checkCode;
+g('btnConfirm').onclick   = teacherConfirm;
+g('btnExcel').onclick     = downloadExcel;
+g('btnHistory').onclick   = function() { renderHistory(); showScr('histScr'); };
+g('btnHistBack').onclick  = function() { showScr('landScr'); };
+g('btnExitGame').onclick  = exitGame;
+g('btnWinBoard').onclick  = exitGame;
+g('btnChampBoard').onclick = exitGame;
+g('btnChampBoardS').onclick= exitGame;
+g('btnBannerEnd').onclick  = function() {
+  stopPoll();
+  if (S) { saveToHistory(S); }
+  clearSess();
+  role = null; roomCode = null; myName = null; S = null;
+  showScr('landScr');
+};
+g('btnBannerExcel').onclick= downloadExcel;
+g('btnChampEnd').onclick   = function() {
+  stopPoll();
+  if (S) { saveToHistory(S); }
+  clearSess();
+  role = null; roomCode = null; myName = null; S = null;
+  g('champOv').classList.remove('on');
+  showScr('landScr');
+};
+g('gcNxt').onclick        = function() { G.curQ++; loadQ(); };
+g('gcSol').onclick        = openSol;
+g('gcRef').onclick        = openRef;
+g('btnSolClose').onclick  = function() { g('solOv').classList.remove('on'); };
+g('btnSolNext').onclick   = function() { g('solOv').classList.remove('on'); G.curQ++; loadQ(); };
+g('btnRefClose').onclick  = function() { g('refOv').classList.remove('on'); };
+g('solOv').onclick        = function(e) { if (e.target === this) g('solOv').classList.remove('on'); };
+g('refOv').onclick        = function(e) { if (e.target === this) g('refOv').classList.remove('on'); };
+document.querySelectorAll('.ref-tab').forEach(function(btn) {
+  btn.onclick = function() {
+    document.querySelectorAll('.ref-tab').forEach(function(b) { b.classList.remove('on'); });
+    document.querySelectorAll('.ref-sec').forEach(function(s) { s.classList.remove('on'); });
+    btn.classList.add('on'); g(btn.dataset.ref).classList.add('on');
+  };
+});
+
+// ── SESSION RESTORE ────────────────────────────────────────────────
+(function() {
+  var saved = loadSess();
+  if (!saved || !saved.role || !saved.roomCode) return;
+  // Restore from cache immediately
+  if (saved.state) {
+    S = saved.state; role = saved.role; roomCode = saved.roomCode; myName = saved.myName || null;
+    if (role === 'teacher') {
+      g('tCode').textContent = roomCode;
+      showScr('tBoardScr'); renderTeacher();
+    } else if (role === 'student' && myName) {
+      g('sCode').textContent = roomCode; g('sBSub').textContent = myName + ' · BRACKET';
+      showScr('sBoardScr'); renderStudent();
+    }
+    startPoll();
+  }
+  // Then refresh from API in background
+  apiGet(saved.roomCode).then(function(fresh) {
+    if (!fresh) return;
+    S = fresh;
+    saveSess(role, roomCode, myName, S);
+    if (role === 'teacher') renderTeacher();
+    else if (role === 'student' && myName) renderStudent();
+  });
+})();
+</script>
+</body>
+</html>
