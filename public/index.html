@@ -36,7 +36,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
 .nav-sub{font-size:.56rem;font-weight:700;letter-spacing:3px;color:var(--muted)}
 .nav-r{display:flex;align-items:center;gap:8px}
 .pill{padding:5px 13px;border-radius:20px;border:1px solid var(--bdr2);
-  background:rgba(0,0,0,.04);color:var(--txt2);font-family:'Bebas Neue';
+  background:rgba(255,255,255,.04);color:var(--txt2);font-family:'Bebas Neue';
   font-size:.75rem;letter-spacing:1px;cursor:pointer;transition:all .15s;white-space:nowrap}
 .pill:hover{background:rgba(255,255,255,.09);color:var(--txt)}
 .room-badge{display:flex;align-items:center;gap:5px;background:rgba(245,197,24,.06);
@@ -53,11 +53,11 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
 .land-sub{font-size:.68rem;font-weight:700;letter-spacing:4px;color:var(--muted);text-align:center;margin-bottom:6px}
 .role-card{background:var(--panel);border:1px solid var(--bdr2);border-radius:13px;
   padding:20px 18px;cursor:pointer;transition:all .2s;display:flex;gap:14px;align-items:center}
-.role-card.T{border-top:3px solid var(--gold)}.role-card.T:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(196,127,0,.15)}
-.role-card.S{border-top:3px solid var(--blue)}.role-card.S:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(37,99,235,.12)}
+.role-card.T{border-top:3px solid var(--gold)}.role-card.T:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(245,197,24,.1)}
+.role-card.S{border-top:3px solid var(--blue)}.role-card.S:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(59,130,246,.1)}
 .rc-ico{font-size:2.2rem;flex-shrink:0}
 .rc-title{font-family:'Bebas Neue';font-size:1.25rem;letter-spacing:2px;margin-bottom:3px}
-.role-card.T .rc-title{color:var(--gold)}.role-card.S .rc-title{color:var(--blue)}
+.role-card.T .rc-title{color:var(--gold)}.role-card.S .rc-title{color:#93c5fd}
 .rc-desc{font-size:.73rem;font-weight:600;color:var(--txt2);line-height:1.5}
 .rc-arr{color:var(--muted);font-size:1.1rem;flex-shrink:0}
 
@@ -82,7 +82,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
   letter-spacing:1px;cursor:pointer;white-space:nowrap;transition:background .15s}
 .add-btn:hover{background:rgba(245,197,24,.18)}
 .chip-wrap{display:flex;flex-wrap:wrap;gap:5px;min-height:36px;max-height:85px;overflow-y:auto;
-  padding:5px;background:rgba(0,0,0,.03);border:1px solid var(--bdr);border-radius:7px;margin:7px 0}
+  padding:5px;background:rgba(0,0,0,.18);border:1px solid var(--bdr);border-radius:7px;margin:7px 0}
 .chip{display:flex;align-items:center;gap:3px;background:rgba(59,130,246,.09);
   border:1px solid rgba(59,130,246,.22);border-radius:16px;padding:3px 9px 3px 11px;
   font-weight:700;font-size:.75rem;color:#93c5fd}
@@ -104,7 +104,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
 #sJoinScr{align-items:center;justify-content:center}
 .join-card{background:var(--panel);border:1px solid var(--bdr2);border-top:3px solid var(--blue);
   border-radius:13px;padding:24px 20px;width:min(380px,96vw)}
-.join-title{font-family:'Bebas Neue';font-size:1.35rem;letter-spacing:3px;color:var(--blue);margin-bottom:3px}
+.join-title{font-family:'Bebas Neue';font-size:1.35rem;letter-spacing:3px;color:#93c5fd;margin-bottom:3px}
 .join-sub{font-size:.7rem;font-weight:600;color:var(--muted);letter-spacing:1px;margin-bottom:16px}
 .join-inp{width:100%;background:var(--panel2);border:1px solid var(--bdr2);border-radius:8px;
   padding:10px 13px;font-family:'Bebas Neue';font-size:1.6rem;letter-spacing:8px;
@@ -173,10 +173,10 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
   transition:all .18s;position:relative;margin-bottom:4px}
 .mu:hover{border-color:var(--bdr2);box-shadow:0 4px 14px rgba(0,0,0,.38)}
 .mu.done{opacity:.62}.mu.active{border-color:rgba(245,197,24,.35);box-shadow:0 0 12px rgba(245,197,24,.08)}
-.mu.lside{border-left:2px solid rgba(37,99,235,.35)}.mu.rside{border-right:2px solid rgba(220,38,38,.3)}
+.mu.lside{border-left:2px solid rgba(59,130,246,.28)}.mu.rside{border-right:2px solid rgba(239,68,68,.22)}
 .mu.fin{border:1px solid rgba(245,197,24,.22);border-top:2px solid var(--gold);
   background:linear-gradient(180deg,rgba(245,197,24,.04),var(--panel))}
-.mu.my-turn{border-color:rgba(22,163,74,.5)!important;box-shadow:0 0 14px rgba(22,163,74,.15)!important;cursor:pointer}
+.mu.my-turn{border-color:rgba(34,197,94,.45)!important;box-shadow:0 0 14px rgba(34,197,94,.12)!important;cursor:pointer}
 .slot{display:flex;align-items:center;min-height:35px;transition:background .12s}
 .slot:first-child{border-bottom:1px solid var(--bdr)}.slot.W{background:rgba(34,197,94,.04)}.slot.L{opacity:.32}
 .slot-seed{width:18px;min-width:18px;min-height:35px;display:flex;align-items:center;justify-content:center;
@@ -224,13 +224,13 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
 .pp-pts{background:rgba(0,0,0,.28);border-radius:50%;width:24px;height:24px;
   display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue';font-size:.88rem;color:#fff;flex-shrink:0}
 .q-lbl{font-size:.53rem;font-weight:800;letter-spacing:2px;color:var(--muted);text-align:center;text-transform:uppercase}
-.q-box{border-radius:9px;padding:9px 7px;min-height:74px;display:flex;flex-direction:column;
+.q-box{border-radius:9px;padding:9px 7px;min-height:68px;display:flex;flex-direction:column;
   align-items:center;justify-content:center;gap:4px;flex-shrink:0}
 .pp.L .q-box{background:rgba(59,130,246,.05);border:1px solid rgba(59,130,246,.14)}
 .pp.R .q-box{background:rgba(239,68,68,.05);border:1px solid rgba(239,68,68,.14)}
 .q-cat{font-size:.52rem;font-weight:800;letter-spacing:2px;text-transform:uppercase}
-.pp.L .q-cat{color:rgba(37,99,235,.7)}.pp.R .q-cat{color:rgba(185,28,28,.7)}
-.q-tx{font-family:'Bebas Neue';font-size:1.05rem;color:var(--txt);line-height:1.35;text-align:center;word-break:keep-all;white-space:normal}
+.pp.L .q-cat{color:rgba(147,197,253,.7)}.pp.R .q-cat{color:rgba(252,165,165,.7)}
+.q-tx{font-family:'Bebas Neue';font-size:1.2rem;color:var(--txt);line-height:1.2;text-align:center}
 .ans-grid{display:grid;grid-template-columns:1fr 1fr;gap:4px;flex-shrink:0}
 .ans{border-radius:7px;padding:8px 3px;font-family:'Bebas Neue';font-size:.83rem;
   cursor:pointer;transition:all .12s;text-align:center;min-height:40px;
@@ -239,8 +239,8 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
 .pp.L .ans:not(:disabled):hover{background:rgba(59,130,246,.2);border-color:rgba(59,130,246,.45);color:#fff}
 .pp.R .ans{background:rgba(239,68,68,.06);border-color:rgba(239,68,68,.18);color:#fca5a5}
 .pp.R .ans:not(:disabled):hover{background:rgba(239,68,68,.2);border-color:rgba(239,68,68,.45);color:#fff}
-.ans.c{background:rgba(22,163,74,.12)!important;border-color:var(--green)!important;color:var(--green)!important}
-.ans.w{background:rgba(220,38,38,.12)!important;border-color:var(--red)!important;color:var(--red)!important}
+.ans.c{background:rgba(34,197,94,.13)!important;border-color:var(--green)!important;color:var(--green)!important}
+.ans.w{background:rgba(239,68,68,.17)!important;border-color:var(--red)!important;color:var(--red)!important}
 .ans:disabled{cursor:not-allowed}
 .st-box{border-radius:7px;padding:5px 7px;font-size:.68rem;font-weight:700;text-align:center;
   display:flex;align-items:center;justify-content:center;min-height:25px;flex-shrink:0}
@@ -262,11 +262,11 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
 .gc-st{font-size:.6rem;font-weight:700;text-align:center;min-height:13px;flex-shrink:0;letter-spacing:.5px}
 .gc-tmr{display:flex;align-items:center;justify-content:center;gap:3px;padding:3px 7px;
   border-radius:11px;background:rgba(59,130,246,.06);border:1px solid rgba(59,130,246,.16);
-  font-family:'Bebas Neue';font-size:.8rem;color:var(--blue);flex-shrink:0;width:100%;transition:all .3s}
+  font-family:'Bebas Neue';font-size:.8rem;color:#93c5fd;flex-shrink:0;width:100%;transition:all .3s}
 .gc-tmr.warn{background:rgba(245,197,24,.06);border-color:rgba(245,197,24,.22);color:var(--gold)}
 .gc-tmr.danger{background:rgba(239,68,68,.07);border-color:rgba(239,68,68,.22);color:var(--red);animation:pulse .6s ease infinite}
 @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.04)}}
-.tbar{height:3px;background:rgba(0,0,0,.04);border-radius:2px;width:100%;flex-shrink:0;overflow:hidden}
+.tbar{height:3px;background:rgba(255,255,255,.04);border-radius:2px;width:100%;flex-shrink:0;overflow:hidden}
 .tfill{height:100%;background:#93c5fd;border-radius:2px;transition:width .95s linear,background .3s}
 .tfill.warn{background:var(--gold)}.tfill.danger{background:var(--red)}
 .gc-nxt{background:linear-gradient(135deg,var(--green2),var(--green));border:none;border-radius:7px;
@@ -292,7 +292,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
 .ggrass{height:4px;background:linear-gradient(180deg,rgba(74,222,128,.38),rgba(34,197,94,.22));border-radius:3px 3px 0 0}
 .gsoil{height:4px;background:rgba(77,48,28,.3)}
 .tug-wrap{position:absolute;bottom:0;left:2px;right:2px}
-.tug-trk{height:12px;background:rgba(0,0,0,.04);border-radius:7px;border:1px solid var(--bdr);position:relative;overflow:hidden}
+.tug-trk{height:12px;background:rgba(255,255,255,.04);border-radius:7px;border:1px solid var(--bdr);position:relative;overflow:hidden}
 .tug-bl{position:absolute;left:0;top:0;bottom:0;width:50%;background:linear-gradient(90deg,rgba(29,78,216,.65),rgba(59,130,246,.65));border-radius:7px 0 0 7px;transition:width .7s cubic-bezier(.34,1.56,.64,1)}
 .tug-rd{position:absolute;right:0;top:0;bottom:0;width:50%;background:linear-gradient(90deg,rgba(239,68,68,.65),rgba(153,27,27,.65));border-radius:0 7px 7px 0;transition:width .7s cubic-bezier(.34,1.56,.64,1)}
 .tug-flag{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
@@ -301,7 +301,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
 .tug-lbls{display:flex;justify-content:space-between;font-size:.46rem;font-weight:700;color:var(--muted);padding:1px 1px 0}
 
 /* OVERLAYS */
-.ov{position:fixed;inset:0;background:rgba(200,210,230,.8);z-index:900;display:none;
+.ov{position:fixed;inset:0;background:rgba(0,0,0,.88);z-index:900;display:none;
   align-items:center;justify-content:center;padding:16px;backdrop-filter:blur(8px)}
 .ov.on{display:flex}
 @keyframes popIn{from{transform:scale(.82);opacity:0}to{transform:scale(1);opacity:1}}
@@ -310,7 +310,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
   box-shadow:0 24px 60px rgba(0,0,0,.65);animation:popIn .3s ease}
 .wc-ic{font-size:2.6rem;display:block;margin-bottom:6px}
 .wc-win{font-family:'Bebas Neue';font-size:1.45rem;letter-spacing:2px;margin-bottom:3px}
-.wc-win.L{color:#1d4ed8}.wc-win.R{color:#b91c1c}
+.wc-win.L{color:#93c5fd}.wc-win.R{color:#fca5a5}
 .wc-sub{font-size:.7rem;color:var(--muted);font-weight:600;margin-bottom:2px}
 .wc-sc{font-family:'Bebas Neue';font-size:.9rem;color:var(--muted);margin-bottom:10px}
 .wc-note{font-size:.65rem;font-weight:700;color:rgba(245,197,24,.55);margin-bottom:14px;
@@ -333,7 +333,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
 .sol-hd{background:rgba(245,197,24,.04);padding:10px 13px;display:flex;align-items:center;
   justify-content:space-between;flex-shrink:0;border-bottom:1px solid var(--bdr)}
 .sol-ht{font-family:'Bebas Neue';font-size:.86rem;letter-spacing:2px;color:var(--gold)}
-.ov-x{background:rgba(0,0,0,.04);border:1px solid var(--bdr);border-radius:50%;
+.ov-x{background:rgba(255,255,255,.04);border:1px solid var(--bdr);border-radius:50%;
   width:26px;height:26px;color:var(--txt2);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:.8rem;transition:all .15s}
 .ov-x:hover{background:rgba(239,68,68,.14);color:var(--red)}
 .sol-q{background:rgba(245,197,24,.025);padding:8px 13px;border-bottom:1px solid var(--bdr);flex-shrink:0}
@@ -352,26 +352,26 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
 .sol-close{width:100%;padding:9px;border:none;border-radius:8px;
   background:linear-gradient(135deg,var(--green2),var(--green));color:#fff;
   font-family:'Bebas Neue';font-size:.88rem;letter-spacing:1px;cursor:pointer}
-.ref-card{background:var(--panel);border:1px solid var(--bdr2);border-top:2px solid var(--blue);
+.ref-card{background:var(--panel);border:1px solid var(--bdr2);border-top:2px solid #93c5fd;
   border-radius:13px;width:min(540px,96vw);max-height:84vh;display:flex;flex-direction:column;
   overflow:hidden;box-shadow:0 28px 70px rgba(0,0,0,.7);animation:popIn .22s ease}
-.ref-hd{background:rgba(37,99,235,.05);padding:10px 13px;display:flex;align-items:center;
+.ref-hd{background:rgba(59,130,246,.05);padding:10px 13px;display:flex;align-items:center;
   justify-content:space-between;flex-shrink:0;border-bottom:1px solid var(--bdr)}
-.ref-ht{font-family:'Bebas Neue';font-size:.86rem;letter-spacing:2px;color:var(--blue)}
-.ref-tabs{display:flex;overflow-x:auto;border-bottom:1px solid var(--bdr);background:rgba(0,0,0,.04);flex-shrink:0}
+.ref-ht{font-family:'Bebas Neue';font-size:.86rem;letter-spacing:2px;color:#93c5fd}
+.ref-tabs{display:flex;overflow-x:auto;border-bottom:1px solid var(--bdr);background:rgba(0,0,0,.14);flex-shrink:0}
 .ref-tab{padding:7px 12px;border:none;background:none;cursor:pointer;font-family:'Barlow Condensed';
   font-size:.68rem;font-weight:700;color:var(--muted);border-bottom:2px solid transparent;
   margin-bottom:-1px;white-space:nowrap;transition:all .15s}
-.ref-tab.on{color:var(--blue);border-bottom-color:var(--blue);background:rgba(37,99,235,.06)}
+.ref-tab.on{color:#93c5fd;border-bottom-color:#93c5fd;background:rgba(59,130,246,.04)}
 .ref-body{flex:1;overflow-y:auto;padding:11px 13px}
 .ref-sec{display:none}.ref-sec.on{display:block}
-.ref-row{background:rgba(0,0,0,.025);border-radius:8px;padding:7px 10px;margin-bottom:5px;
+.ref-row{background:rgba(255,255,255,.024);border-radius:8px;padding:7px 10px;margin-bottom:5px;
   border-left:2px solid rgba(59,130,246,.22);display:flex;align-items:center;gap:7px}
 .ref-rl{font-size:.6rem;font-weight:700;color:var(--muted);min-width:76px}
 .ref-rm{flex:1}
 .ref-tbl{width:100%;border-collapse:collapse}
 .ref-tbl th,.ref-tbl td{padding:6px 9px;text-align:center;border:1px solid var(--bdr);font-size:.72rem}
-.ref-tbl th{background:rgba(59,130,246,.07);font-weight:800;color:var(--blue);font-family:'Bebas Neue';letter-spacing:1px;font-size:.7rem}
+.ref-tbl th{background:rgba(59,130,246,.07);font-weight:800;color:#93c5fd;font-family:'Bebas Neue';letter-spacing:1px;font-size:.7rem}
 .ref-tbl tr:nth-child(even) td{background:rgba(255,255,255,.016)}
 
 ::-webkit-scrollbar{width:4px;height:4px}
@@ -380,7 +380,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
 @keyframes tugB{0%{transform:translateX(0)}40%{transform:translateX(6px)}100%{transform:translateX(0)}}
 @keyframes tugR{0%{transform:translateX(0)}40%{transform:translateX(-6px)}100%{transform:translateX(0)}}
 .pB{animation:tugB .4s ease}.pR{animation:tugR .4s ease}
-@keyframes flashG{0%{box-shadow:inset 0 0 0 0 rgba(22,163,74,0)}50%{box-shadow:inset 0 0 0 4px rgba(22,163,74,.2)}100%{box-shadow:inset 0 0 0 0 rgba(22,163,74,0}}
+@keyframes flashG{0%{box-shadow:inset 0 0 0 0 rgba(34,197,94,0)}50%{box-shadow:inset 0 0 0 4px rgba(34,197,94,.16)}100%{box-shadow:inset 0 0 0 0 rgba(34,197,94,0)}}
 .flashG{animation:flashG .55s ease}
 </style>
 </head>
@@ -445,24 +445,9 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
     <div class="card-title">⚙️ ТОХИРГОО</div>
     <div class="opts-row">
       <span class="opt-lbl">Асуулт тус бүрт:</span>
-      <select class="opt-sel" id="qCnt"><option value="5">5</option><option value="7" selected>7</option><option value="10">10</option><option value="15">15</option><option value="20">20</option></select>
+      <select class="opt-sel" id="qCnt"><option value="5">5</option><option value="7" selected>7</option><option value="10">10</option></select>
       <span class="opt-lbl" style="margin-left:8px">Хугацаа:</span>
       <select class="opt-sel" id="timeSel"><option value="60">60с</option><option value="90" selected>90с</option><option value="120">120с</option></select>
-    </div>
-    <div class="opts-row" style="flex-direction:column;align-items:flex-start;gap:6px">
-      <span class="opt-lbl">Асуултын төрөл:</span>
-      <div style="display:flex;flex-wrap:wrap;gap:7px">
-        <label style="display:flex;align-items:center;gap:5px;font-size:.76rem;font-weight:700;color:var(--txt2);cursor:pointer"><input type="checkbox" class="cat-chk" value="тэгшитгэл" checked style="accent-color:var(--gold)"> Тэгшитгэл</label>
-        <label style="display:flex;align-items:center;gap:5px;font-size:.76rem;font-weight:700;color:var(--txt2);cursor:pointer"><input type="checkbox" class="cat-chk" value="илэрхийлэл" checked style="accent-color:var(--gold)"> Бүхэл тооны илэрхийлэл</label>
-        <label style="display:flex;align-items:center;gap:5px;font-size:.76rem;font-weight:700;color:var(--txt2);cursor:pointer"><input type="checkbox" class="cat-chk" value="бутархай" checked style="accent-color:var(--gold)"> Энгийн бутархай</label>
-        <label style="display:flex;align-items:center;gap:5px;font-size:.76rem;font-weight:700;color:var(--txt2);cursor:pointer"><input type="checkbox" class="cat-chk" value="зэрэг язгуур" checked style="accent-color:var(--gold)"> Зэрэг ба язгуур</label>
-        <label style="display:flex;align-items:center;gap:5px;font-size:.76rem;font-weight:700;color:var(--txt2);cursor:pointer"><input type="checkbox" class="cat-chk" value="анхны тоо" checked style="accent-color:var(--gold)"> Анхны тоо</label>
-        <label style="display:flex;align-items:center;gap:5px;font-size:.76rem;font-weight:700;color:var(--txt2);cursor:pointer"><input type="checkbox" class="cat-chk" value="sin утга" style="accent-color:var(--gold)"> sin утга (9-р анги)</label>
-        <label style="display:flex;align-items:center;gap:5px;font-size:.76rem;font-weight:700;color:var(--txt2);cursor:pointer"><input type="checkbox" class="cat-chk" value="cos утга" style="accent-color:var(--gold)"> cos утга (9-р анги)</label>
-        <label style="display:flex;align-items:center;gap:5px;font-size:.76rem;font-weight:700;color:var(--txt2);cursor:pointer"><input type="checkbox" class="cat-chk" value="tan утга" style="accent-color:var(--gold)"> tan утга (9-р анги)</label>
-        <label style="display:flex;align-items:center;gap:5px;font-size:.76rem;font-weight:700;color:var(--txt2);cursor:pointer"><input type="checkbox" class="cat-chk" value="харьцаа" style="accent-color:var(--gold)"> Тригонометрийн харьцаа (9-р анги)</label>
-        <label style="display:flex;align-items:center;gap:5px;font-size:.76rem;font-weight:700;color:var(--txt2);cursor:pointer"><input type="checkbox" class="cat-chk" value="адилтгал" style="accent-color:var(--gold)"> Үндсэн адилтгалууд (9-р анги)</label>
-      </div>
     </div>
     <button class="big-btn gold" id="btnCreate" disabled>🏆 ТЭМЦЭЭН ҮҮСГЭХ</button>
   </div>
@@ -638,7 +623,6 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
   <div class="wc-win" id="wcWin">–</div>
   <div class="wc-sub" id="wcSub">–</div>
   <div class="wc-sc" id="wcSc">0:0</div>
-  <div class="wc-tie" id="wcTie" style="display:none;font-size:.72rem;font-weight:600;color:var(--gold);background:rgba(245,197,24,.07);border:1px solid rgba(245,197,24,.18);border-radius:8px;padding:9px 12px;margin:6px 0;line-height:1.55;text-align:left;"></div>
   <div class="wc-note">⏳ Дараагийн шатыг багш батална. Bracket харна уу.</div>
   <button class="wc-btn board" id="btnWinBoard">📊 BRACKET ХАРАХ</button>
 </div>
@@ -701,222 +685,118 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
 
 // ── QUESTION BANK ──────────────────────────────────────────────────
 var QB = [
-  // ── sin утга ──────────────────────────────────────────────────────
-  {cat:'sin утга',q:'\\sin 0°',ans:'0',opts:['0','1','\\tfrac{1}{2}','\\tfrac{\\sqrt{2}}{2}'],sol:['\\sin 0° = 0','0']},
-  {cat:'sin утга',q:'\\sin 30°',ans:'\\tfrac{1}{2}',opts:['\\tfrac{1}{2}','\\tfrac{\\sqrt{2}}{2}','\\tfrac{\\sqrt{3}}{2}','1'],sol:['\\sin 30° = \\tfrac{1}{2}','\\tfrac{1}{2}']},
-  {cat:'sin утга',q:'\\sin 45°',ans:'\\tfrac{\\sqrt{2}}{2}',opts:['\\tfrac{\\sqrt{2}}{2}','\\tfrac{1}{2}','\\tfrac{\\sqrt{3}}{2}','1'],sol:['\\sin 45° = \\tfrac{\\sqrt{2}}{2}','\\tfrac{\\sqrt{2}}{2}']},
-  {cat:'sin утга',q:'\\sin 60°',ans:'\\tfrac{\\sqrt{3}}{2}',opts:['\\tfrac{\\sqrt{3}}{2}','\\tfrac{\\sqrt{2}}{2}','\\tfrac{1}{2}','1'],sol:['\\sin 60° = \\tfrac{\\sqrt{3}}{2}','\\tfrac{\\sqrt{3}}{2}']},
-  {cat:'sin утга',q:'\\sin 90°',ans:'1',opts:['1','0','\\tfrac{\\sqrt{2}}{2}','\\tfrac{\\sqrt{3}}{2}'],sol:['\\sin 90° = 1','1']},
-  // ── cos утга ──────────────────────────────────────────────────────
-  {cat:'cos утга',q:'\\cos 0°',ans:'1',opts:['1','0','\\tfrac{1}{2}','\\tfrac{\\sqrt{2}}{2}'],sol:['\\cos 0° = 1','1']},
-  {cat:'cos утга',q:'\\cos 30°',ans:'\\tfrac{\\sqrt{3}}{2}',opts:['\\tfrac{\\sqrt{3}}{2}','\\tfrac{\\sqrt{2}}{2}','\\tfrac{1}{2}','0'],sol:['\\cos 30° = \\tfrac{\\sqrt{3}}{2}','\\tfrac{\\sqrt{3}}{2}']},
-  {cat:'cos утга',q:'\\cos 45°',ans:'\\tfrac{\\sqrt{2}}{2}',opts:['\\tfrac{\\sqrt{2}}{2}','\\tfrac{1}{2}','\\tfrac{\\sqrt{3}}{2}','1'],sol:['\\cos 45° = \\tfrac{\\sqrt{2}}{2}','\\tfrac{\\sqrt{2}}{2}']},
-  {cat:'cos утга',q:'\\cos 60°',ans:'\\tfrac{1}{2}',opts:['\\tfrac{1}{2}','\\tfrac{\\sqrt{2}}{2}','\\tfrac{\\sqrt{3}}{2}','0'],sol:['\\cos 60° = \\tfrac{1}{2}','\\tfrac{1}{2}']},
-  {cat:'cos утга',q:'\\cos 90°',ans:'0',opts:['0','1','\\tfrac{1}{2}','\\tfrac{\\sqrt{2}}{2}'],sol:['\\cos 90° = 0','0']},
-  // ── tan утга ──────────────────────────────────────────────────────
-  {cat:'tan утга',q:'\\tan 0°',ans:'0',opts:['0','1','\\tfrac{\\sqrt{3}}{3}','\\text{тодорхойгүй}'],sol:['\\tan 0° = 0','0']},
-  {cat:'tan утга',q:'\\tan 30°',ans:'\\tfrac{\\sqrt{3}}{3}',opts:['\\tfrac{\\sqrt{3}}{3}','\\tfrac{1}{2}','\\sqrt{3}','1'],sol:['\\tan 30° = \\tfrac{\\sqrt{3}}{3}','\\tfrac{\\sqrt{3}}{3}']},
-  {cat:'tan утга',q:'\\tan 45°',ans:'1',opts:['1','\\sqrt{3}','\\tfrac{\\sqrt{3}}{3}','0'],sol:['\\tan 45° = 1','1']},
-  {cat:'tan утга',q:'\\tan 60°',ans:'\\sqrt{3}',opts:['\\sqrt{3}','1','\\tfrac{\\sqrt{3}}{3}','\\tfrac{1}{2}'],sol:['\\tan 60° = \\sqrt{3}','\\sqrt{3}']},
-  {cat:'tan утга',q:'\\tan 90°',ans:'\\text{тодорхойгүй}',opts:['\\text{тодорхойгүй}','0','1','\\infty'],sol:['\\tan 90° — тодорхойгүй','\\text{тодорхойгүй}']},
+  /* ── SIN УТГА ── */
+  {cat:'sin утга',q:'\\sin 0°',ans:'0',
+   opts:['0','1','\\tfrac{1}{2}','\\tfrac{\\sqrt{2}}{2}'],
+   sol:['Эгц өнцөгт гурвалжинд \\sin\\alpha = \\tfrac{\\text{эсрэг}}{\\text{гипотенуз}}','0° өнцөгт эсрэг = 0','\\sin 0° = \\tfrac{0}{c} = 0','0']},
 
-  // ── Харьцаа: катетуудаар тодорхойлох ─────────────────────────────
-  {cat:'харьцаа',q:'\\sin\\alpha = ?',ans:'\\dfrac{\\text{эсрэг катет}}{\\text{гипотенуз}}',
-   opts:['\\dfrac{\\text{эсрэг катет}}{\\text{гипотенуз}}','\\dfrac{\\text{налсан катет}}{\\text{гипотенуз}}','\\dfrac{\\text{эсрэг катет}}{\\text{налсан катет}}','\\dfrac{\\text{гипотенуз}}{\\text{эсрэг катет}}'],
-   sol:['\\sin\\alpha = \\dfrac{\\text{эсрэг катет}}{\\text{гипотенуз}}','\\dfrac{\\text{эсрэг катет}}{\\text{гипотенуз}}']},
+  {cat:'sin утга',q:'\\sin 30°',ans:'\\tfrac{1}{2}',
+   opts:['\\tfrac{1}{2}','\\tfrac{\\sqrt{2}}{2}','\\tfrac{\\sqrt{3}}{2}','1'],
+   sol:['\\sin\\alpha = \\tfrac{\\text{эсрэг}}{\\text{гипотенуз}}','30-60-90° гурвалжинд эсрэг = \\tfrac{c}{2}','\\sin 30° = \\tfrac{c/2}{c} = \\tfrac{1}{2}','\\tfrac{1}{2}']},
 
-  {cat:'харьцаа',q:'\\cos\\alpha = ?',ans:'\\dfrac{\\text{налсан катет}}{\\text{гипотенуз}}',
-   opts:['\\dfrac{\\text{налсан катет}}{\\text{гипотенуз}}','\\dfrac{\\text{эсрэг катет}}{\\text{гипотенуз}}','\\dfrac{\\text{гипотенуз}}{\\text{налсан катет}}','\\dfrac{\\text{эсрэг катет}}{\\text{налсан катет}}'],
-   sol:['\\cos\\alpha = \\dfrac{\\text{налсан катет}}{\\text{гипотенуз}}','\\dfrac{\\text{налсан катет}}{\\text{гипотенуз}}']},
+  {cat:'sin утга',q:'\\sin 45°',ans:'\\tfrac{\\sqrt{2}}{2}',
+   opts:['\\tfrac{\\sqrt{2}}{2}','\\tfrac{1}{2}','\\tfrac{\\sqrt{3}}{2}','1'],
+   sol:['\\sin\\alpha = \\tfrac{\\text{эсрэг}}{\\text{гипотенуз}}','45-45-90° гурвалжинд катет = a, гипотенуз = a\\sqrt{2}','\\sin 45° = \\tfrac{a}{a\\sqrt{2}} = \\tfrac{1}{\\sqrt{2}} = \\tfrac{\\sqrt{2}}{2}','\\tfrac{\\sqrt{2}}{2}']},
 
-  {cat:'харьцаа',q:'\\tan\\alpha = ?',ans:'\\dfrac{\\text{эсрэг катет}}{\\text{налсан катет}}',
-   opts:['\\dfrac{\\text{эсрэг катет}}{\\text{налсан катет}}','\\dfrac{\\text{налсан катет}}{\\text{эсрэг катет}}','\\dfrac{\\text{эсрэг катет}}{\\text{гипотенуз}}','\\dfrac{\\text{гипотенуз}}{\\text{эсрэг катет}}'],
-   sol:['\\tan\\alpha = \\dfrac{\\text{эсрэг катет}}{\\text{налсан катет}}','\\dfrac{\\text{эсрэг катет}}{\\text{налсан катет}}']},
+  {cat:'sin утга',q:'\\sin 60°',ans:'\\tfrac{\\sqrt{3}}{2}',
+   opts:['\\tfrac{\\sqrt{3}}{2}','\\tfrac{\\sqrt{2}}{2}','\\tfrac{1}{2}','1'],
+   sol:['\\sin\\alpha = \\tfrac{\\text{эсрэг}}{\\text{гипотенуз}}','30-60-90° гурвалжинд 60°-ийн эсрэг = \\tfrac{c\\sqrt{3}}{2}','\\sin 60° = \\tfrac{c\\sqrt{3}/2}{c} = \\tfrac{\\sqrt{3}}{2}','\\tfrac{\\sqrt{3}}{2}']},
 
-  {cat:'харьцаа',q:'\\cot\\alpha = ?',ans:'\\dfrac{\\text{налсан катет}}{\\text{эсрэг катет}}',
-   opts:['\\dfrac{\\text{налсан катет}}{\\text{эсрэг катет}}','\\dfrac{\\text{эсрэг катет}}{\\text{налсан катет}}','\\dfrac{\\text{гипотенуз}}{\\text{налсан катет}}','\\dfrac{\\text{налсан катет}}{\\text{гипотенуз}}'],
-   sol:['\\cot\\alpha = \\dfrac{\\text{налсан катет}}{\\text{эсрэг катет}}','\\dfrac{\\text{налсан катет}}{\\text{эсрэг катет}}']},
+  {cat:'sin утга',q:'\\sin 90°',ans:'1',
+   opts:['1','0','\\tfrac{\\sqrt{2}}{2}','\\tfrac{\\sqrt{3}}{2}'],
+   sol:['\\sin\\alpha = \\tfrac{\\text{эсрэг}}{\\text{гипотенуз}}','90° өнцөгт эсрэг нь гипотенузтай тэнцүү болно','\\sin 90° = \\tfrac{c}{c} = 1','1']},
 
-  {cat:'харьцаа',q:'Гурвалжинд: эсрэг катет = 3, гипотенуз = 5.  \\sin\\alpha = ?',
-   ans:'\\dfrac{3}{5}',opts:['\\dfrac{3}{5}','\\dfrac{4}{5}','\\dfrac{3}{4}','\\dfrac{5}{3}'],
-   sol:['\\sin\\alpha = \\dfrac{\\text{эсрэг}}{\\text{гипотенуз}} = \\dfrac{3}{5}','\\dfrac{3}{5}']},
+  /* ── COS УТГА ── */
+  {cat:'cos утга',q:'\\cos 0°',ans:'1',
+   opts:['1','0','\\tfrac{1}{2}','\\tfrac{\\sqrt{2}}{2}'],
+   sol:['\\cos\\alpha = \\tfrac{\\text{налсан}}{\\text{гипотенуз}}','0° өнцөгт налсан = гипотенуз','\\cos 0° = \\tfrac{c}{c} = 1','1']},
 
-  {cat:'харьцаа',q:'Гурвалжинд: налсан катет = 4, гипотенуз = 5.  \\cos\\alpha = ?',
-   ans:'\\dfrac{4}{5}',opts:['\\dfrac{4}{5}','\\dfrac{3}{5}','\\dfrac{3}{4}','\\dfrac{5}{4}'],
-   sol:['\\cos\\alpha = \\dfrac{\\text{налсан}}{\\text{гипотенуз}} = \\dfrac{4}{5}','\\dfrac{4}{5}']},
+  {cat:'cos утга',q:'\\cos 30°',ans:'\\tfrac{\\sqrt{3}}{2}',
+   opts:['\\tfrac{\\sqrt{3}}{2}','\\tfrac{\\sqrt{2}}{2}','\\tfrac{1}{2}','0'],
+   sol:['\\cos\\alpha = \\tfrac{\\text{налсан}}{\\text{гипотенуз}}','30-60-90° гурвалжинд 30°-ийн налсан = \\tfrac{c\\sqrt{3}}{2}','\\cos 30° = \\tfrac{c\\sqrt{3}/2}{c} = \\tfrac{\\sqrt{3}}{2}','\\tfrac{\\sqrt{3}}{2}']},
 
-  {cat:'харьцаа',q:'Гурвалжинд: эсрэг катет = 3, налсан катет = 4.  \\tan\\alpha = ?',
-   ans:'\\dfrac{3}{4}',opts:['\\dfrac{3}{4}','\\dfrac{4}{3}','\\dfrac{3}{5}','\\dfrac{4}{5}'],
-   sol:['\\tan\\alpha = \\dfrac{\\text{эсрэг}}{\\text{налсан}} = \\dfrac{3}{4}','\\dfrac{3}{4}']},
+  {cat:'cos утга',q:'\\cos 45°',ans:'\\tfrac{\\sqrt{2}}{2}',
+   opts:['\\tfrac{\\sqrt{2}}{2}','\\tfrac{1}{2}','\\tfrac{\\sqrt{3}}{2}','1'],
+   sol:['\\cos\\alpha = \\tfrac{\\text{налсан}}{\\text{гипотенуз}}','45-45-90° гурвалжинд налсан = a, гипотенуз = a\\sqrt{2}','\\cos 45° = \\tfrac{a}{a\\sqrt{2}} = \\tfrac{\\sqrt{2}}{2}','\\tfrac{\\sqrt{2}}{2}']},
 
-  {cat:'харьцаа',q:'Гурвалжинд: эсрэг катет = 5, налсан катет = 12.  \\cot\\alpha = ?',
-   ans:'\\dfrac{12}{5}',opts:['\\dfrac{12}{5}','\\dfrac{5}{12}','\\dfrac{5}{13}','\\dfrac{12}{13}'],
-   sol:['\\cot\\alpha = \\dfrac{\\text{налсан}}{\\text{эсрэг}} = \\dfrac{12}{5}','\\dfrac{12}{5}']},
+  {cat:'cos утга',q:'\\cos 60°',ans:'\\tfrac{1}{2}',
+   opts:['\\tfrac{1}{2}','\\tfrac{\\sqrt{2}}{2}','\\tfrac{\\sqrt{3}}{2}','0'],
+   sol:['\\cos\\alpha = \\tfrac{\\text{налсан}}{\\text{гипотенуз}}','30-60-90° гурвалжинд 60°-ийн налсан = \\tfrac{c}{2}','\\cos 60° = \\tfrac{c/2}{c} = \\tfrac{1}{2}','\\tfrac{1}{2}']},
 
-  // ── Үндсэн адилтгалууд ────────────────────────────────────────────
-  {cat:'адилтгал',q:'\\sin^2\\alpha + \\cos^2\\alpha = ?',
-   ans:'1',opts:['1','0','2','\\sin\\alpha\\cos\\alpha'],
-   sol:['Пифагорын адилтгал: \\sin^2\\alpha + \\cos^2\\alpha = 1','1']},
+  {cat:'cos утга',q:'\\cos 90°',ans:'0',
+   opts:['0','1','\\tfrac{1}{2}','\\tfrac{\\sqrt{2}}{2}'],
+   sol:['\\cos\\alpha = \\tfrac{\\text{налсан}}{\\text{гипотенуз}}','90° өнцөгт налсан = 0','\\cos 90° = \\tfrac{0}{c} = 0','0']},
 
-  {cat:'адилтгал',q:'\\tan\\alpha = ?',
-   ans:'\\dfrac{\\sin\\alpha}{\\cos\\alpha}',
-   opts:['\\dfrac{\\sin\\alpha}{\\cos\\alpha}','\\dfrac{\\cos\\alpha}{\\sin\\alpha}','\\sin\\alpha\\cdot\\cos\\alpha','\\dfrac{1}{\\sin\\alpha}'],
-   sol:['\\tan\\alpha = \\dfrac{\\sin\\alpha}{\\cos\\alpha}','\\dfrac{\\sin\\alpha}{\\cos\\alpha}']},
+  /* ── TAN УТГА ── */
+  {cat:'tan утга',q:'\\tan 0°',ans:'0',
+   opts:['0','1','\\tfrac{\\sqrt{3}}{3}','\\text{тодорхойгүй}'],
+   sol:['\\tan\\alpha = \\tfrac{\\text{эсрэг}}{\\text{налсан}}','0° өнцөгт эсрэг = 0','\\tan 0° = \\tfrac{0}{a} = 0','0']},
 
-  {cat:'адилтгал',q:'\\cot\\alpha = ?',
-   ans:'\\dfrac{\\cos\\alpha}{\\sin\\alpha}',
-   opts:['\\dfrac{\\cos\\alpha}{\\sin\\alpha}','\\dfrac{\\sin\\alpha}{\\cos\\alpha}','\\dfrac{1}{\\cos\\alpha}','\\dfrac{1}{\\tan\\alpha^2}'],
-   sol:['\\cot\\alpha = \\dfrac{\\cos\\alpha}{\\sin\\alpha}','\\dfrac{\\cos\\alpha}{\\sin\\alpha}']},
+  {cat:'tan утга',q:'\\tan 30°',ans:'\\tfrac{\\sqrt{3}}{3}',
+   opts:['\\tfrac{\\sqrt{3}}{3}','\\sqrt{3}','1','\\tfrac{1}{2}'],
+   sol:['\\tan\\alpha = \\tfrac{\\text{эсрэг}}{\\text{налсан}}','30-60-90°: эсрэг = \\tfrac{c}{2},\\; налсан = \\tfrac{c\\sqrt{3}}{2}','\\tan 30° = \\tfrac{c/2}{c\\sqrt{3}/2} = \\tfrac{1}{\\sqrt{3}} = \\tfrac{\\sqrt{3}}{3}','\\tfrac{\\sqrt{3}}{3}']},
 
-  {cat:'адилтгал',q:'\\tan\\alpha \\cdot \\cot\\alpha = ?',
-   ans:'1',opts:['1','0','\\tan^2\\alpha','\\sin^2\\alpha'],
-   sol:['\\tan\\alpha \\cdot \\cot\\alpha = 1 \\quad (\\text{учир нь } \\dfrac{\\sin}{\\cos}\\cdot\\dfrac{\\cos}{\\sin}=1)','1']},
+  {cat:'tan утга',q:'\\tan 45°',ans:'1',
+   opts:['1','\\sqrt{3}','\\tfrac{\\sqrt{3}}{3}','0'],
+   sol:['\\tan\\alpha = \\tfrac{\\text{эсрэг}}{\\text{налсан}}','45-45-90°: эсрэг = налсан = a','\\tan 45° = \\tfrac{a}{a} = 1','1']},
 
-  {cat:'адилтгал',q:'1 + \\tan^2\\alpha = ?',
-   ans:'\\dfrac{1}{\\cos^2\\alpha}',
-   opts:['\\dfrac{1}{\\cos^2\\alpha}','\\dfrac{1}{\\sin^2\\alpha}','\\cos^2\\alpha','\\sec\\alpha'],
-   sol:['1 + \\tan^2\\alpha = \\dfrac{1}{\\cos^2\\alpha}','\\dfrac{1}{\\cos^2\\alpha}']},
+  {cat:'tan утга',q:'\\tan 60°',ans:'\\sqrt{3}',
+   opts:['\\sqrt{3}','1','\\tfrac{\\sqrt{3}}{3}','\\tfrac{1}{2}'],
+   sol:['\\tan\\alpha = \\tfrac{\\text{эсрэг}}{\\text{налсан}}','30-60-90°: 60°-ийн эсрэг = \\tfrac{c\\sqrt{3}}{2},\\; налсан = \\tfrac{c}{2}','\\tan 60° = \\tfrac{c\\sqrt{3}/2}{c/2} = \\sqrt{3}','\\sqrt{3}']},
 
-  {cat:'адилтгал',q:'1 + \\cot^2\\alpha = ?',
-   ans:'\\dfrac{1}{\\sin^2\\alpha}',
-   opts:['\\dfrac{1}{\\sin^2\\alpha}','\\dfrac{1}{\\cos^2\\alpha}','\\sin^2\\alpha','\\cot\\alpha'],
-   sol:['1 + \\cot^2\\alpha = \\dfrac{1}{\\sin^2\\alpha}','\\dfrac{1}{\\sin^2\\alpha}']},
+  /* ── ХАРЬЦААНЫ ТОДОРХОЙЛОЛТ ── */
+  {cat:'харьцаа',q:'\\sin\\alpha = \\; ?',ans:'\\tfrac{\\text{эсрэг}}{\\text{гипотенуз}}',
+   opts:['\\tfrac{\\text{эсрэг}}{\\text{гипотенуз}}','\\tfrac{\\text{налсан}}{\\text{гипотенуз}}','\\tfrac{\\text{эсрэг}}{\\text{налсан}}','\\tfrac{\\text{гипотенуз}}{\\text{эсрэг}}'],
+   sol:['Эгц өнцөгт гурвалжинд:\\; \\alpha өнцгийн','эсрэг нь \\alpha-ийн эсрэг талд байна','гипотенуз нь эгц өнцгийн эсрэг тал','\\sin\\alpha = \\tfrac{\\text{эсрэг}}{\\text{гипотенуз}}']},
 
-  {cat:'адилтгал',q:'\\sin^2\\alpha + \\cos^2\\alpha = 1 бол \\cos^2\\alpha = ?',
-   ans:'1 - \\sin^2\\alpha',
-   opts:['1 - \\sin^2\\alpha','1 + \\sin^2\\alpha','\\sin^2\\alpha - 1','\\sin\\alpha - 1'],
-   sol:['\\cos^2\\alpha = 1 - \\sin^2\\alpha','1 - \\sin^2\\alpha']},
+  {cat:'харьцаа',q:'\\cos\\alpha = \\; ?',ans:'\\tfrac{\\text{налсан}}{\\text{гипотенуз}}',
+   opts:['\\tfrac{\\text{налсан}}{\\text{гипотенуз}}','\\tfrac{\\text{эсрэг}}{\\text{гипотенуз}}','\\tfrac{\\text{налсан}}{\\text{эсрэг}}','\\tfrac{\\text{гипотенуз}}{\\text{налсан}}'],
+   sol:['Эгц өнцөгт гурвалжинд:\\; \\alpha өнцгийн','налсан нь \\alpha өнцгийн хажуугийн тал','гипотенуз нь эгц өнцгийн эсрэг тал','\\cos\\alpha = \\tfrac{\\text{налсан}}{\\text{гипотенуз}}']},
 
-  {cat:'адилтгал',q:'\\sin 90° = 1 бол \\cos 0° = ?',
-   ans:'1',opts:['1','0','\\tfrac{1}{2}','\\tfrac{\\sqrt{2}}{2}'],
-   sol:['\\cos 0° = 1 \\quad (\\text{үндсэн утга})','1']},
+  {cat:'харьцаа',q:'\\tan\\alpha = \\; ?',ans:'\\tfrac{\\text{эсрэг}}{\\text{налсан}}',
+   opts:['\\tfrac{\\text{эсрэг}}{\\text{налсан}}','\\tfrac{\\text{налсан}}{\\text{эсрэг}}','\\tfrac{\\text{эсрэг}}{\\text{гипотенуз}}','\\tfrac{\\text{гипотенуз}}{\\text{эсрэг}}'],
+   sol:['Эгц өнцөгт гурвалжинд:\\; \\alpha өнцгийн','\\tan\\alpha = \\tfrac{\\sin\\alpha}{\\cos\\alpha}','= \\tfrac{\\text{эсрэг}/\\text{гипотенуз}}{\\text{налсан}/\\text{гипотенуз}}','\\tfrac{\\text{эсрэг}}{\\text{налсан}}']},
 
-  {cat:'адилтгал',q:'\\sin\\alpha = \\cos(90° - \\alpha). Тэгвэл \\sin 30° = \\cos(?) ',
-   ans:'60°',opts:['60°','30°','45°','90°'],
-   sol:['\\sin 30° = \\cos(90°-30°) = \\cos 60°','60°']},
+  {cat:'харьцаа',q:'\\sin\\alpha -г катет гипотенузаар илэрхийлбэл?',ans:'\\tfrac{\\text{эсрэг}}{\\text{гипотенуз}}',
+   opts:['\\tfrac{\\text{эсрэг}}{\\text{гипотенуз}}','\\tfrac{\\text{налсан}}{\\text{гипотенуз}}','\\tfrac{\\text{эсрэг}}{\\text{налсан}}','\\tfrac{\\text{гипотенуз}}{\\text{налсан}}'],
+   sol:['\\alpha өнцгийн эсрэг тал = эсрэг','эгц өнцгийн эсрэг тал = гипотенуз','\\sin\\alpha = \\tfrac{\\text{эсрэг}}{\\text{гипотенуз}}','\\tfrac{\\text{эсрэг}}{\\text{гипотенуз}}']},
 
-  {cat:'адилтгал',q:'\\tan 45° \\cdot \\cot 45° = ?',
-   ans:'1',opts:['1','2','0','\\sqrt{2}'],
-   sol:['\\tan 45° = 1,\\; \\cot 45° = 1 \\Rightarrow 1\\cdot1 = 1','1']},
+  {cat:'харьцаа',q:'\\cos\\alpha -г катет гипотенузаар илэрхийлбэл?',ans:'\\tfrac{\\text{налсан}}{\\text{гипотенуз}}',
+   opts:['\\tfrac{\\text{налсан}}{\\text{гипотенуз}}','\\tfrac{\\text{эсрэг}}{\\text{гипотенуз}}','\\tfrac{\\text{налсан}}{\\text{эсрэг}}','\\tfrac{\\text{гипотенуз}}{\\text{налсан}}'],
+   sol:['\\alpha өнцгийн налсан тал = налсан','эгц өнцгийн эсрэг тал = гипотенуз','\\cos\\alpha = \\tfrac{\\text{налсан}}{\\text{гипотенуз}}','\\tfrac{\\text{налсан}}{\\text{гипотенуз}}']},
 
-  {cat:'адилтгал',q:'\\sin^2 30° + \\cos^2 30° = ?',
-   ans:'1',opts:['1','\\tfrac{1}{2}','\\tfrac{3}{4}','\\tfrac{5}{4}'],
-   sol:['\\sin^2 30° + \\cos^2 30° = \\tfrac{1}{4}+\\tfrac{3}{4} = 1','1']},
+  /* ── ҮНДСЭН АДИЛТГАЛ ── */
+  {cat:'адилтгал',q:'\\sin^2\\alpha + \\cos^2\\alpha = \\; ?',ans:'1',
+   opts:['1','0','2','\\sin\\alpha\\cos\\alpha'],
+   sol:['Пифагорын теорем: a^2 + b^2 = c^2','Хоёр талыг c^2-д хуваана: \\tfrac{a^2}{c^2} + \\tfrac{b^2}{c^2} = 1','\\sin^2\\alpha + \\cos^2\\alpha = 1','1']},
 
-  // ── Тэгшитгэл ─────────────────────────────────────────────────────
-  {cat:'тэгшитгэл',q:'x + 5 = 12. \ x = ?',ans:'7',opts:['7','17','6','8'],sol:['x = 12 - 5 = 7','7']},
-  {cat:'тэгшитгэл',q:'x - 8 = 4. \ x = ?',ans:'12',opts:['12','4','3','14'],sol:['x = 4 + 8 = 12','12']},
-  {cat:'тэгшитгэл',q:'3x = 21. \ x = ?',ans:'7',opts:['7','18','24','63'],sol:['x = 21 \\div 3 = 7','7']},
-  {cat:'тэгшитгэл',q:'\\dfrac{x}{4} = 6. \ x = ?',ans:'24',opts:['24','10','2','48'],sol:['x = 6 \\times 4 = 24','24']},
-  {cat:'тэгшитгэл',q:'2x + 3 = 11. \ x = ?',ans:'4',opts:['4','7','5','3'],sol:['2x = 11 - 3 = 8,\ x = 4','4']},
-  {cat:'тэгшитгэл',q:'5x - 10 = 15. \ x = ?',ans:'5',opts:['5','1','25','3'],sol:['5x = 25,\ x = 5','5']},
-  {cat:'тэгшитгэл',q:'3x + 7 = 22. \ x = ?',ans:'5',opts:['5','9','3','10'],sol:['3x = 15,\ x = 5','5']},
-  {cat:'тэгшитгэл',q:'4x - 6 = 10. \ x = ?',ans:'4',opts:['4','1','16','2'],sol:['4x = 16,\ x = 4','4']},
-  {cat:'тэгшитгэл',q:'x + 14 = 30. \ x = ?',ans:'16',opts:['16','44','14','18'],sol:['x = 30 - 14 = 16','16']},
-  {cat:'тэгшитгэл',q:'7x = 56. \ x = ?',ans:'8',opts:['8','7','49','9'],sol:['x = 56 \\div 7 = 8','8']},
-  {cat:'тэгшитгэл',q:'2x + 9 = 25. \ x = ?',ans:'8',opts:['8','17','10','7'],sol:['2x = 16,\ x = 8','8']},
-  {cat:'тэгшитгэл',q:'6x - 12 = 24. \ x = ?',ans:'6',opts:['6','2','12','3'],sol:['6x = 36,\ x = 6','6']},
-  {cat:'тэгшитгэл',q:'\\dfrac{x}{3} + 2 = 7. \ x = ?',ans:'15',opts:['15','5','9','27'],sol:['\\dfrac{x}{3} = 5,\ x = 15','15']},
-  {cat:'тэгшитгэл',q:'9 - x = 4. \ x = ?',ans:'5',opts:['5','13','4','6'],sol:['x = 9 - 4 = 5','5']},
-  {cat:'тэгшитгэл',q:'4x + 4 = 20. \ x = ?',ans:'4',opts:['4','6','5','3'],sol:['4x = 16,\ x = 4','4']},
+  {cat:'адилтгал',q:'\\sin^2\\alpha = \\; ?',ans:'1 - \\cos^2\\alpha',
+   opts:['1 - \\cos^2\\alpha','1 + \\cos^2\\alpha','\\cos^2\\alpha - 1','\\cos^2\\alpha'],
+   sol:['Үндсэн адилтгал: \\sin^2\\alpha + \\cos^2\\alpha = 1','\\sin^2\\alpha -г гаргавал','\\sin^2\\alpha = 1 - \\cos^2\\alpha','1 - \\cos^2\\alpha']},
 
-  // ── Бүхэл тооны илэрхийлэл (3–4 үйлдэл) ──────────────────────────
-  {cat:'илэрхийлэл',q:'3 + 4 \\times 2 = ?',ans:'11',opts:['11','14','10','24'],sol:['Эхлээд үржилт: 4×2=8, дараа нэмэлт: 3+8=11','11']},
-  {cat:'илэрхийлэл',q:'(3 + 4) \\times 2 = ?',ans:'14',opts:['14','11','10','28'],sol:['Хаалтыг эхэлж: 7×2=14','14']},
-  {cat:'илэрхийлэл',q:'20 - 3 \\times 4 + 2 = ?',ans:'10',opts:['10','14','6','68'],sol:['3×4=12;\ 20-12+2=10','10']},
-  {cat:'илэрхийлэл',q:'(10 - 4) \\div 2 + 5 = ?',ans:'8',opts:['8','3','10','13'],sol:['6÷2=3;\ 3+5=8','8']},
-  {cat:'илэрхийлэл',q:'5 \\times (2 + 3) - 8 = ?',ans:'17',opts:['17','21','15','2'],sol:['5×5=25;\ 25-8=17','17']},
-  {cat:'илэрхийлэл',q:'18 \\div 3 + 4 \\times 2 = ?',ans:'14',opts:['14','24','10','16'],sol:['18÷3=6;\ 4×2=8;\ 6+8=14','14']},
-  {cat:'илэрхийлэл',q:'(8 + 2) \\times (6 - 4) = ?',ans:'20',opts:['20','18','22','10'],sol:['10×2=20','20']},
-  {cat:'илэрхийлэл',q:'3 \\times 4 - 2 \\times 5 = ?',ans:'2',opts:['2','10','14','0'],sol:['12-10=2','2']},
-  {cat:'илэрхийлэл',q:'24 \\div (3 + 3) + 5 = ?',ans:'9',opts:['9','4','8','13'],sol:['24÷6=4;\ 4+5=9','9']},
-  {cat:'илэрхийлэл',q:'7 + 3 \\times (8 - 5) = ?',ans:'16',opts:['16','13','30','22'],sol:['8-5=3;\ 3×3=9;\ 7+9=16','16']},
-  {cat:'илэрхийлэл',q:'50 - (6 + 4) \\times 3 = ?',ans:'20',opts:['20','30','110','40'],sol:['10×3=30;\ 50-30=20','20']},
-  {cat:'илэрхийлэл',q:'4 \\times 3 + 6 \\div 2 = ?',ans:'15',opts:['15','9','21','18'],sol:['12+3=15','15']},
-  {cat:'илэрхийлэл',q:'(15 - 5) \\div 2 \\times 4 = ?',ans:'20',opts:['20','10','40','5'],sol:['10÷2=5;\ 5×4=20','20']},
-  // сөрөг тоо гарах илэрхийлэл (хүндрүүлсэн, 100-ын дотор)
-  {cat:'илэрхийлэл',q:'-3 \\times 4 - 5 = ?',ans:'-17',opts:['-17','17','-7','7'],sol:['-3×4=-12;\ -12-5=-17','−17']},
-  {cat:'илэрхийлэл',q:'(-6+2) \\times (-3) = ?',ans:'12',opts:['12','-12','24','-24'],sol:['(-6+2)=-4;\ (-4)×(-3)=12','12']},
-  {cat:'илэрхийлэл',q:'5 - 3 \\times (4-6) = ?',ans:'11',opts:['11','-1','-11','1'],sol:['(4-6)=-2;\ -3×(-2)=6;\ 5+6=11','11']},
-  {cat:'илэрхийлэл',q:'3 \\times (-2) + 4 \\times (-1) = ?',ans:'-10',opts:['-10','10','-2','2'],sol:['-6+(-4)=-10','−10']},
-  {cat:'илэрхийлэл',q:'(3-8) \\times (1-4) = ?',ans:'15',opts:['15','-15','9','-9'],sol:['(-5)×(-3)=15','15']},
-  {cat:'илэрхийлэл',q:'-18 \\div (-3) - 4 = ?',ans:'2',opts:['2','-2','10','-10'],sol:['-18÷(-3)=6;\ 6-4=2','2']},
-  {cat:'илэрхийлэл',q:'(-4)^2 - 5 \\times 4 = ?',ans:'-4',opts:['-4','4','36','-36'],sol:['(-4)^2=16;\ 5×4=20;\ 16-20=-4','−4']},
-  {cat:'илэрхийлэл',q:'-4 \\times (2-5) + (-6) = ?',ans:'6',opts:['6','-6','18','-18'],sol:['-4×(-3)=12;\ 12+(-6)=6','6']},
-  {cat:'илэрхийлэл',q:'(-1)^3 + (-2)^2 - 5 = ?',ans:'-2',opts:['-2','2','-8','8'],sol:['(-1)³=-1;\ (-2)²=4;\ -1+4-5=-2','−2']},
-  {cat:'илэрхийлэл',q:'(-3+1) \\times (-4) \\div 2 = ?',ans:'4',opts:['4','-4','8','-8'],sol:['(-2)×(-4)=8;\ 8÷2=4','4']},
-  {cat:'илэрхийлэл',q:'2 \\times (-3)^2 - 10 = ?',ans:'8',opts:['8','-8','-28','28'],sol:['(-3)²=9;\ 2×9=18;\ 18-10=8','8']},
-  {cat:'илэрхийлэл',q:'(-2+5) \\times (3-7) = ?',ans:'-12',opts:['-12','12','-8','8'],sol:['3×(-4)=-12','−12']},
-  {cat:'илэрхийлэл',q:'5 - 2 \\times (3-7) - 1 = ?',ans:'12',opts:['12','-12','4','-4'],sol:['(3-7)=-4;\ -2×(-4)=8;\ 5+8-1=12','12']},
-  {cat:'илэрхийлэл',q:'-2 \\times (4-9) + 3 \\times (-4) = ?',ans:'-2',opts:['-2','2','-22','22'],sol:['-2×(-5)=10;\ 3×(-4)=-12;\ 10-12=-2','−2']},
-  {cat:'илэрхийлэл',q:'(-5)^2 - 4 \\times (3+7) = ?',ans:'-15',opts:['-15','15','5','-5'],sol:['25-4×10=25-40=-15','−15']},
+  {cat:'адилтгал',q:'\\cos^2\\alpha = \\; ?',ans:'1 - \\sin^2\\alpha',
+   opts:['1 - \\sin^2\\alpha','1 + \\sin^2\\alpha','\\sin^2\\alpha - 1','\\sin^2\\alpha'],
+   sol:['Үндсэн адилтгал: \\sin^2\\alpha + \\cos^2\\alpha = 1','\\cos^2\\alpha -г гаргавал','\\cos^2\\alpha = 1 - \\sin^2\\alpha','1 - \\sin^2\\alpha']},
 
-  // ── Энгийн бутархай: нэмэх, хасах ────────────────────────────────
-  {cat:'бутархай',q:'\\dfrac{1}{4} + \\dfrac{2}{4} = ?',ans:'\\dfrac{3}{4}',opts:['\\dfrac{3}{4}','\\dfrac{3}{8}','\\dfrac{1}{2}','1'],sol:['Хуваагч ижил тул тоологчийг нэмнэ: \\tfrac{3}{4}','\\dfrac{3}{4}']},
-  {cat:'бутархай',q:'\\dfrac{3}{5} - \\dfrac{1}{5} = ?',ans:'\\dfrac{2}{5}',opts:['\\dfrac{2}{5}','\\dfrac{2}{10}','\\dfrac{4}{5}','\\dfrac{2}{0}'],sol:['\\tfrac{3-1}{5}=\\tfrac{2}{5}','\\dfrac{2}{5}']},
-  {cat:'бутархай',q:'\\dfrac{1}{3} + \\dfrac{1}{6} = ?',ans:'\\dfrac{1}{2}',opts:['\\dfrac{1}{2}','\\dfrac{2}{9}','\\dfrac{1}{3}','\\dfrac{2}{6}'],sol:['\\tfrac{2}{6}+\\tfrac{1}{6}=\\tfrac{3}{6}=\\tfrac{1}{2}','\\dfrac{1}{2}']},
-  {cat:'бутархай',q:'\\dfrac{3}{4} - \\dfrac{1}{2} = ?',ans:'\\dfrac{1}{4}',opts:['\\dfrac{1}{4}','\\dfrac{1}{2}','\\dfrac{2}{2}','\\dfrac{1}{6}'],sol:['\\tfrac{3}{4}-\\tfrac{2}{4}=\\tfrac{1}{4}','\\dfrac{1}{4}']},
-  {cat:'бутархай',q:'\\dfrac{2}{3} + \\dfrac{1}{4} = ?',ans:'\\dfrac{11}{12}',opts:['\\dfrac{11}{12}','\\dfrac{3}{7}','\\dfrac{3}{12}','\\dfrac{5}{6}'],sol:['\\tfrac{8}{12}+\\tfrac{3}{12}=\\tfrac{11}{12}','\\dfrac{11}{12}']},
-  {cat:'бутархай',q:'\\dfrac{5}{6} - \\dfrac{1}{3} = ?',ans:'\\dfrac{1}{2}',opts:['\\dfrac{1}{2}','\\dfrac{4}{3}','\\dfrac{4}{6}','\\dfrac{2}{3}'],sol:['\\tfrac{5}{6}-\\tfrac{2}{6}=\\tfrac{3}{6}=\\tfrac{1}{2}','\\dfrac{1}{2}']},
-  // бутархай: үржих
-  {cat:'бутархай',q:'\\dfrac{2}{3} \\times \\dfrac{3}{4} = ?',ans:'\\dfrac{1}{2}',opts:['\\dfrac{1}{2}','\\dfrac{6}{12}','\\dfrac{5}{7}','\\dfrac{2}{4}'],sol:['\\tfrac{2\\times3}{3\\times4}=\\tfrac{6}{12}=\\tfrac{1}{2}','\\dfrac{1}{2}']},
-  {cat:'бутархай',q:'\\dfrac{3}{5} \\times \\dfrac{5}{9} = ?',ans:'\\dfrac{1}{3}',opts:['\\dfrac{1}{3}','\\dfrac{15}{45}','\\dfrac{8}{14}','\\dfrac{3}{9}'],sol:['\\tfrac{15}{45}=\\tfrac{1}{3}','\\dfrac{1}{3}']},
-  {cat:'бутархай',q:'4 \\times \\dfrac{3}{8} = ?',ans:'\\dfrac{3}{2}',opts:['\\dfrac{3}{2}','\\dfrac{7}{8}','\\dfrac{12}{32}','\\dfrac{3}{8}'],sol:['\\tfrac{4\\times3}{8}=\\tfrac{12}{8}=\\tfrac{3}{2}','\\dfrac{3}{2}']},
-  // бутархай: хуваах
-  {cat:'бутархай',q:'\\dfrac{1}{2} \\div \\dfrac{1}{4} = ?',ans:'2',opts:['2','\\dfrac{1}{8}','\\dfrac{1}{2}','4'],sol:['\\tfrac{1}{2}\\times\\tfrac{4}{1}=2','2']},
-  {cat:'бутархай',q:'\\dfrac{3}{4} \\div \\dfrac{3}{8} = ?',ans:'2',opts:['2','\\dfrac{9}{32}','\\dfrac{1}{2}','3'],sol:['\\tfrac{3}{4}\\times\\tfrac{8}{3}=\\tfrac{24}{12}=2','2']},
-  {cat:'бутархай',q:'\\dfrac{2}{5} \\div 4 = ?',ans:'\\dfrac{1}{10}',opts:['\\dfrac{1}{10}','\\dfrac{8}{5}','\\dfrac{2}{20}','\\dfrac{2}{9}'],sol:['\\tfrac{2}{5}\\times\\tfrac{1}{4}=\\tfrac{2}{20}=\\tfrac{1}{10}','\\dfrac{1}{10}']},
-  {cat:'бутархай',q:'6 \\div \\dfrac{2}{3} = ?',ans:'9',opts:['9','4','3','12'],sol:['6\\times\\tfrac{3}{2}=9','9']},
+  {cat:'адилтгал',q:'\\tan\\alpha = \\; ?',ans:'\\tfrac{\\sin\\alpha}{\\cos\\alpha}',
+   opts:['\\tfrac{\\sin\\alpha}{\\cos\\alpha}','\\tfrac{\\cos\\alpha}{\\sin\\alpha}','\\sin\\alpha \\cdot \\cos\\alpha','\\tfrac{1}{\\sin\\alpha}'],
+   sol:['\\tan\\alpha = \\tfrac{\\text{эсрэг}}{\\text{налсан}}','= \\tfrac{\\text{эсрэг}/\\text{гипотенуз}}{\\text{налсан}/\\text{гипотенуз}}','\\tan\\alpha = \\tfrac{\\sin\\alpha}{\\cos\\alpha}','\\tfrac{\\sin\\alpha}{\\cos\\alpha}']},
 
-  // ── Зэрэг ба язгуур ───────────────────────────────────────────────
-  {cat:'зэрэг язгуур',q:'2^3 = ?',ans:'8',opts:['8','6','9','16'],sol:['2^3 = 2\\times2\\times2 = 8','8']},
-  {cat:'зэрэг язгуур',q:'3^2 = ?',ans:'9',opts:['9','6','8','12'],sol:['3^2 = 3\\times3 = 9','9']},
-  {cat:'зэрэг язгуур',q:'5^2 = ?',ans:'25',opts:['25','10','15','20'],sol:['5^2 = 25','25']},
-  {cat:'зэрэг язгуур',q:'4^3 = ?',ans:'64',opts:['64','12','16','32'],sol:['4^3 = 64','64']},
-  {cat:'зэрэг язгуур',q:'10^2 = ?',ans:'100',opts:['100','20','1000','10'],sol:['10^2 = 100','100']},
-  {cat:'зэрэг язгуур',q:'2^5 = ?',ans:'32',opts:['32','10','16','25'],sol:['2^5=32','32']},
-  {cat:'зэрэг язгуур',q:'\\sqrt{9} = ?',ans:'3',opts:['3','4','81','\\tfrac{9}{2}'],sol:['\\sqrt{9}=3, учир нь 3^2=9','3']},
-  {cat:'зэрэг язгуур',q:'\\sqrt{25} = ?',ans:'5',opts:['5','12','625','4'],sol:['\\sqrt{25}=5','5']},
-  {cat:'зэрэг язгуур',q:'\\sqrt{49} = ?',ans:'7',opts:['7','8','6','24'],sol:['\\sqrt{49}=7','7']},
-  {cat:'зэрэг язгуур',q:'\\sqrt{100} = ?',ans:'10',opts:['10','50','20','5'],sol:['\\sqrt{100}=10','10']},
-  {cat:'зэрэг язгуур',q:'\\sqrt{144} = ?',ans:'12',opts:['12','11','13','72'],sol:['\\sqrt{144}=12','12']},
-  {cat:'зэрэг язгуур',q:'2^3 \\times 2^2 = ?',ans:'32',opts:['32','25','16','64'],sol:['2^{3+2}=2^5=32','32']},
-  {cat:'зэрэг язгуур',q:'\\dfrac{3^4}{3^2} = ?',ans:'9',opts:['9','1','12','81'],sol:['3^{4-2}=3^2=9','9']},
-  {cat:'зэрэг язгуур',q:'(2^2)^3 = ?',ans:'64',opts:['64','12','8','32'],sol:['2^{2\\times3}=2^6=64','64']},
-  {cat:'зэрэг язгуур',q:'\\sqrt{4} + \\sqrt{16} = ?',ans:'6',opts:['6','8','10','\\sqrt{20}'],sol:['2+4=6','6']},
-  {cat:'зэрэг язгуур',q:'3^2 + 4^2 = ?',ans:'25',opts:['25','49','14','50'],sol:['9+16=25','25']},
+  {cat:'адилтгал',q:'\\sin^2 30° + \\cos^2 30° = \\; ?',ans:'1',
+   opts:['1','\\tfrac{1}{2}','\\tfrac{3}{4}','2'],
+   sol:['Үндсэн адилтгал: \\sin^2\\alpha + \\cos^2\\alpha = 1 (ямар ч \\alpha-д)','\\sin 30° = \\tfrac{1}{2},\\; \\cos 30° = \\tfrac{\\sqrt{3}}{2}','\\left(\\tfrac{1}{2}\\right)^2 + \\left(\\tfrac{\\sqrt{3}}{2}\\right)^2 = \\tfrac{1}{4} + \\tfrac{3}{4} = 1','1']},
 
-  // ── Анхны тоо ─────────────────────────────────────────────────────
-  {cat:'анхны тоо',q:'Дараах тоонуудаас анхны тоо аль нь вэ?\n4, 6, 7, 9',ans:'7',opts:['7','4','6','9'],sol:['7 = 1 ба 7-оор л хуваагдана → анхны тоо','7']},
-  {cat:'анхны тоо',q:'1 анхны тоо мөн үү?',ans:'Үгүй',opts:['Үгүй','Тийм'],sol:['1 нь анхны тоо биш — яагаад гэвэл яг 2 хуваагчтай байх шаардлагатай','Үгүй']},
-  {cat:'анхны тоо',q:'10-аас доош анхны тоонуудын тоо хэд вэ?\n(2,3,5,7)',ans:'4',opts:['4','3','5','2'],sol:['2, 3, 5, 7 — нийт 4 анхны тоо','4']},
-  {cat:'анхны тоо',q:'21 анхны тоо мөн үү?',ans:'Үгүй',opts:['Үгүй','Тийм'],sol:['21 = 3×7 → анхны тоо биш','Үгүй']},
-  {cat:'анхны тоо',q:'Дараах тоонуудаас анхны тоо аль нь вэ?\n15, 17, 21, 25',ans:'17',opts:['17','15','21','25'],sol:['17 = 1 ба 17-оор л хуваагдана','17']},
-  {cat:'анхны тоо',q:'2 анхны тоо мөн үү?',ans:'Тийм',opts:['Тийм','Үгүй'],sol:['2 — хамгийн бага анхны тоо, цорын ганц тэгш анхны тоо','Тийм']},
-  {cat:'анхны тоо',q:'36-ийн анхны хуваагчид (prime factors)?',ans:'2, 3',opts:['2, 3','2, 5','3, 5','2, 7'],sol:['36 = 2²×3² → анхны хуваагч: 2 ба 3','2, 3']},
-  {cat:'анхны тоо',q:'20 ба 30-ийн ЕБЗ (GCD) = ?',ans:'10',opts:['10','5','20','2'],sol:['20=2²×5, 30=2×3×5 → ЕБЗ=2×5=10','10']},
-  {cat:'анхны тоо',q:'4 ба 6-ийн БХЕД (LCM) = ?',ans:'12',opts:['12','24','8','6'],sol:['4=2², 6=2×3 → БХЕД=2²×3=12','12']},
-  {cat:'анхны тоо',q:'Дараах тоонуудаас анхны тоо аль нь вэ?\n27, 29, 33, 35',ans:'29',opts:['29','27','33','35'],sol:['29 = 1 ба 29-өөр л хуваагдана','29']},
-  {cat:'анхны тоо',q:'51 анхны тоо мөн үү?',ans:'Үгүй',opts:['Үгүй','Тийм'],sol:['51 = 3×17 → анхны тоо биш','Үгүй']},
-  {cat:'анхны тоо',q:'12 ба 18-ийн ЕБЗ = ?',ans:'6',opts:['6','3','2','12'],sol:['12=2²×3, 18=2×3² → ЕБЗ=2×3=6','6']},
+  {cat:'адилтгал',q:'\\sin^2 45° + \\cos^2 45° = \\; ?',ans:'1',
+   opts:['1','\\tfrac{\\sqrt{2}}{2}','\\tfrac{1}{2}','2'],
+   sol:['Үндсэн адилтгал: \\sin^2\\alpha + \\cos^2\\alpha = 1','\\sin 45° = \\cos 45° = \\tfrac{\\sqrt{2}}{2}','\\left(\\tfrac{\\sqrt{2}}{2}\\right)^2 + \\left(\\tfrac{\\sqrt{2}}{2}\\right)^2 = \\tfrac{1}{2} + \\tfrac{1}{2} = 1','1']}
 ];
 
-// ── UTILS ──// ── UTILS ──────────────────────────────────────────────────────────
+// ── UTILS ──────────────────────────────────────────────────────────
 function g(id) { return document.getElementById(id); }
 function km(el, tx) {
   if (!el) return;
   el.innerHTML = '';
-  var parts = tx.split('\n');
-  if (parts.length === 1) {
-    try { katex.render(tx, el, {throwOnError: false}); } catch(e) { el.textContent = tx; }
-  } else {
-    parts.forEach(function(part, i) {
-      var span = document.createElement('span');
-      span.style.cssText = 'display:block;text-align:center;line-height:1.4';
-      try { katex.render(part.trim(), span, {throwOnError: false}); } catch(e) { span.textContent = part; }
-      el.appendChild(span);
-    });
-  }
+  try { katex.render(tx, el, {throwOnError: false}); } catch(e) { el.textContent = tx; }
 }
 function showScr(id) {
   document.querySelectorAll('.scr').forEach(function(s) { s.classList.remove('on'); });
@@ -1002,6 +882,7 @@ var S = null;   // tournament state
 var G = {};     // game session
 var pollInt = null, lastHash = '';
 var matchMeta = null, tmrInt = null;
+var mySide = null; // 'L' or 'R' — which side this device plays
 
 // ── SETUP ──────────────────────────────────────────────────────────
 var setupNames = [];
@@ -1045,14 +926,11 @@ function createTournament() {
   btn.disabled = true; btn.textContent = '⏳ ҮҮСГЭЖ БАЙНА...';
   roomCode = mkCode();
   var names = seedShuffle(setupNames.slice(), strSeed('init' + Date.now()));
-  var selCats = Array.from(document.querySelectorAll('.cat-chk:checked')).map(function(c){return c.value;});
-  if (!selCats.length) selCats = ['sin утга','cos утга','tan утга'];
   S = {
     v: 1, roomCode: roomCode,
     students: names,
     qPer: +g('qCnt').value,
     timeSec: +g('timeSel').value,
-    cats: selCats,
     bracket: buildBracket(names),
     round: 0,
     results: {}
@@ -1072,9 +950,16 @@ function createTournament() {
 function buildBracket(names) {
   var sz = 1;
   while (sz < names.length) sz *= 2;
-  var seeded = names.slice();
-  while (seeded.length < sz) seeded.push('BYE');
-  return { left: buildHalf(seeded.slice(0, sz/2)), right: buildHalf(seeded.slice(sz/2)) };
+  var half = sz / 2;
+  var n = names.length;
+  // Distribute evenly: ceil(n/2) to left, floor(n/2) to right
+  var lcount = Math.ceil(n / 2);
+  var rcount = Math.floor(n / 2);
+  var leftSeeds = names.slice(0, lcount);
+  var rightSeeds = names.slice(lcount);
+  while (leftSeeds.length < half) leftSeeds.push('BYE');
+  while (rightSeeds.length < half) rightSeeds.push('BYE');
+  return { left: buildHalf(leftSeeds), right: buildHalf(rightSeeds) };
 }
 function buildHalf(seeds) {
   var rounds = [], r0 = [];
@@ -1408,13 +1293,16 @@ function makeMU(m, side, ri, mi, d, activeRi, viewer) {
 
 // ── LAUNCH MATCH ───────────────────────────────────────────────────
 function launchMatch(side, ri, mi, m) {
-  matchMeta = {side:side, ri:ri, mi:mi};
+  matchMeta = {side:side, ri:ri, mi:mi, p1:m.p1, p2:m.p2};
   stopPoll();
+  // Determine which side this device controls
+  if (role === 'teacher') {
+    mySide = 'both'; // teacher controls both
+  } else {
+    mySide = (myName === m.p1) ? 'L' : 'R';
+  }
   var seed = strSeed(mkKey(side, ri, mi) + roomCode);
-  var activeCats = (S && S.cats && S.cats.length) ? S.cats : null;
-  var filteredQB = activeCats ? QB.filter(function(q){ return activeCats.indexOf(q.cat) !== -1; }) : QB.slice();
-  if (!filteredQB.length) filteredQB = QB.slice();
-  var questions = seedShuffle(filteredQB, seed);
+  var questions = seedShuffle(QB.slice(), seed);
   var qOpts = questions.map(function(q) {
     return {cat:q.cat, q:q.q, ans:q.ans, sol:q.sol, opts:seedShuffle(q.opts.slice(), strSeed(q.q))};
   });
@@ -1428,7 +1316,26 @@ function launchMatch(side, ri, mi, m) {
   g('tugL').textContent = '← ' + (m.p1||'?');
   g('tugR').textContent = (m.p2||'?') + ' →';
   updateScores(); updateRope(false, null);
+
+  // If student: disable the opponent's panel, show waiting state
+  if (mySide === 'L') {
+    g('ppR').style.pointerEvents = 'none';
+    g('ppR').style.opacity = '0.4';
+    setSt('ppRst', 'wait', '⏳ ' + (m.p2||'?') + ' хариулж байна...');
+  } else if (mySide === 'R') {
+    g('ppL').style.pointerEvents = 'none';
+    g('ppL').style.opacity = '0.4';
+    setSt('ppLst', 'wait', '⏳ ' + (m.p1||'?') + ' хариулж байна...');
+  } else {
+    // teacher: both sides active
+    g('ppL').style.pointerEvents = '';
+    g('ppR').style.pointerEvents = '';
+    g('ppL').style.opacity = '';
+    g('ppR').style.opacity = '';
+  }
+
   showScr('gameScr'); loadQ();
+  if (mySide !== 'both') startGamePoll();
 }
 
 // ── GAME ───────────────────────────────────────────────────────────
@@ -1440,11 +1347,26 @@ function loadQ() {
   g('ppLnum').textContent = g('ppRnum').textContent = lbl;
   g('gcQi').textContent = G.curQ + 1; g('gcQmax').textContent = G.qPer;
   renderPanel('L', q); renderPanel('R', q);
-  setSt('ppLst', 'idle', '⏳ Хариулт сонгоно уу');
-  setSt('ppRst', 'idle', '⏳ Хариулт сонгоно уу');
-  g('ppL').style.opacity = g('ppR').style.opacity = '1';
   g('gcNxt').classList.remove('on'); g('gcSol').classList.remove('on');
   g('gcSt').textContent = '🏁 Ижил бодлого бодно!'; g('gcSt').style.color = 'var(--gold)';
+  // Apply mySide AFTER rendering so it doesn't get overwritten
+  if (mySide === 'L') {
+    g('ppL').style.opacity = '1';   g('ppL').style.pointerEvents = '';
+    g('ppR').style.opacity = '0.4'; g('ppR').style.pointerEvents = 'none';
+    setSt('ppLst', 'idle', '⏳ Хариулт сонгоно уу');
+    setSt('ppRst', 'wait', '⏳ ' + g('ppRn').textContent + ' хариулж байна...');
+  } else if (mySide === 'R') {
+    g('ppR').style.opacity = '1';   g('ppR').style.pointerEvents = '';
+    g('ppL').style.opacity = '0.4'; g('ppL').style.pointerEvents = 'none';
+    setSt('ppRst', 'idle', '⏳ Хариулт сонгоно уу');
+    setSt('ppLst', 'wait', '⏳ ' + g('ppLn').textContent + ' хариулж байна...');
+  } else {
+    g('ppL').style.opacity = '1'; g('ppL').style.pointerEvents = '';
+    g('ppR').style.opacity = '1'; g('ppR').style.pointerEvents = '';
+    setSt('ppLst', 'idle', '⏳ Хариулт сонгоно уу');
+    setSt('ppRst', 'idle', '⏳ Хариулт сонгоно уу');
+  }
+  if (mySide !== 'both') startGamePoll();
   G.tStart = Date.now(); startTimer();
 }
 
@@ -1463,21 +1385,41 @@ function renderPanel(side, q) {
 function handleAns(side, val, btn, q) {
   if (side === 'L' && G.Ldone) return;
   if (side === 'R' && G.Rdone) return;
+  // Student can only answer their own side
+  if (mySide !== 'both' && mySide !== side) return;
   var ok = val === q.ans, t = Date.now() - G.tStart;
   document.querySelectorAll('#pp' + side + 'g .ans').forEach(function(b) { b.disabled = true; });
-  if (side === 'L') { G.Ldone = true; G.Lres = {ok:ok, t:t, btn:btn}; }
-  else { G.Rdone = true; G.Rres = {ok:ok, t:t, btn:btn}; }
-  if (G.Ldone && G.Rdone) { reveal(); }
-  else {
+  var res = {ok:ok, t:t, btn:btn, val:val};
+  if (side === 'L') { G.Ldone = true; G.Lres = res; }
+  else { G.Rdone = true; G.Rres = res; }
+
+  // For student: push answer to API so opponent device can see it
+  if (mySide !== 'both') {
+    var mm = matchMeta;
+    var ansKey = mkKey(mm.side, mm.ri, mm.mi) + '_ans';
+    var curAns = (S.results && S.results[ansKey]) || {};
+    curAns['q' + G.curQ + '_' + side] = {ok:ok, t:t, val:val};
+    apiUpdate(roomCode, {results: (function(){ var p = {}; p[ansKey] = curAns; return p; })()});
+
     var nm = g('pp' + side + 'n').textContent;
-    setSt('pp' + side + 'st', 'wait', '⏳ ' + nm + ' хариуллаа...');
-    g('gcSt').textContent = '⏳ ' + nm + ' хариуллаа...';
+    setSt('pp' + side + 'st', 'ok', '✅ ' + nm + ' хариуллаа!');
+    g('gcSt').textContent = '⏳ ' + (side==='L' ? g('ppRn') : g('ppLn')).textContent + '-ийг хүлээж байна...';
+    g('gcSt').style.color = 'var(--muted)';
+  }
+
+  if (G.Ldone && G.Rdone) { reveal(); }
+  else if (mySide === 'both') {
+    var nm2 = g('pp' + side + 'n').textContent;
+    setSt('pp' + side + 'st', 'wait', '⏳ ' + nm2 + ' хариуллаа...');
+    g('gcSt').textContent = '⏳ ' + nm2 + ' хариуллаа...';
     g('gcSt').style.color = side === 'L' ? '#93c5fd' : '#fca5a5';
   }
 }
 
 function reveal() {
-  G.roundOver = true; stopTimer();
+  G.roundOver = true; stopTimer(); stopGamePoll();
+  g('ppL').style.opacity = ''; g('ppR').style.opacity = '';
+  g('ppL').style.pointerEvents = ''; g('ppR').style.pointerEvents = '';
   var q = G.questions[G.curQ];
   revealSide('L', G.Lres, q); revealSide('R', G.Rres, q);
   var Lok = G.Lres && G.Lres.ok, Rok = G.Rres && G.Rres.ok;
@@ -1513,27 +1455,10 @@ function revealSide(side, res, q) {
 function endMatch() {
   stopTimer();
   var Ln = g('ppLn').textContent, Rn = g('ppRn').textContent;
-  var tie = G.scL === G.scR;
-  var w, tieReason = '';
-  if (!tie) {
-    w = G.scL > G.scR ? Ln : Rn;
-  } else {
-    // Tiebreak by rope position: rope < 50 means L side pulled more
-    var ropeWin = G.rope < 50 ? Ln : Rn;
-    w = ropeWin;
-    // Calculate total faster-answer count per player from log
-    var Lfast = 0, Rfast = 0;
-    G.log.forEach(function(e) {
-      if (e.Lok && e.Rok) { if (e.Ltime < e.Rtime) Lfast++; else Rfast++; }
-    });
-    tieReason = 'Оноо тэнцсэн (' + G.scL + ':' + G.scR + '). ' +
-      'Хурдны давуу байдлаар: ' + Ln + ' ' + Lfast + ' удаа, ' + Rn + ' ' + Rfast + ' удаа хурдан хариулсан. ' +
-      (G.rope !== 50 ? ('Арилжааны оноо (' + Math.round(Math.abs(G.rope - 50)) + ' нэгж ' + (G.rope < 50 ? Ln : Rn) + ' талд)') : 'Тэнцүү хурд — хандлагаар ' + w) +
-      ' → ' + w + ' ялагч.';
-  }
+  var w = G.scL > G.scR ? Ln : G.scR > G.scL ? Rn : G.rope < 50 ? Ln : Rn;
   var side = matchMeta.side, ri = matchMeta.ri, mi = matchMeta.mi;
   var matchResult = {s1:G.scL, s2:G.scR, winner:w, p1:Ln, p2:Rn, log:G.log,
-    tieReason:tieReason, side:side, ri:ri, mi:mi, playedAt:new Date().toISOString()};
+    side:side, ri:ri, mi:mi, playedAt:new Date().toISOString()};
   if (!S.results) S.results = {};
   S.results[mkKey(side, ri, mi)] = matchResult;
   S.v = (S.v||1) + 1;
@@ -1544,8 +1469,6 @@ function endMatch() {
   var isL = w === Ln;
   g('wcWin').textContent = w + ' ЯЛАВ!'; g('wcWin').className = 'wc-win ' + (isL ? 'L' : 'R');
   g('wcSub').textContent = Ln + ' vs ' + Rn; g('wcSc').textContent = G.scL + ' : ' + G.scR;
-  var tieEl = g('wcTie');
-  if (tieEl) { tieEl.textContent = tieReason; tieEl.style.display = tieReason ? 'block' : 'none'; }
   var champ = isChamp(S);
   if (champ) {
     g('winOv').classList.remove('on');
@@ -1561,6 +1484,7 @@ function endMatch() {
 }
 
 function exitGame() {
+  stopGamePoll();
   g('winOv').classList.remove('on'); g('champOv').classList.remove('on');
   if (role === 'teacher') { showScr('tBoardScr'); renderTeacher(); startPoll(); }
   else { showScr('sBoardScr'); renderStudent(); startPoll(); }
@@ -1623,6 +1547,39 @@ function updateScores() {
   ['gRsc','ppRs','gcRn'].forEach(function(id) { var e = g(id); if(e) e.textContent = G.scR; });
 }
 function setSt(id, cls, msg) { var el = g(id); if(!el) return; el.className = 'st-box ' + cls; el.textContent = msg; }
+
+// ── GAME POLL (student vs student) ───────────────────────────────
+var gamePollInt = null;
+function startGamePoll() {
+  stopGamePoll();
+  gamePollInt = setInterval(function() {
+    if (!roomCode || !matchMeta) return;
+    apiGet(roomCode).then(function(state) {
+      if (!state) return;
+      S = state;
+      var mm = matchMeta;
+      var ansKey = mkKey(mm.side, mm.ri, mm.mi) + '_ans';
+      var allAns = (state.results && state.results[ansKey]) || {};
+      var oppSide = mySide === 'L' ? 'R' : 'L';
+      var oppAns = allAns['q' + G.curQ + '_' + oppSide];
+      if (oppAns && !G[oppSide + 'done']) {
+        G[oppSide + 'done'] = true;
+        G[oppSide + 'res'] = {ok:oppAns.ok, t:oppAns.t, btn:null};
+        // Update opponent panel visually
+        var q = G.questions[G.curQ];
+        document.querySelectorAll('#pp' + oppSide + 'g .ans').forEach(function(b) {
+          b.disabled = true;
+          if (b.dataset.v === q.ans) b.classList.add('c');
+          else if (b.dataset.v === oppAns.val && !oppAns.ok) b.classList.add('w');
+        });
+        if (G.Ldone && G.Rdone) { stopGamePoll(); reveal(); }
+      }
+    });
+  }, 800);
+}
+function stopGamePoll() {
+  if (gamePollInt) { clearInterval(gamePollInt); gamePollInt = null; }
+}
 
 // ── POLL ───────────────────────────────────────────────────────────
 function startPoll() {
