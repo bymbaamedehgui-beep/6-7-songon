@@ -392,6 +392,10 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
 .gr-btn:hover{border-color:rgba(245,197,24,.35);color:var(--txt)}
 .gr-btn.on{background:linear-gradient(135deg,var(--gold2),var(--gold));border-color:var(--gold);color:#111}
 .gr-sub{display:block;font-family:'Barlow Condensed';font-size:.5rem;font-weight:800;letter-spacing:1px;opacity:.7;margin-top:-2px}
+.gr-btn.soon,.gr-btn.soon:hover{cursor:not-allowed;border-style:dashed;border-color:var(--bdr2);color:var(--muted);background:transparent}
+.gr-btn.soon .gr-sub{font-size:.44rem;letter-spacing:0;line-height:1.05;margin-top:1px;padding:0;opacity:1;color:var(--txt2)}
+.mu.t-play{cursor:pointer;border-color:rgba(245,197,24,.6)!important}
+.mu.t-play:hover,.mu.t-play:focus-visible{box-shadow:0 0 16px rgba(245,197,24,.25)!important;outline:none}
 .tp-sel{width:100%;padding:8px 10px;font-size:.88rem}
 .tp-sel:disabled{opacity:.5}
 .bank-st{margin-top:9px;font-size:.72rem;font-weight:600;color:var(--txt2);line-height:1.45;display:flex;gap:6px;align-items:flex-start;flex-wrap:wrap}
@@ -902,13 +906,21 @@ var POOL_N = 60;      // өрөөнд хадгалах бодлогын тоо
 var Q_MIN = 5;        // тэмцээн үүсгэхэд хамгийн багадаа
 var TOPIC_MIN = 10;   // сонголтод гарах сэдвийн доод хэмжээ (Дасгалын төвийн MIN.flagbattle)
 var ONLY_ALL = {'11': true}; // 11-р анги — зөвхөн «Бүх сэдэв» (эзэмшигчийн шийдвэр)
+var SOON = {'11': true};     // «Тун удахгүй» — сонгогчид харагдана, сонгогдохгүй (URL/хадгалсан сонголтоос ч)
+function canPick(gr) { gr = String(gr == null ? '' : gr); return GRADES.indexOf(gr) !== -1 && !SOON[gr]; }
+// Анхдагч анги хостын нэрээр (6-7-songon → 6); танихгүй бол null — багш өөрөө сонгоно
+function homeGrade() {
+  var m = /^(\d{1,2})-\d{1,2}-songon/i.exec(location.hostname || '');
+  return m && canPick(m[1]) ? m[1] : null;
+}
 var URLSEL = (function() {
   var out = {grade: null, topic: null};
   try {
     var p = new URLSearchParams(location.search);
     var gr = p.get('grade') || '', tp = p.get('topic') || '';
-    if (GRADES.indexOf(gr) !== -1) out.grade = gr;
-    if (out.grade && /^\d{1,7}$/.test(tp)) out.topic = +tp;
+    if (canPick(gr)) out.grade = gr;
+    else if (GRADES.indexOf(gr) !== -1) out.grade = homeGrade();   // «Тун удахгүй» анги → анхдагч анги, бүх сэдэв
+    if (out.grade && out.grade === gr && /^\d{1,7}$/.test(tp)) out.topic = +tp;
   } catch(e) {}
   return out;
 })();
@@ -1267,13 +1279,21 @@ function updateCreateBtn() {
 function initSetupSel() {
   var saved = null;
   try { saved = JSON.parse(localStorage.getItem(SELK) || 'null'); } catch(e) {}
-  var sg = saved && GRADES.indexOf(String(saved.grade)) !== -1 ? String(saved.grade) : null;
+  var sg = saved && canPick(saved.grade) ? String(saved.grade) : null;
   var gr = URLSEL.grade || sg;
   var tp = URLSEL.grade ? (URLSEL.topic || 0) : (sg ? (+saved.topic || 0) : 0);
   var row = g('grRow'); row.innerHTML = '';
   GRADES.forEach(function(x) {
     var b = document.createElement('button');
     b.type = 'button'; b.className = 'gr-btn'; b.dataset.g = x;
+    if (SOON[x]) {
+      b.className += ' soon'; b.disabled = true;
+      b.title = x + '-р анги — Тун удахгүй';
+      b.setAttribute('aria-label', x + '-р анги — Тун удахгүй');
+      b.innerHTML = x + '<span class="gr-sub">ТУН УДАХГҮЙ</span>';
+      row.appendChild(b);
+      return;
+    }
     b.setAttribute('aria-pressed', 'false');
     b.setAttribute('aria-label', x + '-р анги');
     b.innerHTML = x + '<span class="gr-sub">АНГИ</span>';
@@ -1304,6 +1324,7 @@ function setBankSt(cls, msg, retry) {
   }
 }
 function pickGrade(gr, tp) {
+  if (!canPick(gr)) return;
   SEL = {grade: gr, topic: tp || 0};
   document.querySelectorAll('#grRow .gr-btn').forEach(function(b) {
     var on = b.dataset.g === gr;
@@ -1685,11 +1706,11 @@ function renderStudent() {
     if (rr.winner) {
       var iWon = rr.winner === myName;
       card.innerHTML = '<div class="mm-lbl">' + rLabel + ' — ТАНЫ ТОГЛОЛТ</div>' +
-        '<div class="mm-names">' + (m.p1||'?') + '<span class="mm-vs">vs</span>' + (m.p2||'?') + '</div>' +
-        '<div class="mm-st ' + (iWon ? 'done-w' : 'done-l') + '">' + (iWon ? 'Та ялав! ' + rr.s1 + ':' + rr.s2 : 'Та хожигдов. ' + rr.s1 + ':' + rr.s2) + '</div>';
+        '<div class="mm-names">' + esc(m.p1||'?') + '<span class="mm-vs">vs</span>' + esc(m.p2||'?') + '</div>' +
+        '<div class="mm-st ' + (iWon ? 'done-w' : 'done-l') + '">' + (iWon ? 'Та ялав! ' : 'Та хожигдов. ') + esc((+rr.s1 || 0) + ':' + (+rr.s2 || 0)) + '</div>';
     } else {
       card.innerHTML = '<div class="mm-lbl">' + rLabel + ' — ТАНЫ ТОГЛОЛТ</div>' +
-        '<div class="mm-names">' + (m.p1||'?') + '<span class="mm-vs">vs</span>' + (m.p2||'?') + '</div>' +
+        '<div class="mm-names">' + esc(m.p1||'?') + '<span class="mm-vs">vs</span>' + esc(m.p2||'?') + '</div>' +
         '<div class="mm-st waiting">Тоглоход бэлэн...</div>';
       var pb2 = document.createElement('button'); pb2.className = 'play-btn'; pb2.textContent = '▶ ТОГЛОХ';
       pb2.onclick = (function(s2,r2,m2,mm) { return function() { launchMatch(s2,r2,m2,mm); }; })(side,mri,mi,m);
@@ -1756,7 +1777,7 @@ function buildBracketDOM(d, activeRi, viewer) {
   var flex = document.createElement('div'); flex.className = 'bracket-flex';
   var totalL = d.left.length;
   d.left.forEach(function(round, ri) { flex.appendChild(makeRoundCol(round, ri, 'L', d, activeRi, viewer, totalL)); });
-  flex.appendChild(makeCenterCol(d, activeRi, totalL));
+  flex.appendChild(makeCenterCol(d, activeRi, totalL, viewer));
   var rightRev = d.right.slice().reverse();
   rightRev.forEach(function(round, revI) {
     var ri = d.right.length - 1 - revI;
@@ -1777,7 +1798,7 @@ function makeRoundCol(round, ri, side, d, activeRi, viewer, totalR) {
   return col;
 }
 
-function makeCenterCol(d, activeRi, totalL) {
+function makeCenterCol(d, activeRi, totalL, viewer) {
   var col = document.createElement('div'); col.className = 'ccol';
   var hdr = document.createElement('div'); hdr.className = 'bcol-hdr'; hdr.textContent = 'ФИНАЛ'; col.appendChild(hdr);
   var box = document.createElement('div'); box.className = 'champ-box';
@@ -1794,14 +1815,14 @@ function makeCenterCol(d, activeRi, totalL) {
     (f.done ? '<path d="M31 28 L37 34 L49 22" stroke="rgba(255,255,255,.5)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>' : '') +
     '</svg>';
   if (f.done && f.w) {
-    box.innerHTML = trophySVG + '<div class="cb-lbl">2025 АВАРГА</div><div class="cb-name">' + f.w + '</div>' +
-      '<div class="cb-sub">' + (f.r1 > f.r2 ? f.r1 : f.r2) + '–' + (f.r1 < f.r2 ? f.r1 : f.r2) + '</div>';
+    box.innerHTML = trophySVG + '<div class="cb-lbl">2025 АВАРГА</div><div class="cb-name">' + esc(f.w) + '</div>' +
+      '<div class="cb-sub">' + esc((f.r1 > f.r2 ? f.r1 : f.r2) + '–' + (f.r1 < f.r2 ? f.r1 : f.r2)) + '</div>';
   } else {
     box.innerHTML = trophySVG + '<div class="cb-lbl">ФИНАЛ</div>' +
-      '<div class="cb-name" style="font-size:.85rem;color:var(--muted)">' + (f.p1||'TBD') + ' vs ' + (f.p2||'TBD') + '</div>';
+      '<div class="cb-name" style="font-size:.85rem;color:var(--muted)">' + esc(f.p1||'TBD') + ' vs ' + esc(f.p2||'TBD') + '</div>';
   }
   col.appendChild(box);
-  var fc = makeMU(f, 'F', 0, 0, d, activeRi, 'viewer');
+  var fc = makeMU(f, 'F', 0, 0, d, activeRi, viewer || 'viewer');
   fc.classList.add('fin'); col.appendChild(fc);
   return col;
 }
@@ -1820,6 +1841,18 @@ function makeMU(m, side, ri, mi, d, activeRi, viewer) {
   if (canPlay && isMyMatch) {
     card.classList.add('my-turn');
     card.onclick = (function(s2,r2,m2,mm) { return function() { launchMatch(s2,r2,m2,mm); }; })(side,ri,mi,m);
+  }
+  // Багшийн самбар: идэвхтэй тоглолтыг энэ төхөөрөмж дээр эхлүүлнэ (хоёр тал — mySide 'both')
+  var isTeacherPlay = canPlay && viewer === 'teacher' && role === 'teacher';
+  if (isTeacherPlay) {
+    card.classList.add('t-play');
+    card.setAttribute('role', 'button');
+    card.tabIndex = 0;
+    card.setAttribute('aria-label', 'Тоглолт эхлүүлэх: ' + (m.p1 || '?') + ' vs ' + (m.p2 || '?'));
+    card.title = 'Энэ тоглолтыг эхлүүлэх';
+    var tStart = (function(s2,r2,m2,mm) { return function() { launchMatch(s2,r2,m2,mm); }; })(side,ri,mi,m);
+    card.onclick = tStart;
+    card.onkeydown = function(e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); tStart(); } };
   }
   function mkSlot(name, score, wlCls) {
     var sl = document.createElement('div');
@@ -1840,7 +1873,7 @@ function makeMU(m, side, ri, mi, d, activeRi, viewer) {
     tag.textContent = (res.s1||0) + '-' + (res.s2||0); card.appendChild(tag);
   } else if (canPlay) {
     var tag2 = document.createElement('div'); tag2.className = 'mu-tag';
-    tag2.textContent = isMyMatch ? '▶ ТА' : '▶'; card.appendChild(tag2);
+    tag2.textContent = isMyMatch ? '▶ ТА' : isTeacherPlay ? 'ЭХЛҮҮЛЭХ' : '▶'; card.appendChild(tag2);
   }
   return card;
 }
