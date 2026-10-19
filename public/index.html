@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-<title>🏆 Тригонометрийн Тэмцээн</title>
+<title>Flag Battle · Математикийн тэмцээн</title>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
 <style>
@@ -382,6 +382,73 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
 .pB{animation:tugB .4s ease}.pR{animation:tugR .4s ease}
 @keyframes flashG{0%{box-shadow:inset 0 0 0 0 rgba(34,197,94,0)}50%{box-shadow:inset 0 0 0 4px rgba(34,197,94,.16)}100%{box-shadow:inset 0 0 0 0 rgba(34,197,94,0)}}
 .flashG{animation:flashG .55s ease}
+
+/* АНГИ / СЭДЭВ (cyber-math.com бодлогын сан) */
+.ic{width:1em;height:1em;flex-shrink:0;vertical-align:-.14em}
+.card-title .ic{margin-right:6px}
+.gr-row{display:grid;grid-template-columns:repeat(7,1fr);gap:5px}
+.gr-btn{min-width:0;padding:9px 0;border-radius:8px;border:1px solid var(--bdr2);background:var(--panel2);
+  color:var(--txt2);font-family:'Bebas Neue';font-size:1.1rem;letter-spacing:1px;cursor:pointer;transition:all .15s}
+.gr-btn:hover{border-color:rgba(245,197,24,.35);color:var(--txt)}
+.gr-btn.on{background:linear-gradient(135deg,var(--gold2),var(--gold));border-color:var(--gold);color:#111}
+.gr-sub{display:block;font-family:'Barlow Condensed';font-size:.5rem;font-weight:800;letter-spacing:1px;opacity:.7;margin-top:-2px}
+.tp-sel{width:100%;padding:8px 10px;font-size:.88rem}
+.tp-sel:disabled{opacity:.5}
+.bank-st{margin-top:9px;font-size:.72rem;font-weight:600;color:var(--txt2);line-height:1.45;display:flex;gap:6px;align-items:flex-start;flex-wrap:wrap}
+.bank-st.err{color:#fca5a5}.bank-st.ok{color:#86efac}
+.mini-btn{display:inline-flex;align-items:center;gap:5px;padding:4px 10px;border-radius:7px;cursor:pointer;
+  border:1px solid rgba(245,197,24,.3);background:rgba(245,197,24,.08);color:var(--gold);
+  font-family:'Barlow Condensed';font-size:.72rem;font-weight:800;letter-spacing:.5px;white-space:nowrap}
+.mini-btn:hover{background:rgba(245,197,24,.18)}
+.create-err{margin-top:11px;border:1px solid rgba(239,68,68,.25);background:rgba(239,68,68,.05);border-radius:9px;padding:10px 11px}
+.ce-msg{font-size:.78rem;font-weight:700;color:#fca5a5;line-height:1.45;display:flex;gap:6px;align-items:flex-start}
+.ce-btns{display:flex;gap:7px;margin-top:9px;flex-wrap:wrap}
+.ce-btns .add-btn{display:inline-flex;align-items:center;gap:6px}
+.ce-btns .add-btn.ghost{background:rgba(255,255,255,.04);border-color:var(--bdr2);color:var(--txt2)}
+.ce-note{margin-top:7px;font-size:.64rem;font-weight:600;color:var(--muted)}
+.sel-bar{flex-shrink:0;display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px;padding:7px 16px;position:relative;z-index:2;
+  background:rgba(255,255,255,.02);border-bottom:1px solid var(--bdr);font-size:.74rem;font-weight:700;color:var(--txt2)}
+.sb-it{display:inline-flex;align-items:center;gap:6px;min-width:0}
+.sb-sel{color:var(--txt)}.sb-sel .ic{color:var(--gold)}
+.off-badge{display:inline-flex;align-items:center;gap:5px;padding:2px 9px;border-radius:12px;
+  background:rgba(148,163,184,.1);border:1px solid rgba(148,163,184,.3);color:#cbd5e1;font-size:.64rem;font-weight:800;letter-spacing:.5px}
+.sb-warn{color:#fcd34d;font-weight:600;line-height:1.4}
+.sb-err{color:#fca5a5;font-weight:600}
+.g-off{display:none;align-items:center;gap:4px;padding:2px 7px;border-radius:10px;flex-shrink:0;
+  background:rgba(148,163,184,.1);border:1px solid rgba(148,163,184,.3);color:#cbd5e1;font-size:.56rem;font-weight:800;letter-spacing:.5px}
+.g-off.on{display:inline-flex}
+.q-tx.long{font-family:'Barlow',sans-serif;font-size:.86rem;font-weight:600;line-height:1.4;letter-spacing:0;text-align:left;width:100%}
+.ans.long{font-family:'Barlow',sans-serif;font-size:.76rem;font-weight:600;line-height:1.25;padding:6px 5px}
+.ans{overflow:hidden;overflow-wrap:anywhere}
+.sol-qtx.long{font-family:'Barlow',sans-serif;font-size:.84rem;font-weight:600;line-height:1.45}
+.sol-st.mx{white-space:normal}
+.pp{overflow-y:auto}
+.bank-card{background:var(--panel);border:1px solid var(--bdr2);border-top:2px solid var(--gold);border-radius:13px;
+  padding:20px 18px;width:min(360px,100%);max-height:calc(100vh - 32px);overflow-y:auto;text-align:center;
+  box-shadow:0 24px 60px rgba(0,0,0,.65);animation:popIn .25s ease}
+.bank-ic{width:38px;height:38px;color:var(--gold);margin:0 auto 8px;display:block}
+.bank-ic.spin{animation:bspin 1s linear infinite}
+@keyframes bspin{to{transform:rotate(360deg)}}
+.bank-tt{font-family:'Bebas Neue';font-size:1.1rem;letter-spacing:2px;color:var(--gold);margin-bottom:6px}
+.bank-msg{font-size:.8rem;font-weight:600;color:var(--txt2);line-height:1.5;margin-bottom:14px}
+.bank-btns{display:flex;flex-direction:column;gap:7px}
+.bank-btns .wc-btn{display:flex;align-items:center;justify-content:center;gap:7px}
+.wc-btn.gold{background:linear-gradient(135deg,var(--gold2),var(--gold));color:#111}
+@media (max-width:520px){
+  .g-body{grid-template-columns:1fr 112px 1fr}
+  .ans-grid{grid-template-columns:1fr}
+  .q-tx.long{font-size:.74rem}
+  .ans.long{font-size:.7rem}
+  .land-logo{font-size:2rem;letter-spacing:3px}
+  .ts-body{padding:14px 12px}
+  .card{padding:14px}
+  .nav{padding:0 10px}
+  .nav > div:first-child{min-width:0;flex:1}
+  .nav-title,.nav-sub{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .nav-title{font-size:.95rem;letter-spacing:1.5px}
+  .room-badge{padding:3px 7px}
+  .rb-code{letter-spacing:3px}
+}
 </style>
 </head>
 <body>
@@ -390,22 +457,22 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
 <div class="scr on" id="landScr">
 <div style="position:relative;z-index:2;flex:1;display:flex;align-items:center;justify-content:center;padding:20px;">
 <div class="land-wrap">
-  <div class="land-logo">ТРИГОНОМЕТРИЙН ТЭМЦЭЭН</div>
-  <div class="land-sub">9-Р АНГИ · NBA PLAYOFF BRACKET · TABLET</div>
+  <div class="land-logo">МАТЕМАТИКИЙН ТЭМЦЭЭН</div>
+  <div class="land-sub">FLAG BATTLE · АНГИ, СЭДВЭЭ СОНГООД ТЭМЦЭЭНД ОРОЛЦ</div>
   <div class="role-card T" id="btnTeacher">
-    <div class="rc-ico">👨‍🏫</div>
+    <svg class="rc-ico" viewBox="0 0 24 24" width="38" height="38" fill="none" stroke="#f5c518" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="13" rx="2"/><path d="M7 21l5-5 5 5"/><path d="M6 8h7M6 11h4"/><path d="M15 12l2-3 2 2"/></svg>
     <div style="flex:1"><div class="rc-title">БАГШ</div>
-    <div class="rc-desc">Тэмцээн үүсгэж room code өгнө.<br>Шат бүрийн үр дүнг батална.</div></div>
+    <div class="rc-desc">Анги, сэдвээ сонгоод тэмцээн үүсгэж room code өгнө.<br>Шат бүрийн үр дүнг батална.</div></div>
     <div class="rc-arr">›</div>
   </div>
   <div class="role-card S" id="btnStudent">
-    <div class="rc-ico">🎓</div>
+    <svg class="rc-ico" viewBox="0 0 24 24" width="38" height="38" fill="none" stroke="#93c5fd" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 9L12 4 2 9l10 5 10-5z"/><path d="M6 11v5c0 1.7 2.7 3 6 3s6-1.3 6-3v-5"/><path d="M22 9v6"/></svg>
     <div style="flex:1"><div class="rc-title">СУРАГЧ</div>
     <div class="rc-desc">Room code оруулаад bracket-ийн өөрийн нэрийг дарж тоглоно.</div></div>
     <div class="rc-arr">›</div>
   </div>
   <div class="role-card" id="btnHistory" style="border-top:3px solid var(--muted);opacity:.75;">
-    <div class="rc-ico">📋</div>
+    <svg class="rc-ico" viewBox="0 0 24 24" width="38" height="38" fill="none" stroke="#7880a0" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 3v3h6V3"/><path d="M8.5 11h7M8.5 15h5"/></svg>
     <div style="flex:1"><div class="rc-title" style="color:var(--txt2)">ӨМНӨХ ТЭМЦЭЭН</div>
     <div class="rc-desc">Хадгалагдсан bracket-уудыг харах, Excel татах.</div></div>
     <div class="rc-arr">›</div>
@@ -431,7 +498,15 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
 </div>
 <div class="ts-body">
   <div class="card">
-    <div class="card-title">📋 СУРАГЧДЫН НЭРС</div>
+    <div class="card-title"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>АНГИ, СЭДЭВ</div>
+    <div class="flbl">Анги</div>
+    <div class="gr-row" id="grRow"></div>
+    <div class="flbl" style="margin-top:12px">Сэдэв</div>
+    <select class="opt-sel tp-sel" id="topicSel" disabled><option value="0">Эхлээд ангиа сонгоно уу</option></select>
+    <div class="bank-st" id="bankSt">Бодлого cyber-math.com-ын сангаас сонгосон анги, сэдвээр ирнэ.</div>
+  </div>
+  <div class="card">
+    <div class="card-title"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>СУРАГЧДЫН НЭРС</div>
     <div class="flbl">Нэр бүрийг шинэ мөрт бич</div>
     <textarea class="bulk" id="bulkTa" placeholder="Болд&#10;Сарнай&#10;Анхбаяр&#10;Нарантуяа&#10;Мөнхбаяр&#10;Дэлгэрмаа"></textarea>
     <div class="add-row">
@@ -442,14 +517,22 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
     <div class="chip-wrap" id="chipArea"><span class="chip-hint">Нэрс энд харагдана...</span></div>
   </div>
   <div class="card">
-    <div class="card-title">⚙️ ТОХИРГОО</div>
+    <div class="card-title"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/><line x1="1" y1="14" x2="7" y2="14"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="17" y1="16" x2="23" y2="16"/></svg>ТОХИРГОО</div>
     <div class="opts-row">
       <span class="opt-lbl">Асуулт тус бүрт:</span>
       <select class="opt-sel" id="qCnt"><option value="5">5</option><option value="7" selected>7</option><option value="10">10</option></select>
       <span class="opt-lbl" style="margin-left:8px">Хугацаа:</span>
       <select class="opt-sel" id="timeSel"><option value="60">60с</option><option value="90" selected>90с</option><option value="120">120с</option></select>
     </div>
-    <button class="big-btn gold" id="btnCreate" disabled>🏆 ТЭМЦЭЭН ҮҮСГЭХ</button>
+    <button class="big-btn gold" id="btnCreate" disabled>ТЭМЦЭЭН ҮҮСГЭХ</button>
+    <div class="create-err" id="createErr" style="display:none">
+      <div class="ce-msg"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg><span id="createErrMsg"></span></div>
+      <div class="ce-btns">
+        <button class="add-btn" id="btnCreateRetry"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>ДАХИН ОРОЛДОХ</button>
+        <button class="add-btn ghost" id="btnCreateOffline">ЖИШИГ БОДЛОГООР ҮРГЭЛЖЛҮҮЛЭХ</button>
+      </div>
+      <div class="ce-note">Офлайн жишиг сан: тригонометрийн 25 бодлого (9-р анги). Бүх tablet ижил асуулт авна.</div>
+    </div>
   </div>
 </div>
 </div>
@@ -462,7 +545,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
 </div>
 <div style="flex:1;display:flex;align-items:center;justify-content:center;padding:20px;position:relative;z-index:2;">
 <div class="join-card">
-  <div class="join-title">🎓 НЭГДЭХ</div>
+  <div class="join-title">НЭГДЭХ</div>
   <div class="join-sub">БАГШААС 4 ТЭМДЭГТИЙН CODE АВААРАЙ</div>
   <input class="join-inp" id="codeInp" placeholder="XXXX" maxlength="4">
   <div class="join-err" id="joinErr"></div>
@@ -484,21 +567,22 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
     <button class="pill" id="btnTBoardBack">← БУЦАХ</button>
   </div>
 </div>
+<div class="sel-bar" id="tSelBar" style="display:none"></div>
 <div id="champBanner" style="display:none;background:linear-gradient(135deg,rgba(245,197,24,.12),rgba(245,197,24,.04));border-bottom:2px solid rgba(245,197,24,.3);padding:14px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-shrink:0;">
   <div>
-    <div style="font-family:'Bebas Neue';font-size:1.1rem;letter-spacing:2px;color:var(--gold)">🏆 ТЭМЦЭЭНИЙ АВАРГА: <span id="bannerChampName">–</span></div>
+    <div style="font-family:'Bebas Neue';font-size:1.1rem;letter-spacing:2px;color:var(--gold)">ТЭМЦЭЭНИЙ АВАРГА: <span id="bannerChampName">–</span></div>
     <div style="font-size:.62rem;font-weight:700;color:rgba(245,197,24,.5);margin-top:2px;letter-spacing:1px">БҮХИЙ Л ШАТЫГ ДАВЛАА · БАЯР ХҮРГЭЕ!</div>
   </div>
   <div style="display:flex;gap:8px;flex-shrink:0;">
-    <button class="excel-btn" id="btnBannerExcel" style="padding:8px 13px;">📊 EXCEL</button>
-    <button id="btnBannerEnd" style="padding:8px 16px;background:linear-gradient(135deg,#991b1b,#ef4444);border:none;border-radius:8px;color:#fff;font-family:'Bebas Neue';font-size:.9rem;letter-spacing:1px;cursor:pointer;">🏁 ДУУСГАХ</button>
+    <button class="excel-btn" id="btnBannerExcel" style="padding:8px 13px;">EXCEL</button>
+    <button id="btnBannerEnd" style="padding:8px 16px;background:linear-gradient(135deg,#991b1b,#ef4444);border:none;border-radius:8px;color:#fff;font-family:'Bebas Neue';font-size:.9rem;letter-spacing:1px;cursor:pointer;">ДУУСГАХ</button>
   </div>
 </div>
 <div class="board-body" id="tBoardBody"></div>
 <div class="t-bar">
   <div class="tb-info"><div class="tb-t" id="tbTitle">–</div><div class="tb-d" id="tbDesc">–</div></div>
   <div class="t-bar-btns">
-    <button class="excel-btn" id="btnExcel">📊 EXCEL</button>
+    <button class="excel-btn" id="btnExcel">EXCEL</button>
     <button class="confirm-btn" id="btnConfirm" disabled>✓ БАТЛАХ</button>
   </div>
 </div>
@@ -513,6 +597,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
     <button class="pill" id="btnSBoardBack">← БУЦАХ</button>
   </div>
 </div>
+<div class="sel-bar" id="sSelBar" style="display:none"></div>
 <div class="s-board-body" id="sBoardBody"></div>
 </div>
 
@@ -525,6 +610,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
     <span class="g-sep">:</span>
     <span class="g-sc" id="gRsc">0</span><span class="g-pn R" id="gRn">–</span>
   </div>
+  <span class="g-off" id="gOff" title="Бодлогын сантай холбогдоогүй — жишиг бодлого"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="1" y1="1" x2="23" y2="23"/><path d="M16.72 11.06A10.94 10.94 0 0 1 19 12.55"/><path d="M5 12.55a10.94 10.94 0 0 1 5.17-2.39"/><path d="M10.71 5.05A16 16 0 0 1 22.58 9"/><path d="M1.42 9a15.91 15.91 0 0 1 4.7-2.88"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg>ОФЛАЙН</span>
   <button class="pill" id="btnExitGame" style="font-size:.62rem;padding:4px 9px;">← САМБАР</button>
 </div>
 <div class="g-body">
@@ -533,7 +619,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
     <div class="q-lbl" id="ppLnum">АСУУЛТ 1/7</div>
     <div class="q-box"><span class="q-cat" id="ppLcat">–</span><span class="q-tx" id="ppLq">...</span></div>
     <div class="ans-grid" id="ppLg"></div>
-    <div class="st-box idle" id="ppLst">⏳ Хариулт сонгоно уу</div>
+    <div class="st-box idle" id="ppLst">Хариулт сонгоно уу</div>
   </div>
   <div class="gc">
     <div class="gc-scores">
@@ -542,12 +628,12 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
       <div class="gc-sb R"><span class="gc-sn" id="gcRn">0</span><span class="gc-sl" id="gcRl">–</span></div>
     </div>
     <div class="gc-qi"><div class="gc-qt">АС <span id="gcQi">1</span>/<span id="gcQmax">7</span></div></div>
-    <div class="gc-st" id="gcSt" style="color:var(--gold)">🏁 Эхэллээ!</div>
-    <div class="gc-tmr" id="gcTmr">⏱ <span id="tmrSec">90</span>с</div>
+    <div class="gc-st" id="gcSt" style="color:var(--gold)">Эхэллээ!</div>
+    <div class="gc-tmr" id="gcTmr"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2 2"/><path d="M9 2h6"/></svg><span id="tmrSec">90</span>с</div>
     <div class="tbar"><div class="tfill" id="tfill"></div></div>
     <button class="gc-nxt" id="gcNxt">▶ ДАРААГИЙН</button>
-    <button class="gc-sol" id="gcSol">📝 БОДОЛТ</button>
-    <button class="gc-ref" id="gcRef">📐 ЛАВЛАХ</button>
+    <button class="gc-sol" id="gcSol">БОДОЛТ</button>
+    <button class="gc-ref" id="gcRef">ЛАВЛАХ</button>
     <div class="rope-area">
       <div class="chars-row">
         <div class="char-g" id="charL">
@@ -611,7 +697,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
     <div class="q-lbl" id="ppRnum">АСУУЛТ 1/7</div>
     <div class="q-box"><span class="q-cat" id="ppRcat">–</span><span class="q-tx" id="ppRq">...</span></div>
     <div class="ans-grid" id="ppRg"></div>
-    <div class="st-box idle" id="ppRst">⏳ Хариулт сонгоно уу</div>
+    <div class="st-box idle" id="ppRst">Хариулт сонгоно уу</div>
   </div>
 </div>
 </div>
@@ -619,12 +705,12 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
 <!-- OVERLAYS -->
 <div class="ov" id="winOv">
 <div class="win-card">
-  <span class="wc-ic">🏆</span>
+  <svg class="wc-ic" viewBox="0 0 80 80" width="46" height="46" fill="none" style="margin:0 auto 6px" aria-hidden="true"><path d="M40 57 L34 67 L46 67 Z" fill="#c8981a"/><rect x="27" y="67" width="26" height="5" rx="2" fill="#f5c518"/><path d="M19 10 L19 36 C19 47 28 55 40 55 C52 55 61 47 61 36 L61 10 Z" fill="#f5c518"/><path d="M19 14 L8 14 C8 14 6 27 17 32" stroke="#f5c518" stroke-width="4" stroke-linecap="round"/><path d="M61 14 L72 14 C72 14 74 27 63 32" stroke="#f5c518" stroke-width="4" stroke-linecap="round"/></svg>
   <div class="wc-win" id="wcWin">–</div>
   <div class="wc-sub" id="wcSub">–</div>
   <div class="wc-sc" id="wcSc">0:0</div>
-  <div class="wc-note">⏳ Дараагийн шатыг багш батална. Bracket харна уу.</div>
-  <button class="wc-btn board" id="btnWinBoard">📊 BRACKET ХАРАХ</button>
+  <div class="wc-note">Дараагийн шатыг багш батална. Bracket харна уу.</div>
+  <button class="wc-btn board" id="btnWinBoard">BRACKET ХАРАХ</button>
 </div>
 </div>
 <div class="ov" id="champOv">
@@ -641,19 +727,19 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
   </svg>
   <div class="cc-lbl">ТЭМЦЭЭНИЙ АВАРГА</div>
   <div class="cc-name" id="ccName">–</div>
-  <div class="cc-sub">БҮХИЙ Л ШАТЫГ ДАВЛАА · БАЯР ХҮРГЭЕ! 🎉</div>
+  <div class="cc-sub">БҮХИЙ Л ШАТЫГ ДАВЛАА · БАЯР ХҮРГЭЕ!</div>
   <div id="champTeacherBtns" style="display:none;width:100%;flex-direction:column;gap:8px;">
-    <button class="cc-btn" id="btnChampEnd" style="background:linear-gradient(135deg,#991b1b,#ef4444);">🏁 ТЭМЦЭЭН ДУУСГАХ</button>
-    <button class="cc-btn" id="btnChampBoard" style="background:rgba(255,255,255,.07);color:var(--txt2);border:1px solid var(--bdr2);margin-top:4px;">📊 BRACKET ХАРАХ</button>
+    <button class="cc-btn" id="btnChampEnd" style="background:linear-gradient(135deg,#991b1b,#ef4444);">ТЭМЦЭЭН ДУУСГАХ</button>
+    <button class="cc-btn" id="btnChampBoard" style="background:rgba(255,255,255,.07);color:var(--txt2);border:1px solid var(--bdr2);margin-top:4px;">BRACKET ХАРАХ</button>
   </div>
   <div id="champStudentBtns" style="display:none;width:100%;">
-    <button class="cc-btn" id="btnChampBoardS">📊 BRACKET ХАРАХ</button>
+    <button class="cc-btn" id="btnChampBoardS">BRACKET ХАРАХ</button>
   </div>
 </div>
 </div>
 <div class="ov" id="solOv">
 <div class="sol-card">
-  <div class="sol-hd"><span class="sol-ht">📝 БОДОЛТ</span><button class="ov-x" id="btnSolClose">✕</button></div>
+  <div class="sol-hd"><span class="sol-ht">БОДОЛТ</span><button class="ov-x" id="btnSolClose">✕</button></div>
   <div class="sol-q"><span class="sol-qcat" id="solCat"></span><span class="sol-qtx" id="solQtx"></span></div>
   <div class="sol-steps" id="solSteps"></div>
   <div class="sol-ft"><button class="sol-close" id="btnSolNext">▶ ДАРААГИЙН АСУУЛТ</button></div>
@@ -661,7 +747,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
 </div>
 <div class="ov" id="refOv">
 <div class="ref-card">
-  <div class="ref-hd"><span class="ref-ht">📐 ТРИГОНОМЕТРИЙН ЛАВЛАХ</span><button class="ov-x" id="btnRefClose">✕</button></div>
+  <div class="ref-hd"><span class="ref-ht">ТРИГОНОМЕТРИЙН ЛАВЛАХ</span><button class="ov-x" id="btnRefClose">✕</button></div>
   <div class="ref-tabs">
     <button class="ref-tab on" data-ref="rtbl">ХҮСНЭГТ</button>
     <button class="ref-tab" data-ref="rid">ИЖИЛ ТӨСТЭЙ</button>
@@ -675,6 +761,17 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
     <div class="ref-sec" id="rcomp"><div id="rcompB"></div></div>
     <div class="ref-sec" id="rtri"><div id="rtriB"></div></div>
     <div class="ref-sec" id="rrad"><div id="rradB"></div></div>
+  </div>
+</div>
+</div>
+<div class="ov" id="bankOv">
+<div class="bank-card" role="dialog" aria-modal="true" aria-labelledby="bankTt">
+  <svg class="bank-ic" id="bankIc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 1 1-6.22-8.56"/></svg>
+  <div class="bank-tt" id="bankTt">БОДЛОГЫН САН</div>
+  <div class="bank-msg" id="bankOvMsg">Бодлого ачаалж байна...</div>
+  <div class="bank-btns">
+    <button class="wc-btn gold" id="btnBankRetry" style="display:none"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>ДАХИН ОРОЛДОХ</button>
+    <button class="wc-btn board" id="btnBankClose">БУЦАХ</button>
   </div>
 </div>
 </div>
@@ -791,11 +888,199 @@ var QB = [
    sol:['Үндсэн адилтгал: \\sin^2\\alpha + \\cos^2\\alpha = 1','\\sin 45° = \\cos 45° = \\tfrac{\\sqrt{2}}{2}','\\left(\\tfrac{\\sqrt{2}}{2}\\right)^2 + \\left(\\tfrac{\\sqrt{2}}{2}\\right)^2 = \\tfrac{1}{2} + \\tfrac{1}{2} = 1','1']}
 ];
 
+// ── CYBER-MATH БОДЛОГЫН САН ────────────────────────────────────────
+// Тэмцээний бодлогыг cyber-math.com-оос (анги + сэдвээр) авна.
+//  · game_topics=<анги>              → бүлэг/сэдвийн жагсаалт (сэдэв бүрийн бодлогын тоотой)
+//  · game=<анги>&topic=<id|0>&n=60    → тоглоомд тохирох (choice, 4 ялгаатай сонголт) бодлого
+//  · ids=1,2,3                        → өрөөнд хадгалсан id-аар бүх tablet ижил бодлогыг татна
+// Багш өрөө үүсгэхэд бодлогын id-ууд S.cm.ids-д хадгалагдана. Бүх төхөөрөмж ижил id дарааллаар
+// сан бүтээж, тоглолт бүрийг seedShuffle-аар холино — тиймээс хоёр тоглогч ижил асуулт авна.
+// Сантай холбогдож чадаагүй үед багш жишиг сан (QB) сонгож болно (S.offline) — бүгд QB ашиглана.
+var CM_API = 'https://cyber-math.com/api/questions';
+var GRADES = ['6','7','8','9','10','11','12'];
+var POOL_N = 60;      // өрөөнд хадгалах бодлогын тоо
+var Q_MIN = 5;        // тэмцээн үүсгэхэд хамгийн багадаа
+var TOPIC_MIN = 10;   // сонголтод гарах сэдвийн доод хэмжээ (Дасгалын төвийн MIN.flagbattle)
+var ONLY_ALL = {'11': true}; // 11-р анги — зөвхөн «Бүх сэдэв» (эзэмшигчийн шийдвэр)
+var URLSEL = (function() {
+  var out = {grade: null, topic: null};
+  try {
+    var p = new URLSearchParams(location.search);
+    var gr = p.get('grade') || '', tp = p.get('topic') || '';
+    if (GRADES.indexOf(gr) !== -1) out.grade = gr;
+    if (out.grade && /^\d{1,7}$/.test(tp)) out.topic = +tp;
+  } catch(e) {}
+  return out;
+})();
+
+function fetchJSON(url, ms) {
+  var ctl = (typeof AbortController !== 'undefined') ? new AbortController() : null;
+  var tm = setTimeout(function() { if (ctl) ctl.abort(); }, ms || 9000);
+  return fetch(url, ctl ? {signal: ctl.signal, cache: 'no-store'} : {cache: 'no-store'}).then(function(r) {
+    clearTimeout(tm);
+    if (!r.ok) { var e = new Error('HTTP ' + r.status); e.status = r.status; throw e; }
+    return r.json();
+  }, function(e) { clearTimeout(tm); throw e; });
+}
+function esc(s) {
+  return String(s == null ? '' : s).replace(/[&<>"']/g, function(c) {
+    return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];
+  });
+}
+// Сэдвийн нэрийн эхэнд байж болох pictograph (эможи)-г арилгана.
+// (Эх кодонд үл харагдах тэмдэгт оруулахгүйн тулд кодын цэгээр бүтээнэ; хуучин хөтөчид u-flag шаардахгүй.)
+var PICTO_RE = (function() {
+  var c = String.fromCharCode;
+  return new RegExp('^(?:[' + c(0xD83C) + '-' + c(0xD83E) + '][' + c(0xDC00) + '-' + c(0xDFFF) + ']|[' +
+    c(0x2600) + '-' + c(0x27BF) + c(0x2B00) + '-' + c(0x2BFF) + ']|' + c(0xFE0F) + '|' + c(0x200D) + '|' + '\\s)+');
+})();
+function cleanName(s) {
+  return String(s == null ? '' : s).replace(PICTO_RE, '').trim();
+}
+
+// API мөрийг тоглоомын бодлого болгоно. Сонголтыг ЭРЭМБЭЛНЭ — сервер сонголтыг санамсаргүй
+// холиод буцаадаг тул төхөөрөмж бүр ижил дараалал гаргахын тулд (дараа нь seedShuffle).
+function normQ(r) {
+  if (!r || r.id == null) return null;
+  if (r.image && String(r.image).trim()) return null;
+  var ch = r.choices;
+  if (typeof ch === 'string') { try { ch = JSON.parse(ch); } catch(e) { ch = null; } }
+  if (!Array.isArray(ch) || ch.length !== 4) return null;
+  ch = ch.map(function(c) { return String(c == null ? '' : c).trim(); });
+  var seen = {};
+  for (var i = 0; i < ch.length; i++) { if (!ch[i] || seen[ch[i]]) return null; seen[ch[i]] = 1; }
+  var ans = String(r.correct == null ? '' : r.correct).trim();
+  if (!seen[ans]) return null;
+  var text = String(r.text == null ? '' : r.text).trim();
+  if (!text) return null;
+  var h = r.hint;
+  if (h && typeof h === 'object') h = h.text;
+  h = h ? String(h).trim() : '';
+  ch.sort();
+  return {id: String(r.id), mx: true, node: +r.node_id || 0, q: text, ans: ans, opts: ch, sol: h ? [h, ans] : [ans]};
+}
+
+// ── Сэдвийн жагсаалт (ангиар кэшлэнэ) ──
+var TOPICS = {};
+function loadTopics(gr) {
+  if (TOPICS[gr]) return Promise.resolve(TOPICS[gr]);
+  return fetchJSON(CM_API + '?game_topics=' + encodeURIComponent(gr), 9000).then(function(j) {
+    if (!j || !j.ok || !Array.isArray(j.chapters)) throw new Error('bad topics');
+    var list = [], byId = {}, sum = 0;
+    j.chapters.forEach(function(chp) {
+      (chp && chp.topics || []).forEach(function(t) {
+        var it = {id: +t.id, name: cleanName(t.name), n: +t.n || 0, ch: cleanName(chp.name)};
+        if (!it.id) return;
+        list.push(it); byId[it.id] = it; sum += it.n;
+      });
+    });
+    var tot = (j.total != null && !isNaN(+j.total)) ? +j.total : sum;
+    return (TOPICS[gr] = {total: tot, list: list, byId: byId});
+  });
+}
+
+// ── Өрөөний бодлогын сан (S.cm.ids → ижил дараалалтай жагсаалт) ──
+var BANK = {key: '', list: null, p: null, failKey: '', failAt: 0};
+var BK = 'fb_bank_v1';
+function hasCm(st) { return !!(st && st.cm && st.cm.ids && st.cm.ids.length); }
+function bankKey(cm) { return cm && cm.ids ? cm.grade + ':' + cm.ids.join(',') : ''; }
+function loadBankCache(key) {
+  try { var d = JSON.parse(localStorage.getItem(BK) || 'null'); return d && d.k === key && Array.isArray(d.qs) && d.qs.length ? d.qs : null; } catch(e) { return null; }
+}
+function saveBankCache(key, qs) {
+  try { localStorage.setItem(BK, JSON.stringify({k: key, qs: qs, at: Date.now()})); } catch(e) {}
+}
+function ensureBank(st) {
+  if (!hasCm(st)) return Promise.resolve(null);
+  var cm = st.cm, key = bankKey(cm);
+  if (BANK.key === key && BANK.list) return Promise.resolve(BANK.list);
+  if (BANK.key === key && BANK.p) return BANK.p;
+  var cached = loadBankCache(key);
+  if (cached) { BANK = {key: key, list: cached, p: null, failKey: '', failAt: 0}; return Promise.resolve(cached); }
+  var p = fetchJSON(CM_API + '?ids=' + cm.ids.join(','), 12000).then(function(j) {
+    var rows = (j && Array.isArray(j.questions)) ? j.questions : [];
+    var byId = {};
+    rows.forEach(function(r) { if (r && r.id != null) byId[String(r.id)] = r; });
+    var list = cm.ids.map(function(id) { return normQ(byId[String(id)]); }).filter(Boolean);
+    if (!list.length) throw new Error('empty bank');
+    BANK = {key: key, list: list, p: null, failKey: '', failAt: 0};
+    saveBankCache(key, list);
+    loadTopics(cm.grade).then(renderSelBars, function() {});
+    return list;
+  });
+  BANK = {key: key, list: null, p: p, failKey: '', failAt: 0};
+  p.catch(function() { if (BANK.p === p) BANK = {key: '', list: null, p: null, failKey: key, failAt: Date.now()}; });
+  return p;
+}
+function bankFailed(st) { return hasCm(st) && BANK.failKey === bankKey(st.cm) && !(BANK.key === bankKey(st.cm) && (BANK.list || BANK.p)); }
+// Тоглолтын бодлогын сан: өрөө cm-тэй бол ачаалсан сан (эсвэл null), эс бөгөөс жишиг QB
+function matchPool() {
+  if (hasCm(S)) return (BANK.key === bankKey(S.cm) && BANK.list) ? BANK.list : null;
+  return QB;
+}
+function prefetchBank(force) {
+  if (!hasCm(S)) return;
+  var key = bankKey(S.cm);
+  if (BANK.key === key && (BANK.list || BANK.p)) return;
+  if (!force && BANK.failKey === key && Date.now() - BANK.failAt < 15000) return;
+  ensureBank(S).then(renderSelBars, renderSelBars);
+}
+function bankById(id) {
+  if (!BANK.list) return null;
+  for (var i = 0; i < BANK.list.length; i++) if (BANK.list[i].id === String(id)) return BANK.list[i];
+  return null;
+}
+function catOf(q, st) {
+  st = st || S;
+  if (!q) return '';
+  if (!q.mx) return q.cat || '';
+  var cm = st && st.cm, gr = cm && cm.grade;
+  var t = gr && TOPICS[gr] && TOPICS[gr].byId[q.node];
+  if (t && t.name) return t.name;
+  if (cm && cm.topic && cm.tname) return cm.tname;
+  return gr ? gr + '-р анги' : '';
+}
+function selLabel(st) {
+  if (!st) return '';
+  if (st.cm && st.cm.grade) return st.cm.grade + '-р анги · ' + (st.cm.topic ? (st.cm.tname || 'Сэдэв') : 'Бүх сэдэв');
+  return 'Тригонометр · жишиг сан';
+}
+
+// ── Текст + $…$ томьёо холимог рендер (cyber-math бодлого) ──
+// "\$" — текст доторх жинхэнэ $ тэмдэгт (сервер ч мөн адил тоолдог)
+function texParts(s) {
+  var out = [], re = /\\\$|\$\$([\s\S]+?)\$\$|\$((?:\\\$|[^$])+)\$|\\\(([\s\S]+?)\\\)|\\\[([\s\S]+?)\\\]/g, last = 0, m;
+  while ((m = re.exec(s))) {
+    if (m.index > last) out.push([0, s.slice(last, m.index)]);
+    if (m[0] === '\\$') out.push([0, '$']);
+    else out.push([1, m[1] != null ? m[1] : m[2] != null ? m[2] : m[3] != null ? m[3] : m[4]]);
+    last = re.lastIndex;
+  }
+  if (last < s.length) out.push([0, s.slice(last)]);
+  return out;
+}
+function renderMixed(el, s) {
+  texParts(String(s == null ? '' : s)).forEach(function(p) {
+    if (p[0]) {
+      var sp = document.createElement('span');
+      try { katex.render(p[1], sp, {throwOnError: false}); } catch(e) { sp.textContent = p[1]; }
+      el.appendChild(sp);
+    } else {
+      p[1].split('\n').forEach(function(line, i) {
+        if (i) el.appendChild(document.createElement('br'));
+        if (line) el.appendChild(document.createTextNode(line));
+      });
+    }
+  });
+}
+
 // ── UTILS ──────────────────────────────────────────────────────────
 function g(id) { return document.getElementById(id); }
-function km(el, tx) {
+// mixed=true: энгийн текст + $…$ томьёо (cyber-math). Үгүй бол бүтэн мөр нь TeX (жишиг QB).
+function km(el, tx, mixed) {
   if (!el) return;
   el.innerHTML = '';
+  if (mixed) { renderMixed(el, tx); return; }
   try { katex.render(tx, el, {throwOnError: false}); } catch(e) { el.textContent = tx; }
 }
 function showScr(id) {
@@ -846,7 +1131,10 @@ function saveToHistory(state) {
       timeSec: state.timeSec || 90,
       bracket: state.bracket || {},
       round: state.round || 0,
-      results: state.results || {}
+      results: state.results || {},
+      cm: state.cm || null,
+      offline: !!state.offline,
+      qtext: collectQText(state)
     };
     var raw = localStorage.getItem(HS);
     var hist = raw ? JSON.parse(raw) : [];
@@ -856,6 +1144,21 @@ function saveToHistory(state) {
     localStorage.setItem(HS, JSON.stringify(hist));
     console.log('History saved:', state.roomCode, hist.length, 'total');
   } catch(e) { console.error('saveToHistory error:', e); }
+}
+// cyber-math тоглолтын лог зөвхөн бодлогын id хадгалдаг (өрөөний төлөв жижиг байлгахын тулд).
+// Түүхэнд Excel-д хэрэгтэй текстийг хуулж үлдээнэ.
+function collectQText(st) {
+  if (!hasCm(st) || !BANK.list || BANK.key !== bankKey(st.cm)) return (st && st.qtext) || null;
+  var out = {}, n = 0;
+  Object.keys(st.results || {}).forEach(function(k) {
+    var r = st.results[k];
+    ((r && r.log) || []).forEach(function(e) {
+      if (!e || !e.qid || out[e.qid]) return;
+      var b = bankById(e.qid);
+      if (b) { out[e.qid] = {q: b.q, a: b.ans, c: catOf(b, st)}; n++; }
+    });
+  });
+  return n ? out : ((st && st.qtext) || null);
 }
 function deleteFromHistory(roomCode) {
   try {
@@ -869,8 +1172,29 @@ var API = '/api/room';
 function apiGet(code) {
   return fetch(API + '?code=' + code).then(function(r) { return r.ok ? r.json() : null; }).catch(function() { return null; });
 }
+// Дэлгэрэнгүй хувилбар: {state, status, body} — status 0 = сүлжээ/сервер холбогдсонгүй
+function apiGetX(code) {
+  return fetch(API + '?code=' + encodeURIComponent(code)).then(function(r) {
+    return r.json().catch(function() { return null; }).then(function(j) {
+      return {state: r.ok ? j : null, status: r.status, body: j || {}};
+    });
+  }).catch(function() { return {state: null, status: 0, body: {}}; });
+}
+// Хариу: {ok, persisted, storage, warning} эсвэл {net:false} (сервертэй холбогдсонгүй)
 function apiCreate(state) {
-  return fetch(API, {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({action:'create', state:state})}).catch(function() {});
+  return fetch(API, {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({action:'create', state:state})})
+    .then(function(r) {
+      return r.json().catch(function() { return {}; }).then(function(j) { j = j || {}; j.httpOk = r.ok; j.status = r.status; return j; });
+    })
+    .catch(function() { return {net: false}; });
+}
+// Багшид харуулах өрөөний серверийн анхааруулга
+var SRV_WARN = '';
+function srvWarnFrom(resp) {
+  if (!resp || resp.net === false) return 'Өрөөний сервертэй холбогдсонгүй. Сурагчдын tablet нэгдэж чадахгүй — энэ төхөөрөмж дээр хоёр талыг тоглуулж болно.';
+  if (!resp.httpOk) return 'Өрөөний серверийн алдаа (' + (resp.status || '?') + '). Сурагчдын tablet нэгдэж чадахгүй байж магадгүй.';
+  if (resp.persisted === false) return 'Өрөөний сан (KV) холбогдоогүй тул өрөө түр санах ойд хадгалагдлаа. Сурагчдын tablet нэгдэж чадахгүй байж магадгүй — энэ төхөөрөмж дээр хоёр талыг тоглуулж болно.';
+  return '';
 }
 function apiUpdate(code, patch) {
   return fetch(API, {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({action:'update', code:code, patch:patch})}).catch(function() {});
@@ -908,7 +1232,7 @@ function removeName(n) {
 function renderChips() {
   var area = g('chipArea');
   g('sCnt').textContent = setupNames.length + ' СУРАГЧ';
-  g('btnCreate').disabled = setupNames.length < 2;
+  updateCreateBtn();
   if (!setupNames.length) { area.innerHTML = '<span class="chip-hint">Нэрс энд харагдана...</span>'; return; }
   area.innerHTML = '';
   setupNames.forEach(function(n) {
@@ -920,36 +1244,254 @@ function renderChips() {
   });
 }
 
+// ── SVG ICONS (эможи хэрэглэхгүй) ─────────────────────────────────
+var SVG_A = '<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">';
+var IC_RETRY = SVG_A + '<polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>';
+var IC_BOOK = SVG_A + '<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>';
+var IC_OFF = SVG_A + '<line x1="1" y1="1" x2="23" y2="23"/><path d="M16.72 11.06A10.94 10.94 0 0 1 19 12.55"/><path d="M5 12.55a10.94 10.94 0 0 1 5.17-2.39"/><path d="M10.71 5.05A16 16 0 0 1 22.58 9"/><path d="M1.42 9a15.91 15.91 0 0 1 4.7-2.88"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg>';
+var IC_WARN = SVG_A + '<path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>';
+var IC_INFO = SVG_A + '<circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>';
+
+// ── АНГИ / СЭДЭВ СОНГОЛТ (багш) ─────────────────────────────────────
+// Анги заавал, сэдэв заавал биш (анхдагч «Бүх сэдэв»). URL ?grade=&topic= урьдчилан бөглөнө,
+// дараа нь сүүлд ашигласан сонголт (энэ төхөөрөмжийн localStorage).
+var SEL = {grade: null, topic: 0};
+var SELK = 'fb_sel_v1';
+var creating = false;
+var CREATE_NOTE = '';
+
+function updateCreateBtn() {
+  var b = g('btnCreate');
+  if (b && !creating) b.disabled = setupNames.length < 2 || !SEL.grade;
+}
+function initSetupSel() {
+  var saved = null;
+  try { saved = JSON.parse(localStorage.getItem(SELK) || 'null'); } catch(e) {}
+  var sg = saved && GRADES.indexOf(String(saved.grade)) !== -1 ? String(saved.grade) : null;
+  var gr = URLSEL.grade || sg;
+  var tp = URLSEL.grade ? (URLSEL.topic || 0) : (sg ? (+saved.topic || 0) : 0);
+  var row = g('grRow'); row.innerHTML = '';
+  GRADES.forEach(function(x) {
+    var b = document.createElement('button');
+    b.type = 'button'; b.className = 'gr-btn'; b.dataset.g = x;
+    b.setAttribute('aria-pressed', 'false');
+    b.setAttribute('aria-label', x + '-р анги');
+    b.innerHTML = x + '<span class="gr-sub">АНГИ</span>';
+    b.onclick = function() { pickGrade(x, 0); };
+    row.appendChild(b);
+  });
+  hideCreateErr();
+  if (gr) { pickGrade(gr, tp); return; }
+  SEL = {grade: null, topic: 0};
+  resetTopicSel('Эхлээд ангиа сонгоно уу');
+  setBankSt('', 'Бодлого cyber-math.com-ын сангаас сонгосон анги, сэдвээр ирнэ.');
+  updateCreateBtn();
+}
+function resetTopicSel(label) {
+  var s = g('topicSel'); s.innerHTML = '';
+  var o = document.createElement('option'); o.value = '0'; o.textContent = label; s.appendChild(o);
+  s.disabled = true;
+}
+function setBankSt(cls, msg, retry) {
+  var el = g('bankSt');
+  el.className = 'bank-st' + (cls ? ' ' + cls : '');
+  el.innerHTML = '';
+  var sp = document.createElement('span'); sp.textContent = msg; el.appendChild(sp);
+  if (retry) {
+    var b = document.createElement('button');
+    b.type = 'button'; b.className = 'mini-btn'; b.innerHTML = IC_RETRY + 'Дахин оролдох';
+    b.onclick = retry; el.appendChild(b);
+  }
+}
+function pickGrade(gr, tp) {
+  SEL = {grade: gr, topic: tp || 0};
+  document.querySelectorAll('#grRow .gr-btn').forEach(function(b) {
+    var on = b.dataset.g === gr;
+    b.classList.toggle('on', on);
+    b.setAttribute('aria-pressed', on ? 'true' : 'false');
+  });
+  hideCreateErr();
+  updateCreateBtn();
+  resetTopicSel('Сэдэв ачаалж байна...');
+  setBankSt('', gr + '-р ангийн сэдвүүдийг ачаалж байна...');
+  loadTopics(gr).then(function(T) {
+    if (SEL.grade === gr) fillTopics(gr, T);
+  }, function() {
+    if (SEL.grade !== gr) return;
+    resetTopicSel('Бүх сэдэв');
+    g('topicSel').disabled = false;
+    SEL.topic = 0;
+    setBankSt('err', 'Сэдвийн жагсаалтыг cyber-math.com-оос авч чадсангүй. «Бүх сэдэв»-ээр үүсгэж болно.', function() { pickGrade(gr, tp); });
+  });
+}
+function fillTopics(gr, T) {
+  var s = g('topicSel'); s.innerHTML = '';
+  var o0 = document.createElement('option');
+  o0.value = '0'; o0.textContent = 'Бүх сэдэв' + (T.total ? ' (' + T.total + ')' : '');
+  s.appendChild(o0);
+  var want = SEL.topic || 0, shown = 0, found = !want, grp = null, grpName = null;
+  if (!ONLY_ALL[gr]) {
+    T.list.forEach(function(t) {
+      if (!(t.n >= TOPIC_MIN || (t.id === want && t.n >= Q_MIN))) return;
+      var parent = s;
+      if (t.ch) {
+        if (grpName !== t.ch) { grp = document.createElement('optgroup'); grp.label = t.ch; s.appendChild(grp); grpName = t.ch; }
+        parent = grp;
+      } else { grpName = null; }
+      var o = document.createElement('option');
+      o.value = String(t.id); o.textContent = t.name + ' (' + t.n + ')';
+      parent.appendChild(o); shown++;
+      if (t.id === want) found = true;
+    });
+  }
+  var lost = !found;
+  if (lost) want = 0;
+  s.value = String(want); SEL.topic = want;
+  s.disabled = false;
+  if (T.total < Q_MIN) {
+    setBankSt('err', gr + '-р ангид тоглоомд тохирох бодлого хараахан алга. Жишиг бодлогоор тоглож болно.');
+  } else {
+    setBankSt('ok', gr + '-р анги: ' + T.total + ' бодлого' + (shown ? ', ' + shown + ' сэдэв' : '') +
+      (ONLY_ALL[gr] ? ' · зөвхөн «Бүх сэдэв»' : '') + (lost ? ' · өгөгдсөн сэдэв олдсонгүй, «Бүх сэдэв» сонгогдлоо' : '') + '.');
+  }
+}
+function showCreateErr(msg) { g('createErrMsg').textContent = msg; g('createErr').style.display = ''; }
+function hideCreateErr() { var e = g('createErr'); if (e) e.style.display = 'none'; }
+
+// Сонгосон анги/сэдвээс бодлогын id-ууд. Сэдэвт бодлого цөөн бол ангийн бүх сэдвээс.
+function fetchPoolIds(gr, tp) {
+  function get(t) {
+    return fetchJSON(CM_API + '?game=' + encodeURIComponent(gr) + '&topic=' + t + '&n=' + POOL_N, 12000).then(function(j) {
+      if (!j || !j.ok || !Array.isArray(j.questions)) throw new Error('bad questions');
+      return j.questions.map(normQ).filter(Boolean);
+    });
+  }
+  function all(why) {
+    return get(0).then(function(l2) { return {list: l2, topic: 0, note: why}; });
+  }
+  return get(tp).then(function(list) {
+    if (list.length >= Q_MIN || !tp) return {list: list, topic: tp};
+    return all('Сонгосон сэдэвт бодлого цөөн байсан тул ангийн бүх сэдвээс авлаа.');
+  }, function(err) {
+    // 400 = сэдэв энэ ангийнх биш (хуучирсан холбоос г.м.) → ангийн бүх сэдвээс
+    if (tp && err && err.status === 400) return all('Сонгосон сэдэв олдсонгүй тул ангийн бүх сэдвээс авлаа.');
+    throw err;
+  }).then(function(r) {
+    var seen = {}, ids = [];
+    r.list.forEach(function(q) { if (!seen[q.id]) { seen[q.id] = 1; ids.push(+q.id); } });
+    if (ids.length < Q_MIN) { var e = new Error('empty'); e.empty = true; throw e; }
+    var T = TOPICS[gr], tn = r.topic && T && T.byId[r.topic] ? T.byId[r.topic].name : '';
+    return {ids: ids, topic: r.topic, tname: tn, note: r.note || ''};
+  });
+}
+
 // ── CREATE TOURNAMENT ──────────────────────────────────────────────
 function createTournament() {
+  if (creating || !SEL.grade || setupNames.length < 2) return;
+  creating = true;
   var btn = g('btnCreate');
-  btn.disabled = true; btn.textContent = '⏳ ҮҮСГЭЖ БАЙНА...';
+  btn.disabled = true; btn.textContent = 'БОДЛОГО АЧААЛЖ БАЙНА...';
+  hideCreateErr();
+  var gr = SEL.grade, tp = SEL.topic || 0;
+  fetchPoolIds(gr, tp).then(function(res) {
+    var cm = {grade: gr, topic: res.topic, ids: res.ids};
+    if (res.tname) cm.tname = res.tname;
+    // Сурагчид ?ids=-ээр татах тул багш ч мөн адил замаар бүтээнэ (ижил өгөгдөл, ижил дараалал).
+    return ensureBank({cm: cm}).then(function(list) {
+      if (!list || list.length < Q_MIN) { var e = new Error('empty'); e.empty = true; throw e; }
+      finishCreate(cm, list.length, res.note);
+    });
+  }).catch(function(err) {
+    creating = false;
+    btn.textContent = 'ТЭМЦЭЭН ҮҮСГЭХ'; updateCreateBtn();
+    showCreateErr(err && err.empty
+      ? gr + '-р анги' + (tp ? ', сонгосон сэдэвт' : 'д') + ' тоглоомд тохирох бодлого хүрэлцэхгүй байна.'
+      : 'Бодлогын сантай (cyber-math.com) холбогдож чадсангүй. Интернэтээ шалгаад дахин оролдоно уу.');
+  });
+}
+// cm = null → офлайн жишиг сан (QB)
+function finishCreate(cm, nPool, note) {
+  var btn = g('btnCreate');
+  creating = true;
+  btn.disabled = true; btn.textContent = 'ҮҮСГЭЖ БАЙНА...';
   roomCode = mkCode();
   var names = seedShuffle(setupNames.slice(), strSeed('init' + Date.now()));
+  var want = +g('qCnt').value, n = nPool || QB.length;
   S = {
     v: 1, roomCode: roomCode,
     students: names,
-    qPer: +g('qCnt').value,
+    qPer: Math.max(1, Math.min(want, n)),
     timeSec: +g('timeSel').value,
     bracket: buildBracket(names),
     round: 0,
     results: {}
   };
-  apiCreate(S).then(function() {
+  if (cm) S.cm = cm; else S.offline = true;
+  // Бүхэлдээ BYE-тэй шатыг алгасна (ж: 2 тоглогч → шууд финал)
+  while (S.round < S.bracket.left.length && roundDone(S, S.round)) S.round++;
+  CREATE_NOTE = (note || '') + (n < want ? (note ? ' ' : '') + 'Санд ' + n + ' бодлого байгаа тул тоглолт бүр ' + n + ' асуулттай.' : '');
+  try { localStorage.setItem(SELK, JSON.stringify({grade: SEL.grade, topic: SEL.topic || 0})); } catch(e) {}
+  apiCreate(S).then(function(resp) {
+    creating = false;
+    SRV_WARN = srvWarnFrom(resp);
     role = 'teacher';
     g('tCode').textContent = roomCode;
-    btn.disabled = false; btn.textContent = '🏆 ТЭМЦЭЭН ҮҮСГЭХ';
+    btn.textContent = 'ТЭМЦЭЭН ҮҮСГЭХ'; updateCreateBtn();
+    hideCreateErr();
     saveSess(role, roomCode, null, S);
     showScr('tBoardScr');
     renderTeacher();
     startPoll();
   });
 }
+function createOffline() {
+  if (creating || setupNames.length < 2) return;
+  finishCreate(null, QB.length, '');
+}
+
+// ── СОНГОЛТЫН МӨР (самбар дээр) ────────────────────────────────────
+function renderSelBar(id) {
+  var el = g(id); if (!el) return;
+  el.innerHTML = '';
+  if (!S) { el.style.display = 'none'; return; }
+  el.style.display = '';
+  function item(cls, icon, text) {
+    var sp = document.createElement('span'); sp.className = 'sb-it ' + cls;
+    sp.innerHTML = icon;
+    var t = document.createElement('span'); t.textContent = text; sp.appendChild(t);
+    el.appendChild(sp); return sp;
+  }
+  item('sb-sel', IC_BOOK, selLabel(S));
+  if (!S.cm) {
+    var off = document.createElement('span'); off.className = 'off-badge';
+    off.innerHTML = IC_OFF; off.appendChild(document.createTextNode('ОФЛАЙН — ЖИШИГ БОДЛОГО'));
+    el.appendChild(off);
+  }
+  if (bankFailed(S)) {
+    var e = item('sb-err', IC_WARN, 'Бодлогын сан ачаалагдсангүй');
+    var b = document.createElement('button'); b.type = 'button'; b.className = 'mini-btn';
+    b.innerHTML = IC_RETRY + 'Дахин оролдох';
+    b.onclick = function() { prefetchBank(true); renderSelBars(); };
+    e.appendChild(b);
+  } else if (hasCm(S) && !matchPool()) {
+    item('', IC_INFO, 'Бодлого ачаалж байна...');
+  }
+  if (role === 'teacher' && id === 'tSelBar') {
+    if (CREATE_NOTE) item('', IC_INFO, CREATE_NOTE);
+    if (SRV_WARN) item('sb-warn', IC_WARN, SRV_WARN);
+  }
+}
+function renderSelBars() {
+  if (role === 'teacher') renderSelBar('tSelBar');
+  else if (role === 'student') renderSelBar('sSelBar');
+}
 
 // ── BRACKET BUILD ──────────────────────────────────────────────────
 function buildBracket(names) {
   var sz = 1;
   while (sz < names.length) sz *= 2;
+  // 2 тоглогч: тал бүрт 1 нэр + BYE → шууд финал (өмнө нь «нэр vs хоосон» тоглолт хэзээ ч дуусдаггүй байв)
+  if (sz < 4) sz = 4;
   var half = sz / 2;
   var n = names.length;
   // Distribute evenly: ceil(n/2) to left, floor(n/2) to right
@@ -1018,7 +1560,7 @@ function roundDone(st, ri) {
 function isChamp(st) { var d = deriveState(st); return d.finals.done && d.finals.w; }
 
 function rlabel(ri, total) {
-  if (ri === 'F') return '🏆 ФИНАЛ';
+  if (ri === 'F') return 'ФИНАЛ';
   var fe = total - 1 - ri;
   if (fe === 0) return 'ХАГ. ФИНАЛ';
   if (fe === 1) return 'УЛИРАЛ';
@@ -1040,16 +1582,17 @@ function renderTeacher() {
   if (!S) return;
   var d = deriveState(S);
   var ri = S.round, totalR = d.left.length;
-  var rLabel = ri >= totalR ? '🏆 ФИНАЛ' : rlabel(ri, totalR);
+  var rLabel = ri >= totalR ? 'ФИНАЛ' : rlabel(ri, totalR);
   var total = 0, done = 0;
   if (ri < totalR) {
     d.left[ri] && d.left[ri].forEach(function(m) { if (!byeMatch(m)) { total++; if (m.done) done++; } });
     d.right[ri] && d.right[ri].forEach(function(m) { if (!byeMatch(m)) { total++; if (m.done) done++; } });
   } else { total = 1; if (d.finals.done) done = 1; }
 
-  g('tBTitle').textContent = '🏆 ТЭМЦЭЭН · ROOM ' + roomCode;
+  g('tBTitle').textContent = 'ТЭМЦЭЭН · ROOM ' + roomCode;
   g('tBSub').textContent = S.students.length + ' СУРАГЧ · ' + rLabel;
   g('tCode').textContent = roomCode;
+  renderSelBar('tSelBar');
 
   var body = g('tBoardBody'); body.innerHTML = '';
   var pb = document.createElement('div'); pb.className = 'rp-wrap';
@@ -1059,7 +1602,7 @@ function renderTeacher() {
   body.appendChild(buildBracketDOM(d, ri, 'teacher'));
 
   var allDone = roundDone(S, ri), champ = isChamp(S);
-  g('tbTitle').textContent = champ ? '🏆 ' + d.finals.w + ' — АВАРГА!' : rLabel + ' явагдаж байна';
+  g('tbTitle').textContent = champ ? d.finals.w + ' — АВАРГА!' : rLabel + ' явагдаж байна';
   g('tbDesc').textContent = champ ? 'Тэмцээн дуусав!' :
     allDone ? 'Бүх тоглолт дуусав. БАТЛАХ дарж дараагийн шатанд ор.' :
     done + '/' + total + ' тоглолт дуусав. Сурагчид тоглоод байна...';
@@ -1087,11 +1630,21 @@ function teacherConfirm() {
 function checkCode() {
   var code = g('codeInp').value.trim().toUpperCase();
   if (code.length < 4) { g('joinErr').textContent = '4 тэмдэгт оруулна уу!'; return; }
-  g('joinErr').textContent = '⏳ Хайж байна...';
-  apiGet(code).then(function(state) {
-    if (!state) { g('joinErr').textContent = 'Room олдсонгүй. Багшийн code шалгана уу.'; return; }
+  g('joinErr').textContent = 'Хайж байна...';
+  apiGetX(code).then(function(rx) {
+    var state = rx.state;
+    if (!state || !state.students) {
+      var msg;
+      if (rx.status === 0) msg = 'Сервертэй холбогдож чадсангүй. Интернэтээ шалгаад дахин оролдоно уу.';
+      else if (rx.status === 404) msg = 'Room олдсонгүй. Багшийн code шалгана уу.' +
+        (rx.body && rx.body.storage === 'memory' ? ' (Өрөөний сан холбогдоогүй тул өөр төхөөрөмжөөс нэгдэх боломжгүй байж магадгүй.)' : '');
+      else msg = 'Серверийн алдаа (' + rx.status + '). Түр хүлээгээд дахин оролдоно уу.';
+      g('joinErr').textContent = msg;
+      return;
+    }
     g('joinErr').textContent = '';
     roomCode = code; S = state;
+    prefetchBank(true);
     g('namePicker').style.display = 'block';
     var grid = g('nameGrid'); grid.innerHTML = '';
     state.students.forEach(function(n, i) {
@@ -1118,6 +1671,7 @@ function selectName(n) {
 // ── RENDER STUDENT ─────────────────────────────────────────────────
 function renderStudent() {
   if (!S) return;
+  renderSelBar('sSelBar');
   var d = deriveState(S);
   var ri = S.round, totalR = d.left.length;
   var body = g('sBoardBody'); body.innerHTML = '';
@@ -1127,16 +1681,16 @@ function renderStudent() {
     var m = myMatch.m, side = myMatch.side, mri = myMatch.ri, mi = myMatch.mi;
     var rr = (S.results || {})[mkKey(side, mri, mi)] || {};
     var card = document.createElement('div'); card.className = 'my-match';
-    var rLabel = side === 'F' ? '🏆 ФИНАЛ' : rlabel(mri, totalR);
+    var rLabel = side === 'F' ? 'ФИНАЛ' : rlabel(mri, totalR);
     if (rr.winner) {
       var iWon = rr.winner === myName;
       card.innerHTML = '<div class="mm-lbl">' + rLabel + ' — ТАНЫ ТОГЛОЛТ</div>' +
         '<div class="mm-names">' + (m.p1||'?') + '<span class="mm-vs">vs</span>' + (m.p2||'?') + '</div>' +
-        '<div class="mm-st ' + (iWon ? 'done-w' : 'done-l') + '">' + (iWon ? '🏆 Та ялав! ' + rr.s1 + ':' + rr.s2 : '💔 Та хожигдов. ' + rr.s1 + ':' + rr.s2) + '</div>';
+        '<div class="mm-st ' + (iWon ? 'done-w' : 'done-l') + '">' + (iWon ? 'Та ялав! ' + rr.s1 + ':' + rr.s2 : 'Та хожигдов. ' + rr.s1 + ':' + rr.s2) + '</div>';
     } else {
       card.innerHTML = '<div class="mm-lbl">' + rLabel + ' — ТАНЫ ТОГЛОЛТ</div>' +
         '<div class="mm-names">' + (m.p1||'?') + '<span class="mm-vs">vs</span>' + (m.p2||'?') + '</div>' +
-        '<div class="mm-st waiting">⏳ Тоглоход бэлэн...</div>';
+        '<div class="mm-st waiting">Тоглоход бэлэн...</div>';
       var pb2 = document.createElement('button'); pb2.className = 'play-btn'; pb2.textContent = '▶ ТОГЛОХ';
       pb2.onclick = (function(s2,r2,m2,mm) { return function() { launchMatch(s2,r2,m2,mm); }; })(side,mri,mi,m);
       card.appendChild(pb2);
@@ -1146,11 +1700,11 @@ function renderStudent() {
     var elim = amIElim(d);
     var div = document.createElement('div');
     if (d.finals.done && d.finals.w === myName) {
-      div.className = 'my-match'; div.innerHTML = '<div class="mm-st done-w" style="font-size:1rem;padding:8px">🏆 ТА АВАРГА БОЛОВ! 🎉</div>';
+      div.className = 'my-match'; div.innerHTML = '<div class="mm-st done-w" style="font-size:1rem;padding:8px">ТА АВАРГА БОЛОВ!</div>';
     } else if (elim) {
-      div.className = 'elim-box'; div.textContent = '💔 Та тэмцээнээс шалгараагүй. Bracket-ийг ажиглана уу.';
+      div.className = 'elim-box'; div.textContent = 'Та тэмцээнээс шалгараагүй. Bracket-ийг ажиглана уу.';
     } else {
-      div.className = 'wait-box'; div.textContent = '⏳ Одоогийн шатны тоглолтуудыг хүлээнэ үү...';
+      div.className = 'wait-box'; div.textContent = 'Одоогийн шатны тоглолтуудыг хүлээнэ үү...';
     }
     body.appendChild(div);
   }
@@ -1291,8 +1845,42 @@ function makeMU(m, side, ri, mi, d, activeRi, viewer) {
   return card;
 }
 
+// ── BANK OVERLAY (ачаалах / дахин оролдох) ─────────────────────────
+var bankRetryFn = null, bankWaitTok = 0;
+function showBankOv(mode, retry) {
+  bankRetryFn = retry || null;
+  var loading = mode === 'load';
+  g('bankIc').classList.toggle('spin', loading);
+  g('bankIc').innerHTML = loading ? '<path d="M21 12a9 9 0 1 1-6.22-8.56"/>'
+    : '<path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>';
+  g('bankOvMsg').textContent = loading ? 'Тоглолтын бодлогыг ачаалж байна...'
+    : 'Энэ төхөөрөмж бодлогын сантай (cyber-math.com) холбогдож чадсангүй. Хоёр тоглогч ижил асуулт авах ёстой тул жишиг бодлого руу шилжихгүй — сүлжээгээ шалгаад дахин оролдоно уу.';
+  g('btnBankRetry').style.display = loading ? 'none' : '';
+  g('bankOv').classList.add('on');
+}
+function hideBankOv() { g('bankOv').classList.remove('on'); bankRetryFn = null; }
+
 // ── LAUNCH MATCH ───────────────────────────────────────────────────
 function launchMatch(side, ri, mi, m) {
+  // cyber-math сантай өрөө: сан ачаалагдаагүй бол эхлээд татна. Амжилтгүй бол «Дахин оролдох» —
+  // жишиг сан руу чимээгүй шилжвэл энэ тоглогч өрсөлдөгчөөсөө өөр асуулт авна.
+  if (hasCm(S) && !matchPool()) {
+    var tok = ++bankWaitTok;
+    var retry = function() { launchMatch(side, ri, mi, m); };
+    showBankOv('load');
+    ensureBank(S).then(function() {
+      if (tok !== bankWaitTok) return;
+      renderSelBars();
+      if (matchPool()) { hideBankOv(); launchMatch(side, ri, mi, m); }
+      else showBankOv('fail', retry);
+    }, function() {
+      if (tok !== bankWaitTok) return;
+      renderSelBars();
+      showBankOv('fail', retry);
+    });
+    return;
+  }
+  var pool = matchPool();
   matchMeta = {side:side, ri:ri, mi:mi, p1:m.p1, p2:m.p2};
   stopPoll();
   // Determine which side this device controls
@@ -1302,15 +1890,17 @@ function launchMatch(side, ri, mi, m) {
     mySide = (myName === m.p1) ? 'L' : 'R';
   }
   var seed = strSeed(mkKey(side, ri, mi) + roomCode);
-  var questions = seedShuffle(QB.slice(), seed);
+  var questions = seedShuffle(pool.slice(), seed);
   var qOpts = questions.map(function(q) {
-    return {cat:q.cat, q:q.q, ans:q.ans, sol:q.sol, opts:seedShuffle(q.opts.slice(), strSeed(q.q))};
+    return {id:q.id, mx:!!q.mx, node:q.node, cat:q.cat, q:q.q, ans:q.ans, sol:q.sol, opts:seedShuffle(q.opts.slice(), strSeed(q.q))};
   });
-  G = {curQ:0, questions:qOpts, qPer:S.qPer,
+  g('gOff').classList.toggle('on', !S.cm);
+  g('gcRef').style.display = S.cm ? 'none' : '';   // тригонометрийн лавлах зөвхөн жишиг санд
+  G = {curQ:0, questions:qOpts, qPer:Math.min(S.qPer, qOpts.length),
        scL:0, scR:0, rope:50,
        Ldone:false, Rdone:false, Lres:null, Rres:null, roundOver:false, tStart:0, log:[]};
 
-  g('gInfo').textContent = (side === 'F' ? '🏆 ФИНАЛ' : rlabel(ri, S.bracket.left.length)) + ' · ' + (m.p1||'?') + ' vs ' + (m.p2||'?');
+  g('gInfo').textContent = (side === 'F' ? 'ФИНАЛ' : rlabel(ri, S.bracket.left.length)) + ' · ' + (m.p1||'?') + ' vs ' + (m.p2||'?');
   g('gLn').textContent = g('ppLn').textContent = g('gcLl').textContent = m.p1||'?';
   g('gRn').textContent = g('ppRn').textContent = g('gcRl').textContent = m.p2||'?';
   g('tugL').textContent = '← ' + (m.p1||'?');
@@ -1321,11 +1911,11 @@ function launchMatch(side, ri, mi, m) {
   if (mySide === 'L') {
     g('ppR').style.pointerEvents = 'none';
     g('ppR').style.opacity = '0.4';
-    setSt('ppRst', 'wait', '⏳ ' + (m.p2||'?') + ' хариулж байна...');
+    setSt('ppRst', 'wait', '' + (m.p2||'?') + ' хариулж байна...');
   } else if (mySide === 'R') {
     g('ppL').style.pointerEvents = 'none';
     g('ppL').style.opacity = '0.4';
-    setSt('ppLst', 'wait', '⏳ ' + (m.p1||'?') + ' хариулж байна...');
+    setSt('ppLst', 'wait', '' + (m.p1||'?') + ' хариулж байна...');
   } else {
     // teacher: both sides active
     g('ppL').style.pointerEvents = '';
@@ -1348,35 +1938,38 @@ function loadQ() {
   g('gcQi').textContent = G.curQ + 1; g('gcQmax').textContent = G.qPer;
   renderPanel('L', q); renderPanel('R', q);
   g('gcNxt').classList.remove('on'); g('gcSol').classList.remove('on');
-  g('gcSt').textContent = '🏁 Ижил бодлого бодно!'; g('gcSt').style.color = 'var(--gold)';
+  g('gcSt').textContent = 'Ижил бодлого бодно!'; g('gcSt').style.color = 'var(--gold)';
   // Apply mySide AFTER rendering so it doesn't get overwritten
   if (mySide === 'L') {
     g('ppL').style.opacity = '1';   g('ppL').style.pointerEvents = '';
     g('ppR').style.opacity = '0.4'; g('ppR').style.pointerEvents = 'none';
-    setSt('ppLst', 'idle', '⏳ Хариулт сонгоно уу');
-    setSt('ppRst', 'wait', '⏳ ' + g('ppRn').textContent + ' хариулж байна...');
+    setSt('ppLst', 'idle', 'Хариулт сонгоно уу');
+    setSt('ppRst', 'wait', '' + g('ppRn').textContent + ' хариулж байна...');
   } else if (mySide === 'R') {
     g('ppR').style.opacity = '1';   g('ppR').style.pointerEvents = '';
     g('ppL').style.opacity = '0.4'; g('ppL').style.pointerEvents = 'none';
-    setSt('ppRst', 'idle', '⏳ Хариулт сонгоно уу');
-    setSt('ppLst', 'wait', '⏳ ' + g('ppLn').textContent + ' хариулж байна...');
+    setSt('ppRst', 'idle', 'Хариулт сонгоно уу');
+    setSt('ppLst', 'wait', '' + g('ppLn').textContent + ' хариулж байна...');
   } else {
     g('ppL').style.opacity = '1'; g('ppL').style.pointerEvents = '';
     g('ppR').style.opacity = '1'; g('ppR').style.pointerEvents = '';
-    setSt('ppLst', 'idle', '⏳ Хариулт сонгоно уу');
-    setSt('ppRst', 'idle', '⏳ Хариулт сонгоно уу');
+    setSt('ppLst', 'idle', 'Хариулт сонгоно уу');
+    setSt('ppRst', 'idle', 'Хариулт сонгоно уу');
   }
   if (mySide !== 'both') startGamePoll();
   G.tStart = Date.now(); startTimer();
 }
 
 function renderPanel(side, q) {
-  g('pp' + side + 'cat').textContent = q.cat;
-  km(g('pp' + side + 'q'), q.q);
+  g('pp' + side + 'cat').textContent = catOf(q);
+  var qel = g('pp' + side + 'q');
+  qel.classList.toggle('long', !!q.mx);
+  km(qel, q.q, q.mx);
   var grid = g('pp' + side + 'g'); grid.innerHTML = '';
   q.opts.forEach(function(opt) {
     var btn = document.createElement('button'); btn.className = 'ans'; btn.dataset.v = opt;
-    km(btn, opt);
+    if (q.mx && opt.replace(/\$[^$]*\$/g, 'x').length > 14) btn.classList.add('long');
+    km(btn, opt, q.mx);
     btn.onclick = (function(o, b) { return function() { handleAns(side, o, b, q); }; })(opt, btn);
     grid.appendChild(btn);
   });
@@ -1398,20 +1991,22 @@ function handleAns(side, val, btn, q) {
     var mm = matchMeta;
     var ansKey = mkKey(mm.side, mm.ri, mm.mi) + '_ans';
     var curAns = (S.results && S.results[ansKey]) || {};
-    curAns['q' + G.curQ + '_' + side] = {ok:ok, t:t, val:val};
+    // cyber-math: сонголтын текст урт тул индексийг илгээнэ (хоёр төхөөрөмж ижил дараалалтай)
+    var vi = Array.prototype.indexOf.call(g('pp' + side + 'g').children, btn);
+    curAns['q' + G.curQ + '_' + side] = q.mx ? {ok:ok, t:t, vi:vi} : {ok:ok, t:t, val:val};
     apiUpdate(roomCode, {results: (function(){ var p = {}; p[ansKey] = curAns; return p; })()});
 
     var nm = g('pp' + side + 'n').textContent;
-    setSt('pp' + side + 'st', 'ok', '✅ ' + nm + ' хариуллаа!');
-    g('gcSt').textContent = '⏳ ' + (side==='L' ? g('ppRn') : g('ppLn')).textContent + '-ийг хүлээж байна...';
+    setSt('pp' + side + 'st', 'ok', '' + nm + ' хариуллаа!');
+    g('gcSt').textContent = '' + (side==='L' ? g('ppRn') : g('ppLn')).textContent + '-ийг хүлээж байна...';
     g('gcSt').style.color = 'var(--muted)';
   }
 
   if (G.Ldone && G.Rdone) { reveal(); }
   else if (mySide === 'both') {
     var nm2 = g('pp' + side + 'n').textContent;
-    setSt('pp' + side + 'st', 'wait', '⏳ ' + nm2 + ' хариуллаа...');
-    g('gcSt').textContent = '⏳ ' + nm2 + ' хариуллаа...';
+    setSt('pp' + side + 'st', 'wait', '' + nm2 + ' хариуллаа...');
+    g('gcSt').textContent = '' + nm2 + ' хариуллаа...';
     g('gcSt').style.color = side === 'L' ? '#93c5fd' : '#fca5a5';
   }
 }
@@ -1425,22 +2020,25 @@ function reveal() {
   var Lok = G.Lres && G.Lres.ok, Rok = G.Rres && G.Rres.ok;
   if (Lok) G.scL++;
   if (Rok) G.scR++;
-  G.log.push({q:G.curQ+1, cat:q.cat, question:q.q, correct:q.ans,
+  var le = {q:G.curQ+1,
     Lok:!!Lok, Ltime:G.Lres ? +(G.Lres.t/1000).toFixed(1) : null,
-    Rok:!!Rok, Rtime:G.Rres ? +(G.Rres.t/1000).toFixed(1) : null});
+    Rok:!!Rok, Rtime:G.Rres ? +(G.Rres.t/1000).toFixed(1) : null};
+  // cyber-math: зөвхөн id (өрөөний төлөвийг жижиг байлгана); Excel id-аар текстийг сэргээнэ
+  if (q.mx) le.qid = q.id; else { le.cat = q.cat; le.question = q.q; le.correct = q.ans; }
+  G.log.push(le);
   updateScores();
   var Ln = g('ppLn').textContent, Rn = g('ppRn').textContent;
   var st = g('gcSt');
   if (Lok && Rok) {
     var Lf = G.Lres.t < G.Rres.t;
-    if (Lf) { moveRope(-8, 'b'); st.textContent = '✅ Хоёулаа зөв! ' + Ln + ' хурдан!'; st.style.color = '#93c5fd'; }
-    else { moveRope(8, 'r'); st.textContent = '✅ Хоёулаа зөв! ' + Rn + ' хурдан!'; st.style.color = '#fca5a5'; }
+    if (Lf) { moveRope(-8, 'b'); st.textContent = 'Хоёулаа зөв! ' + Ln + ' хурдан!'; st.style.color = '#93c5fd'; }
+    else { moveRope(8, 'r'); st.textContent = 'Хоёулаа зөв! ' + Rn + ' хурдан!'; st.style.color = '#fca5a5'; }
     ['ppL','ppR'].forEach(function(id) { var e = g(id); e.classList.add('flashG'); setTimeout(function() { e.classList.remove('flashG'); }, 600); });
   } else if (Lok) {
-    moveRope(-13, 'b'); st.textContent = '🏆 ' + Ln + ' зөв!'; st.style.color = '#93c5fd'; g('ppR').style.opacity = '.65';
+    moveRope(-13, 'b'); st.textContent = '' + Ln + ' зөв!'; st.style.color = '#93c5fd'; g('ppR').style.opacity = '.65';
   } else if (Rok) {
-    moveRope(13, 'r'); st.textContent = '🏆 ' + Rn + ' зөв!'; st.style.color = '#fca5a5'; g('ppL').style.opacity = '.65';
-  } else { st.textContent = '😅 Хоёулаа буруу!'; st.style.color = 'var(--muted)'; }
+    moveRope(13, 'r'); st.textContent = '' + Rn + ' зөв!'; st.style.color = '#fca5a5'; g('ppL').style.opacity = '.65';
+  } else { st.textContent = 'Хоёулаа буруу!'; st.style.color = 'var(--muted)'; }
   g('gcNxt').classList.add('on'); g('gcSol').classList.add('on');
 }
 
@@ -1448,7 +2046,7 @@ function revealSide(side, res, q) {
   if (!res) return;
   document.querySelectorAll('#pp' + side + 'g .ans').forEach(function(b) { if (b.dataset.v === q.ans) b.classList.add('c'); });
   if (res.btn && !res.ok) res.btn.classList.add('w');
-  setSt('pp' + side + 'st', res.ok ? 'ok' : 'bad', res.ok ? '✅ Зөв!' : '❌ Буруу!');
+  setSt('pp' + side + 'st', res.ok ? 'ok' : 'bad', res.ok ? 'Зөв!' : 'Буруу!');
   if (res.ok) { var e = g('pp' + side); e.classList.add('flashG'); setTimeout(function() { e.classList.remove('flashG'); }, 600); }
 }
 
@@ -1503,7 +2101,7 @@ function startTimer() {
       if (!G.roundOver) {
         if (!G.Ldone) { G.Ldone = true; G.Lres = {ok:false, t:S.timeSec*1000, btn:null}; }
         if (!G.Rdone) { G.Rdone = true; G.Rres = {ok:false, t:S.timeSec*1000, btn:null}; }
-        g('gcSt').textContent = '⏰ Хугацаа дууслаа!'; g('gcSt').style.color = 'var(--red)';
+        g('gcSt').textContent = 'Хугацаа дууслаа!'; g('gcSt').style.color = 'var(--red)';
         reveal();
       }
     }
@@ -1567,10 +2165,10 @@ function startGamePoll() {
         G[oppSide + 'res'] = {ok:oppAns.ok, t:oppAns.t, btn:null};
         // Update opponent panel visually
         var q = G.questions[G.curQ];
-        document.querySelectorAll('#pp' + oppSide + 'g .ans').forEach(function(b) {
+        document.querySelectorAll('#pp' + oppSide + 'g .ans').forEach(function(b, bi) {
           b.disabled = true;
           if (b.dataset.v === q.ans) b.classList.add('c');
-          else if (b.dataset.v === oppAns.val && !oppAns.ok) b.classList.add('w');
+          else if (!oppAns.ok && (oppAns.vi != null ? bi === oppAns.vi : b.dataset.v === oppAns.val)) b.classList.add('w');
         });
         if (G.Ldone && G.Rdone) { stopGamePoll(); reveal(); }
       }
@@ -1591,6 +2189,7 @@ function startPoll() {
       var h = JSON.stringify({v:state.v, r:state.round, res:state.results});
       if (h !== lastHash) {
         lastHash = h; S = state;
+        prefetchBank();
         saveSess(role, roomCode, myName, S);
         if (S && isChamp(S)) saveToHistory(S);
         if (role === 'teacher') renderTeacher();
@@ -1604,21 +2203,25 @@ function stopPoll() { if (pollInt) { clearInterval(pollInt); pollInt = null; } }
 // ── SOLUTION ───────────────────────────────────────────────────────
 function openSol() {
   var q = G.questions && G.questions[G.curQ]; if (!q) return;
-  g('solCat').textContent = q.cat.toUpperCase();
-  km(g('solQtx'), q.q);
+  g('solCat').textContent = catOf(q).toUpperCase();
+  g('solQtx').classList.toggle('long', !!q.mx);
+  km(g('solQtx'), q.q, q.mx);
   var steps = g('solSteps'); steps.innerHTML = '';
   q.sol.forEach(function(line, i) {
     if (i === q.sol.length - 1) {
       var row = document.createElement('div'); row.className = 'sol-ans';
-      var ic = document.createElement('span'); ic.textContent = '✅ ';
+      var ic = document.createElement('span');
+      if (q.mx) { ic.className = 'sol-ans-tx'; ic.textContent = 'ЗӨВ ХАРИУ:'; } else ic.textContent = '';
       var tx = document.createElement('span'); tx.className = 'sol-ans-tx';
-      try { katex.render(line, tx, {throwOnError:false}); } catch(e) { tx.textContent = line; }
+      if (q.mx) km(tx, line, true);
+      else { try { katex.render(line, tx, {throwOnError:false}); } catch(e) { tx.textContent = line; } }
       row.appendChild(ic); row.appendChild(tx); steps.appendChild(row);
     } else {
       var row2 = document.createElement('div'); row2.className = 'sol-step';
       var sn = document.createElement('div'); sn.className = 'sol-sn'; sn.textContent = i+1;
-      var st2 = document.createElement('div'); st2.className = 'sol-st';
-      try { katex.render(line, st2, {throwOnError:false, displayMode:true}); } catch(e) { st2.textContent = line; }
+      var st2 = document.createElement('div'); st2.className = 'sol-st' + (q.mx ? ' mx' : '');
+      if (q.mx) km(st2, line, true);
+      else { try { katex.render(line, st2, {throwOnError:false, displayMode:true}); } catch(e) { st2.textContent = line; } }
       row2.appendChild(sn); row2.appendChild(st2); steps.appendChild(row2);
     }
   });
@@ -1678,7 +2281,19 @@ function cleanTex(s) {
     .replace(/\\sin/g,'sin').replace(/\\cos/g,'cos').replace(/\\tan/g,'tan').replace(/\\cot/g,'cot')
     .replace(/\\text\{([^}]+)\}/g, '$1')
     .replace(/\\alpha/g,'α').replace(/\\pi/g,'π').replace(/\\infty/g,'∞').replace(/\^2/g,'²')
+    .replace(/\\times(?![a-zA-Z])/g,'×').replace(/\\cdot(?![a-zA-Z])/g,'·').replace(/\\div(?![a-zA-Z])/g,'÷')
+    .replace(/\\leq?(?![a-zA-Z])/g,'≤').replace(/\\geq?(?![a-zA-Z])/g,'≥').replace(/\\neq?(?![a-zA-Z])/g,'≠')
+    .replace(/\\left|\\right/g,'').replace(/\$/g,'').replace(/\s*\n\s*/g,' ')
     .replace(/[{}\\]/g,'').trim();
+}
+// Логийн мөрөөс асуултын текст: жишиг сан — логт байгаа; cyber-math — id-аар (түүх / ачаалсан сан)
+function qInfo(e) {
+  if (!e.qid) return {cat: e.cat, q: e.question, a: e.correct};
+  var h = S && S.qtext && S.qtext[e.qid];
+  if (h) return {cat: h.c, q: h.q, a: h.a};
+  var b = (S && hasCm(S) && BANK.key === bankKey(S.cm)) ? bankById(e.qid) : null;
+  if (b) return {cat: catOf(b, S), q: b.q, a: b.ans};
+  return {cat: '', q: 'cyber-math #' + e.qid, a: ''};
 }
 function downloadExcelFor(st) {
   var prevS = S; S = st;
@@ -1703,9 +2318,10 @@ function downloadExcel() {
       mRows.push([rl,ml,res.p1||m.p1||'?',res.p2||m.p2||'?',res.s1||0,res.s2||0,res.winner,dt,'','','','','','','','']);
     } else {
       log.forEach(function(e, i) {
+        var qi = qInfo(e);
         mRows.push([i?'':rl, i?'':ml, i?'':(res.p1||m.p1||'?'), i?'':(res.p2||m.p2||'?'),
           i?'':res.s1||0, i?'':res.s2||0, i?'':res.winner, i?'':dt,
-          e.q, e.cat, cleanTex(e.question), cleanTex(e.correct),
+          e.q, qi.cat || '', cleanTex(qi.q), cleanTex(qi.a),
           e.Lok?'ЗӨВ':'БУРУУ', e.Ltime!=null?e.Ltime:'',
           e.Rok?'ЗӨВ':'БУРУУ', e.Rtime!=null?e.Rtime:'']);
       });
@@ -1766,7 +2382,7 @@ function downloadExcel() {
   var blob = new Blob(['\ufeff' + xls], {type:'application/vnd.ms-excel;charset=utf-8'});
   var url = URL.createObjectURL(blob);
   var a = document.createElement('a');
-  a.href = url; a.download = 'Trig_' + (S.roomCode||'') + '_' + new Date().toISOString().slice(0,10) + '.xls';
+  a.href = url; a.download = (S.cm ? 'FlagBattle_' + S.cm.grade + 'angi_' : 'Trig_') + (S.roomCode||'') + '_' + new Date().toISOString().slice(0,10) + '.xls';
   document.body.appendChild(a); a.click(); document.body.removeChild(a); URL.revokeObjectURL(url);
 }
 
@@ -1788,16 +2404,17 @@ function renderHistory() {
     hdr.style.cssText = 'background:var(--panel);border:1px solid var(--bdr2);border-top:2px solid var(--gold);border-radius:11px;padding:12px 14px;margin-bottom:8px;display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;';
     var info = document.createElement('div');
     info.innerHTML = '<div style="font-family:Bebas Neue;font-size:.9rem;letter-spacing:2px;color:var(--gold)">ROOM ' + st.roomCode + '</div>' +
-      '<div style="font-size:.62rem;font-weight:700;color:var(--muted);margin-top:2px">' + st.students.length + ' СУРАГЧ · ' + dt + ' · 🏆 ' + champ + '</div>';
+      '<div style="font-size:.62rem;font-weight:700;color:var(--muted);margin-top:2px">' + st.students.length + ' СУРАГЧ · ' + dt + ' · АВАРГА: ' + champ + '</div>' +
+      '<div style="font-size:.62rem;font-weight:700;color:var(--txt2);margin-top:2px">' + esc(selLabel(st)) + '</div>';
     var btns = document.createElement('div');
     btns.style.cssText = 'display:flex;gap:7px;flex-shrink:0;';
     var exBtn = document.createElement('button');
-    exBtn.className = 'excel-btn'; exBtn.textContent = '📊 EXCEL';
+    exBtn.className = 'excel-btn'; exBtn.textContent = 'EXCEL';
     exBtn.style.cssText = 'padding:6px 11px;font-size:.76rem;';
     exBtn.onclick = (function(s) { return function() { downloadExcelFor(s); }; })(st);
     var delBtn = document.createElement('button');
     delBtn.style.cssText = 'padding:6px 10px;background:rgba(239,68,68,.07);border:1px solid rgba(239,68,68,.2);border-radius:7px;color:#f87171;font-family:Bebas Neue;font-size:.76rem;cursor:pointer;';
-    delBtn.textContent = '🗑 УСТГАХ';
+    delBtn.textContent = 'УСТГАХ';
     delBtn.onclick = (function(code) { return function() { deleteFromHistory(code); renderHistory(); }; })(st.roomCode);
     btns.appendChild(exBtn); btns.appendChild(delBtn);
     hdr.appendChild(info); hdr.appendChild(btns);
@@ -1813,7 +2430,12 @@ function renderHistory() {
 }
 
 // ── EVENT LISTENERS (no inline onclick) ───────────────────────────
-g('btnTeacher').onclick   = function() { clearSess(); setupNames=[]; renderChips(); showScr('tSetupScr'); };
+g('btnTeacher').onclick   = function() { clearSess(); setupNames=[]; renderChips(); initSetupSel(); showScr('tSetupScr'); };
+g('topicSel').onchange    = function() { SEL.topic = +this.value || 0; hideCreateErr(); };
+g('btnCreateRetry').onclick   = createTournament;
+g('btnCreateOffline').onclick = createOffline;
+g('btnBankRetry').onclick = function() { var f = bankRetryFn; hideBankOv(); if (f) f(); };
+g('btnBankClose').onclick = function() { bankWaitTok++; hideBankOv(); };
 g('btnStudent').onclick   = function() { clearSess(); g('codeInp').value=''; g('joinErr').textContent=''; g('namePicker').style.display='none'; showScr('sJoinScr'); };
 g('btnSetupBack').onclick = function() { showScr('landScr'); };
 g('btnJoinBack').onclick  = function() { showScr('landScr'); };
@@ -1873,6 +2495,7 @@ document.querySelectorAll('.ref-tab').forEach(function(btn) {
   // Restore from cache immediately
   if (saved.state) {
     S = saved.state; role = saved.role; roomCode = saved.roomCode; myName = saved.myName || null;
+    prefetchBank(true);
     if (role === 'teacher') {
       g('tCode').textContent = roomCode;
       showScr('tBoardScr'); renderTeacher();
@@ -1886,6 +2509,7 @@ document.querySelectorAll('.ref-tab').forEach(function(btn) {
   apiGet(saved.roomCode).then(function(fresh) {
     if (!fresh) return;
     S = fresh;
+    prefetchBank();
     saveSess(role, roomCode, myName, S);
     if (role === 'teacher') renderTeacher();
     else if (role === 'student' && myName) renderStudent();

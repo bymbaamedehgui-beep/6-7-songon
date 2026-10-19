@@ -1,7 +1,7 @@
 {
   "name": "trig-tournament",
   "version": "1.0.0",
-  "description": "Тригонометрийн Тэмцээн — NBA Playoff Bracket",
+  "description": "Flag Battle — математикийн тэмцээн (анги, сэдвээ сонгоод; бодлого cyber-math.com-оос), NBA Playoff Bracket",
   "scripts": {
     "dev": "vercel dev"
   },
